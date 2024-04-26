@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"flixnet","l":"Biblioteca"},{"p":"flixnet","l":"Contenido"},{"p":"flixnet","l":"ConversorBooleanException"},{"p":"flixnet","l":"EmptyException"},{"p":"flixnet","l":"FlixNet"},{"p":"flixnet","l":"NominException"},{"p":"flixnet","l":"OscarException"},{"p":"flixnet","l":"Pelicula"},{"p":"flixnet","l":"Serie"}]
