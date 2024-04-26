@@ -47,6 +47,8 @@ public class Ejercicio_A2 {
         } else if (ruta.isDirectory()) //Si la ruta es carpeta primero muestra lista de carpetas y después archivos.
         {
             File[] lista = ruta.listFiles();
+            // Ordena la lista alfabéticamente
+            Arrays.sort(lista);            
             // Recorre la lista y muestra las carpetas
             for (int i=0;i<lista.length;i++) {
                 if (lista[i].isDirectory()) {
