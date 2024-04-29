@@ -9,8 +9,8 @@ import java.util.*;
 
 public class MiniFileManager {
     // Variables
-    private String ruta;
-    private String currentAddress = "user@machine:" + ruta + "$ ";
+    private String ruta ="";
+    private String currentAddress;
     
     // Getters y Setters
     public String getRuta() {
@@ -18,6 +18,7 @@ public class MiniFileManager {
     }
     public void setRuta(String ruta) {
         this.ruta = ruta;
+        currentAddress = "user@machine:" + ruta + "$ ";
     }
     public String getCurrentAddress() {
         return this.currentAddress;
@@ -159,7 +160,7 @@ public class MiniFileManager {
     
     public void showHelp() {
         System.out.println(
-                "Encuentre la lista de comenados a continuación\n" +
+                "Encuentre la lista de comandos a continuación\n" +
                 "----------------------------------------------\n" +
                 "pwd:\t\t\t" + "Muestra la carpeta actual.\n" +  
                 "cd <DIR>:\t\t" + "Cambia carpeta actual a 'DIR'.\n" +  

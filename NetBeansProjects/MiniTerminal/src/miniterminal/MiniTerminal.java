@@ -31,12 +31,12 @@ public class MiniTerminal {
                 
                 switch(option) {
                     case "pwd" : 
-                        
+                        mfm.showFolder();
                     break;
                     
                     
                     case "cd" : 
-                        
+                        mfm.changeAddress(userInputs[1]);
                     break;
                     
                     
@@ -51,17 +51,17 @@ public class MiniTerminal {
                     
                     
                     case "mkdir" : 
-                        
+                        mfm.makeDirectory(userInputs[1]);
                     break;
                     
                     
                     case "rm" : 
-                        
+                        mfm.removeFile(userInputs[1]);
                     break;
                     
                     
                     case "mv" : 
-                        
+                        mfm.moveOrRename(userInputs[1], userInputs[2]);
                     break;
                     
                     
@@ -74,10 +74,7 @@ public class MiniTerminal {
                         System.out.println("Se finaliza el programa.");
                     break;
                     
-                    
                 }
-                
-                
                 
             } catch (FileNotFoundException e) {
                 System.out.println("ERROR: " + e);
