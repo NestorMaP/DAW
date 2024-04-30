@@ -34,7 +34,6 @@ public class MiniFileManager {
     /**
      * (pwd)Show current folder
      */
-    // CAMBIAR ESTO PARA QUE NO SALGA NULL
     public void showFolder() {
         File f = new File(ruta);
         if(f.isDirectory()){
@@ -114,13 +113,9 @@ public class MiniFileManager {
     /**
      * (mkdir) Makes new directory
      * @param dir String with address
-     * @throws FileNotFoundException 
      */
-    public void makeDirectory(String dir) throws FileNotFoundException {
+    public void makeDirectory(String dir) {
         File f = new File(ruta + "/" + dir);
-        if (!f.exists()) {
-            throw new FileNotFoundException("La ruta actual es incorrecta.");
-        }
         f.mkdir();
     }
     /**
@@ -150,10 +145,14 @@ public class MiniFileManager {
             f.delete();
         }
     }
-    
+    /**
+     * (mv) Move or Rename
+     * @param File1 relative address origin file
+     * @param File2 absolute address destination file
+     */
     public void moveOrRename(String File1, String File2) {
         File f1 = new File(ruta + "/" + File1);
-        File f2 = new File(ruta + "/" + File2);
+        File f2 = new File(File2);
         
         f1.renameTo(f2);
     }
@@ -168,7 +167,7 @@ public class MiniFileManager {
                 "ll:\t\t\t" + "Lista con información los directorios y archivos.\n" +  
                 "mkdir <DIR>:\t\t" + "Crea el directorio 'DIR'.\n" +  
                 "rm <FILE>:\t\t" + "Borra 'FILE'.\n" +  
-                "mv <FILE1><FILE2>:\t" + "Mueve o renombra 'FILE1' a 'FILE2'.\n" +   
+                "mv <FILE1><FILE2>:\t" + "Mueve o renombra '(ruta relativa) FILE1' a '(ruta absoluta)FILE2'.\n" +   
                 "help:\t\t\t" + "Muestra la lista de comandos.\n" +   
                 "exit:\t\t\t" + "Finaliza el programa.\n");
     }
