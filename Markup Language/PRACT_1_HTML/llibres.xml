@@ -1,0 +1,97 @@
+<?xml version="1.0"?> 
+<cataleg> 
+    <llibre id="131"> 
+        <titol>Tirant Lo Blanc</titol> 
+        <autor>Joanot Martorell</autor>
+        <descripcio> Llibre de cavalleries català per exel·lència</descripcio>
+        <ubicacio>B21</ubicacio>
+    </llibre>
+    <llibre id="132"> 
+        <titol>Mistborn</titol> 
+        <autor>Brandon Sanderson</autor>
+        <descripcio>Novel·la de fantasia dura. És una trilogia per a començar</descripcio>
+        <ubicacio>A22</ubicacio>
+    </llibre>
+    <llibre id="133"> 
+        <titol>Elogi del meu poble</titol> 
+        <autor>Joan Fuster</autor>
+        <descripcio>Recopilació de escrits de Joan Fuster on fa referència al seu poble, Sueca.</descripcio>
+        <ubicacio>B22</ubicacio>
+    </llibre> 
+
+    <localitzacions>
+    <!-- Anomenada així per a distingir les paraules ubicació i localització-->
+        <ubicacio id="A11">
+            <ubi_real>Prestatgeria 1, nivell 1, esquerra</ubi_real>
+            <contingut>Llibres de text</contingut>
+        </ubicacio>
+        <ubicacio id="A12">
+            <ubi_real>Prestatgeria 1, nivell 1, dreta</ubi_real>
+            <contingut>Llibres de text</contingut>
+        </ubicacio>
+        <ubicacio id="A21">
+            <ubi_real>Prestatgeria 1, nivell 2, esquerra</ubi_real>
+            <contingut>Novel·les de ciència ficció</contingut>
+        </ubicacio>
+        <ubicacio id="A22">
+            <ubi_real>Prestatgeria 1, nivell 2, dreta</ubi_real>
+            <contingut>Novel·les de fantasia</contingut>
+        </ubicacio>
+        <ubicacio id="A31">
+            <ubi_real>Prestatgeria 1, nivell 3, esquerra</ubi_real>
+            <contingut>Diccionaris</contingut>
+        </ubicacio>
+        <ubicacio id="A32">
+            <ubi_real>Prestatgeria 1, nivell 3, dreta</ubi_real>
+            <contingut>Albums fotografies</contingut>
+        </ubicacio>
+        <ubicacio id="B11">
+            <ubi_real>Prestatgeria 2, nivell 1, esquerra</ubi_real>
+            <contingut>Llibres de text</contingut>
+        </ubicacio>
+        <ubicacio id="B12">
+            <ubi_real>Prestatgeria 2, nivell 1, dreta</ubi_real>
+            <contingut>Llibres de text</contingut>
+        </ubicacio>
+        <ubicacio id="B21">
+            <ubi_real>Prestatgeria 2, nivell 2, esquerra</ubi_real>
+            <contingut>Llibres en valencià</contingut>
+        </ubicacio>
+        <ubicacio id="B22">
+            <ubi_real>Prestatgeria 2, nivell 2, dreta</ubi_real>
+            <contingut>Llibres en valencià</contingut>
+        </ubicacio>
+        <ubicacio id="B31">
+            <ubi_real>Prestatgeria 2, nivell 3, esquerra</ubi_real>
+            <contingut>Llibres en anglés</contingut>
+        </ubicacio>
+        <ubicacio id="B32">
+            <ubi_real>Prestatgeria 2, nivell 3, dreta</ubi_real>
+            <contingut>Llibres en francés</contingut>
+        </ubicacio>    
+        <ubicacio id="C11">
+            <ubi_real>Prestatgeria 3, nivell 1, esquerra</ubi_real>
+            <contingut>Apunts institut</contingut>
+        </ubicacio>
+        <ubicacio id="C12">
+            <ubi_real>Prestatgeria 3, nivell 1, dreta</ubi_real>
+            <contingut>Apunts universitat</contingut>
+        </ubicacio>
+        <ubicacio id="C21">
+            <ubi_real>Prestatgeria 3, nivell 2, esquerra</ubi_real>
+            <contingut>Llibres per llegir</contingut>
+        </ubicacio>
+        <ubicacio id="C22">
+            <ubi_real>Prestatgeria 3, nivell 2, dreta</ubi_real>
+            <contingut>Manuals de Llenguatge de Marques</contingut>
+        </ubicacio>
+        <ubicacio id="C31">
+            <ubi_real>Prestatgeria 3, nivell 3, esquerra</ubi_real>
+            <contingut>Novel·les històriques</contingut>
+        </ubicacio>
+        <ubicacio id="C32">
+            <ubi_real>Prestatgeria 3, nivell 3, dreta</ubi_real>
+            <contingut>Novel·les d'assassinats</contingut>
+        </ubicacio>
+    </localitzacions>
+</cataleg>

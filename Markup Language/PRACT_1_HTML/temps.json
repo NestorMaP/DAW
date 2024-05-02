@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon": 39.47,
+        "lat": -0.33
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 280.71,
+        "feels_like": 277.32,
+        "temp_min": 279.15,
+        "temp_max": 283.71,
+        "pressure": 1021,
+        "humidity": 81
+    },
+    "wind": {
+        "speed": 3.1,
+        "deg": 240
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1576087793, "_comentari_1": "No modificat per ser un timestamp",
+    "sys": {
+        "type": 1,
+        "id": 6438,
+        "country": "ES",
+        "sunrise": 1576049618,
+        "sunset": 1576082177
+    },
+    "timezone": 3600,
+    "id": 3128026, "_comentari_2": "He vist que no es poden afegir comentaris a JSON, no he pogut conseguir el id de València correcte sense subscriure'm a una web de geocoding",
+    "name": "València",
+    "cod": 200
+}
