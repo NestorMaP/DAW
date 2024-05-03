@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ca">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+        <title>Formulari de Contacte LM DAW 1º </title>
+    </head>
+    <body>
+        <h1>Formulari de Contacte</h1>
+        <h2>Per favor, deixa'ns els teus comentaris</h2>
+        <form>
+            <p>Nom i cognoms: 
+                <input type="text" id="name" name="nom" placeholder="Escriu ací..." required>
+            </p>
+            <p>Adreça electrònica: 
+                <input type="email" id="email" name="email" placeholder="Escriu ací..." required>
+            </p>
+            <label for="customer">Has realitzat alguna compra?</label>
+            <input type="checkbox" name="customer" id="customer" required />
+            <br><br>
+            <textarea id="comments" name="comentaris" rows="3" cols="40" placeholder="Escriu ací els teus comentaris..."></textarea>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+        <br><br><br>
+        <h2>Informació de contacte:</h2>
+        <table class="default">
+            <thead style="background: rgba(16, 148, 119, 0.555); border: black 1px solid"
+                <tr>
+                    <th>Nom</th>
+                    <th>Correu Electrònic</th>
+                    <th>Telèfon</th>
+                </tr>
+            </thead>
+            <tbody style="background: rgba(195, 233, 198, 0.637); border: black 1px solid;"
+                <tr>
+                    <td>John Snow</td>
+                    <td>kinginthenorth@westeros.com</td>
+                    <td>(+789) 123 456</td>
+                </tr>
+                <tr>
+                    <td>Legolas</td>
+                    <td>andwithmybow@pipinmvp.com</td>
+                    <td>(+874) 444 321</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <br><br><br>
+        <h3>Fes click a la imatge si vols comprar botifarres:</h3>
+        <a href="index.html">
+            <img src="https://static.thenounproject.com/png/1795061-200.png" alt=":)" width="200" title="Clar que en vull">
+        </a>
+    </body>
+</html>
