@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Contacto - DeportesLandia">
+    <meta name="keywords" content="contacto, tienda deportiva, deportes">
+    <title>Contacto - DeportesLandia</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <p>Estamos aquí para ayudarte</p>
+    </header>
+    
+    <nav><!--S'ha introduït una llista amb enllaços interns a les diferents pàgines-->
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html" class="activeLink">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <section id="contacto">
+        <h2>Información de Contacto</h2>
+        <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en ponerte en contacto con nosotros. Estamos disponibles para ayudarte en cualquier momento.</p>
+        
+        <h3>Dirección:</h3>
+        <address>
+            Calle Deportiva, 123<br>
+            Ciudad Deportiva<br>
+            Teléfono: (123) 456-7890<br>
+            Correo Electrónico: info@deporteslandia.com
+        </address>
+
+        <h3>Horario de Atención:</h3>
+        <p>Lunes a Viernes: 9 AM - 7 PM<br>
+           Sábados: 10 AM - 5 PM<br>
+           Domingos: Cerrado</p>
+    </section>
+    <br>
+    <section id="mapa">
+        <h2>Ubicación</h2> <!--S'inclou un element iframe amb la ubicació en google maps de la tenda-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12320.448764332516!2d-0.39400021284174314!3d39.46679410000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f87bef46e85%3A0x5b5857156ed464d8!2sJD%20Sports!5e0!3m2!1sen!2ses!4v1697109987004!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" height="200" width="300" title="Location">
+            El teu navegador no admet iframes.
+        </iframe>
+    </section>
+    
+    <form><!--Es crea un formulari amb la finalitat d'enviar un missatge-->
+        <h2>Envíanos un Mensaje</h2>
+        Nombre:
+        <input type="text" name="Nombre" placeholder="Nombre">
+        Correo Electrónico: 
+        <input type="email" name="Email" placeholder="E-mail">
+        Mensaje:
+        <textarea name="Mensaje" rows="4"></textarea>
+        <input type="submit" value="Enviar">
+    </form>
+    
+    <footer><!--S'han inclós imatges per a dessignar cadascuna de les reds socials-->
+        <div id="redes-sociales">
+            <!--No entenc perquè les imatges no carreguen al VSCode i sí al navegador-->
+            <h2>Síguenos en Redes Sociales</h2>
+            <a href="https://www.facebook.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/facebook.png" alt="Facebook" width="50" height="50">
+            </a>
+            <a href="https://twitter.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/twitter.jpeg" alt="X" width="50" height="50"> 
+            </a>
+            <a href="https://www.instagram.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/instagram.png" alt="Instagram" width="50" height="50">
+            </a>
+        </div>
+        <p>&copy; 2023 DeportesLandia - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

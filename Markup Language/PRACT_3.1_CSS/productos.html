@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Productos Deportivos - DeportesLandia">
+    <meta name="keywords" content="productos deportivos, ropa deportiva, equipos deportivos">
+    <title>Productos Deportivos - DeportesLandia</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Productos Deportivos</h1>
+    </header>
+    
+    <nav><!--S'ha introduït una llista amb enllaços interns a les diferents pàgines-->
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html" class="activeLink">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <h2>Nuestra Selección de Productos</h2>
+        <table id="products"><!--Es crea una taula per a organitzar els productes per petició del client-->
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="images/tenis.jpg" alt="Imagen de Zapatillas" heigth="75" width="75"></td>
+                    <td>Zapatillas de Tenis</td>
+                    <td>$99.99</td>
+                    <td>Disponible: 25</td>
+                </tr>
+                <tr>
+                    <td><img src="images/balon.jpg" alt="Imagen de Balón" heigth="75" width="75"></td>
+                    <td>Balón de Fútbol</td>
+                    <td>$29.99</td>
+                    <td>Disponible: 50</td>
+                </tr>
+                <tr>
+                    <td><img src="images/raqueta.jpg" alt="Imagen de Raqueta" heigth="75" width="75"></td>
+                    <td>Raqueta de Tenis</td>
+                    <td>$79.99</td>
+                    <td>Disponible: 15</td>
+                </tr>
+                <tr>
+                    <td><img src="images/bicicleta.jpg" alt="Imagen de Bicicleta" heigth="75" width="75"></td>
+                    <td>Bicicleta de Montaña</td>
+                    <td>$349.99</td>
+                    <td>Disponible: 10</td>
+                </tr>
+                <tr>
+                    <td><img src="images/baloncesto.jpg" alt="Imagen de Balón de Baloncesto" heigth="75" width="75"></td>
+                    <td>Balón de Baloncesto</td>
+                    <td>$24.99</td>
+                    <td>Disponible: 30</td>
+                </tr>
+                <tr>
+                    <td><img src="images/tenis-mesa.jpg" alt="Imagen de Tenis de mesa" heigth="75" width="75"></td>
+                    <td>Mesa de Tenis de Mesa</td>
+                    <td>$299.99</td>
+                    <td>Disponible: 5</td>
+                </tr>
+            </tbody>    
+        </table>
+    </section>
+    
+    <aside>
+        <h2>¿Necesitas Ayuda?</h2>
+        <p>Nuestro equipo de expertos en deportes está aquí para ayudarte. Si tienes alguna pregunta o necesitas asesoramiento, ¡no dudes en contactarnos!</p>
+        <a href="contacto.html">Contáctanos</a>
+    </aside>
+    
+    <footer><!--S'han inclós imatges per a dessignar cadascuna de les reds socials-->
+        <div id="redes-sociales">
+            <!--No entenc perquè les imatges no carreguen al VSCode i sí al navegador-->
+            <h2>Síguenos en Redes Sociales</h2>
+            <a href="https://www.facebook.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/facebook.png" alt="Facebook" width="50" height="50">
+            </a>
+            <a href="https://twitter.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/twitter.jpeg" alt="X" width="50" height="50"> 
+            </a>
+            <a href="https://www.instagram.com/deporteslandia" target="_blank" rel="noopener noreferrer">
+                <img src="images/instagram.png" alt="Instagram" width="50" height="50">
+            </a>
+        </div>
+        <p>&copy; 2023 DeportesLandia - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

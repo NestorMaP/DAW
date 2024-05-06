@@ -1,0 +1,81 @@
+
+
+
+h1 {
+    font-family: "Courier New", monospace;
+    }
+
+
+    /*NAVIGATION BAR*/
+#navbar ul{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgreen
+}
+
+#navbar li {
+    display: inline;
+    float: left;
+
+}
+
+#navbar li a{
+    display: block;
+    padding: 8px 12px;
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+    }
+#navbar li a:hover {
+        background-color:black;
+}
+.activeLink {
+    background-color: rgb(0, 50, 0);
+}
+
+
+/*PRODUCTS TABLE*/
+
+#products {
+    border-collapse: collapse;
+}
+#products td, #products th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+#products tr:hover {background-color:rgb(146, 199, 146)}
+
+#products th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color:rgba(0, 88, 13, 0.641);
+}
+
+
+/*BOXES*/
+#intro {
+    background-color: rgb(146, 199, 146);
+    border: 3px solid darkgreen;
+    padding: 5px 5px;
+    margin: 20px 10px;
+    border-radius: 10px;
+}
+#eventos {
+    background-color: rgb(146, 199, 146);
+    border: 3px solid darkgreen;
+    padding: 5px 5px;
+    margin: 20px 10px;
+    border-radius: 10px;
+}
+
+/*TEXT*/
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lucida Console";
+    font-size:xx-large; 
+}
