@@ -1,0 +1,660 @@
+/*
+COLOR HEX REFERENCE
+#f3eeea - lighter
+#ebe3d5 - medium-lighter
+#b0a695 - medium - darker
+#776b5d - darker
+*/
+
+/*GENERAL*/
+h2, h3 {
+
+    font-family: "Garamond", serif;
+
+}
+
+body {
+
+    background-color: #f3eeea;
+
+}
+
+/*title*/
+.title {
+
+    font-size: 150%;
+    margin-top: 100px;
+    font-family: "Brush Script MT", cursive;
+    color: #776b5d;
+    text-decoration: underline;
+    margin-bottom: 35px;
+    margin-left: 15px;
+}
+
+.title a {
+
+    border: solid #776b5d;
+    border-radius: 10px;
+    color: #776b5d;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+    padding: 10px;
+
+}
+
+.title a:hover {
+    
+    background-color: #776b5d;
+    color: #f3eeea;
+
+}
+
+/*navbar*/
+.navbar {
+
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #776b5d;
+
+}
+
+.navbar li {
+    
+    list-style-type: none;
+    float: left;
+
+}
+
+.navbar li a {
+
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+    color: white;
+
+
+}
+.navbar li a:hover {
+
+    background-color: #ebe3d5;
+    color: black;
+
+}
+
+.activeLink {
+
+    border: #ebe3d5 solid 3px;
+    color: black;
+
+}
+
+/*footer*/
+#footer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    background-color:#776b5d
+}
+
+#footer h3{
+
+    margin-top: 5px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    
+}
+
+#socialNetworks {
+
+    display:flex;
+    padding-bottom: 10px;
+    
+
+}
+
+#socialNetworks img{
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+/*INDEX*/
+
+/*initial description*/
+#description {
+
+    display: grid;
+    width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    background-color: #ebe3d5;
+    padding: 10px;
+    border-radius: 10%;
+
+}
+
+#description h2 {
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+
+}
+
+#description p {
+
+    text-align: center;
+}
+
+#description img {
+
+    border-radius: 5%
+
+}
+
+/*dishes description*/
+#typical {
+
+    display: grid;
+    width: 1000px;
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 30px;
+    margin-left: 15px;
+
+}
+
+
+
+#typical h2 {
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+#typical p {
+
+    text-align: center;
+
+}
+
+#typical img{
+
+    height: 300px;
+    border-radius: 20%
+
+}
+
+/*cellar description*/
+#cellar {
+
+    display: grid;
+    width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    background-color: #ebe3d5;
+    padding: 10px;
+    border-radius: 4%;
+    margin: 30px;
+
+}
+
+#cellar h2 {
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+
+}
+
+#cellar p {
+
+    text-align: center;
+}
+
+#cellar img {
+
+    border-radius: 5%
+
+}
+
+/*reviews*/
+#reviews {
+
+    margin-top: 50px;
+
+}
+
+.allReviews {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.individualReview{
+
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: solid;
+    border-radius: 10px;
+    background-color:#ebe3d5;
+
+
+}
+
+.individualReview img {
+
+    width: 200px;
+    margin-top: auto;
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #description, #typical, #cellar {
+        margin-left: 5px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/*CARTA*/
+
+/*items de la carta*/
+
+.menu {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    background-color:#ebe3d5;
+    width: 250px;
+    height: 400px;
+    border: 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.item-image img {
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 250px;
+    height: 150px;
+
+}
+
+.item-description p {
+
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+.item-description h4 {
+
+    padding: 1px;
+    background-color: #b0a695;
+    margin: 10px;
+    border: solid black 1px;
+    border-radius: 50px;
+    display:flex;
+    justify-content:center;
+    word-break: break-all;
+}
+
+.price {
+    
+    padding-bottom: 15px;
+    font-weight: bold;
+
+}
+
+.item-allergen {
+
+    background-color: #b0a695;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    margin-top: auto;
+    padding: 5px;
+
+}
+
+.item-allergen-images img {
+    
+    margin: 1px;
+    width: 25px;
+}
+
+.item-allergen-images {
+    
+    display:flex;
+    justify-content: center;
+}
+
+.item-allergen p {
+    
+    height:10px;
+    margin-top: 5px;
+    text-decoration: underline;
+    display: flex;
+    justify-content:center;
+
+}
+
+.section-allergens {
+
+    margin: 15px;
+    padding: 15px;
+
+}
+
+/*starters*/
+.entrantes {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #b0a695;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 15px;
+    
+}
+
+.entrantes-title {
+
+    font-size: x-large;
+    text-decoration: underline;
+
+}
+
+.entrantes-items {
+
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+.arroces {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #b0a695;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 15px;
+    
+}
+
+/*rices*/
+.arroces-title {
+
+    font-size: x-large;
+    text-decoration: underline;
+
+}
+
+.arroces-items {
+
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+/*desserts*/
+.postres {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #b0a695;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 15px;
+    
+}
+
+.postres-title {
+
+    font-size: x-large;
+    text-decoration: underline;
+
+}
+
+.postres-items {
+
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+/*drinks-table*/
+.bebidas {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #b0a695;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 15px;
+    
+}
+
+.bebidas-title {
+
+    font-size: x-large;
+    text-decoration: underline;
+
+}
+
+.bebidas-items {
+
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.bebidas-type {
+
+    margin: 15px;
+
+}
+
+.bebidas-type h3 {
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+
+}
+
+/*GENERAL TABLE STUFF, added here as there are only tables in this section*/
+
+table, td, th{
+
+    border-bottom: solid 1px;
+
+}
+
+table {
+
+    width: 200px;
+    border-collapse: collapse;
+
+}
+
+td{
+    
+    text-align: center;
+
+}
+
+tr:hover{
+
+    background-color: #ebe3d5;
+
+}
+
+/*allergen-table*/
+
+
+.table-allergen-images {
+
+    width: 50px;
+
+}
+
+
+/*CONTACTE*/
+
+/*form*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color:#ebe3d5;
+    border-radius: 5px;
+    width: 500px;
+    padding: 10px;
+    padding-left: 50px;
+
+}
+
+form h2 {
+
+    margin-top: 0px;
+
+}
+
+.row {
+
+    padding: 2px;
+
+}
+
+.col1{
+    
+    float: left;
+    width: 30%;
+
+
+}
+
+.col2{
+    float: right;
+    width: 70%;
+
+}
+
+
+
+#buttonform {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:#776b5d;
+    color: white;
+
+}
+
+#buttonform:hover {
+
+    background-color: #b0a695;
+    color: black;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    .col1, .col2, #buttonform {
+
+        width: 100%;
+        
+    }
+
+}
+
+/*IFRAME*/
+
+#iframe{
+
+    margin: 20px;
+    padding: 20px;
+
+
+}
+
+/*NOSTRA INFORMACIÓ*/
+
+.ourinfo {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+
+}
+
+.info-element {
+
+
+    display:flex;
+    background-color: #ebe3d5;
+    border-radius: 10px;
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px;
+}
+
+.info-element img{
+
+
+    margin-top:10px;
+    width: 50px;
+    
+}
+
+.info-element p{
+
+    text-decoration: none;
+    text-align: center;
+
+}
