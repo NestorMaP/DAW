@@ -39,7 +39,8 @@ public class Ejercicio_6 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonD6.setIcon(new javax.swing.ImageIcon("C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\NetBeansProjects\\UD11\\assets\\dices\\d6.jpeg")); // NOI18N
-        jButtonD6.setText("jButton1");
+        jButtonD6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonD6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonD6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonD6ActionPerformed(evt);
@@ -47,7 +48,8 @@ public class Ejercicio_6 extends javax.swing.JFrame {
         });
 
         jButtonD8.setIcon(new javax.swing.ImageIcon("C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\NetBeansProjects\\UD11\\assets\\dices\\d8.png")); // NOI18N
-        jButtonD8.setText("jButton1");
+        jButtonD8.setBorder(null);
+        jButtonD8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonD8ActionPerformed(evt);
@@ -55,7 +57,8 @@ public class Ejercicio_6 extends javax.swing.JFrame {
         });
 
         jButtonD10.setIcon(new javax.swing.ImageIcon("C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\NetBeansProjects\\UD11\\assets\\dices\\d10.jpg")); // NOI18N
-        jButtonD10.setText("jButton1");
+        jButtonD10.setBorder(null);
+        jButtonD10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonD10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonD10ActionPerformed(evt);
@@ -63,7 +66,8 @@ public class Ejercicio_6 extends javax.swing.JFrame {
         });
 
         jButtonD20.setIcon(new javax.swing.ImageIcon("C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\NetBeansProjects\\UD11\\assets\\dices\\d20.png")); // NOI18N
-        jButtonD20.setText("jButton1");
+        jButtonD20.setBorder(null);
+        jButtonD20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonD20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonD20ActionPerformed(evt);
@@ -71,7 +75,8 @@ public class Ejercicio_6 extends javax.swing.JFrame {
         });
 
         jButtonD12.setIcon(new javax.swing.ImageIcon("C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\NetBeansProjects\\UD11\\assets\\dices\\d12.jpeg")); // NOI18N
-        jButtonD12.setText("jButton1");
+        jButtonD12.setBorder(null);
+        jButtonD12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonD12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonD12ActionPerformed(evt);
@@ -92,11 +97,11 @@ public class Ejercicio_6 extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonD6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
+                                .addComponent(jButtonD6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
                                 .addComponent(jButtonD8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButtonD10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addComponent(jButtonD10))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButtonD12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
@@ -104,16 +109,16 @@ public class Ejercicio_6 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(161, 161, 161)
                         .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonD6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonD8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonD10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonD8)
+                    .addComponent(jButtonD10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonD6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonD12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)

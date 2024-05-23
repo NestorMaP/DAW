@@ -4,6 +4,8 @@
  */
 package ud11;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author nesxr
@@ -45,6 +47,8 @@ public class Ejercicio_8 extends javax.swing.JFrame {
         jLabelTo.setText("Hasta:");
         jLabelTo.setPreferredSize(new java.awt.Dimension(50, 25));
 
+        jTextFieldFrom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         jButtonMain.setText("Generar Tablas");
         jButtonMain.setPreferredSize(new java.awt.Dimension(150, 25));
         jButtonMain.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +68,7 @@ public class Ejercicio_8 extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMain.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane1.setViewportView(jTableMain);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -77,11 +82,11 @@ public class Ejercicio_8 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68)
                         .addComponent(jLabelTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldTo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95)
                         .addComponent(jButtonMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -93,8 +98,8 @@ public class Ejercicio_8 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
@@ -123,9 +128,36 @@ public class Ejercicio_8 extends javax.swing.JFrame {
 
     private void jButtonMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMainActionPerformed
         // TODO add your handling code here:
-        int filas = Integer.valueOf(jTextFieldFrom.getText());
-        int columnas = Integer.valueOf(jTextFieldTo.getText());
+        int desde;
+        int hasta;
         
+        try {
+            desde = Integer.parseInt(jTextFieldFrom.getText());
+            hasta = Integer.parseInt(jTextFieldTo.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Valor introducido no válido: \n" + e, "Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int numColumnas = (hasta-desde)+1;
+        
+        //Array donde guardamos la cabecera de las columnas
+        String[] cabeceras = new String[numColumnas];
+        
+        for(int i=0; i<numColumnas;i++) {
+            cabeceras[i] = "" + (desde+i);
+        }
+        //Creamos el modelo de tabla con Filas, Columnas y Cabeceras
+        DefaultTableModel myTableModel = new DefaultTableModel(new Object[10][numColumnas], cabeceras);
+        
+        //Asignamos el modelo a nuestra tabla
+        jTableMain.setModel(myTableModel);
+        
+        for(int i=0;i<10;i++) {
+            for (int j=0; j<numColumnas;j++) {
+                jTableMain.setValueAt((j+desde)+"x"+(i+1)+"="+((i+1)*(j+desde)),i,j);
+            }
+        }
     }//GEN-LAST:event_jButtonMainActionPerformed
 
     /**
