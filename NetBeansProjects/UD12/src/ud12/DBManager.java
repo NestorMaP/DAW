@@ -334,7 +334,7 @@ public class DBManager {
             // Si no existe el Resultset
             if (rs == null) {
                 System.out.println("ERROR. ResultSet null.");
-                return false;
+                return false;@param series dirección del cliente
             }
 
             // Si existe y tiene primer registro, lo eliminamos
