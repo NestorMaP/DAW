@@ -8,15 +8,29 @@ import javax.swing.JOptionPane;
  */
 public class CosmereGUI extends javax.swing.JFrame {
 
+    //Variable Declaration
     private ResultSet rsBooks;
     private boolean validBook;
     private ResultSet rsCharacters;
     private boolean validCharacter;
     
+    // Init Graphical Components
     public CosmereGUI() {
         initComponents();
+    
+    
+    //Loading Driver and Connection to DB
+    DBManager.loadDriver();
+    DBManager.connect();
+    
+    //Get ResultSets from Books and Characters and place selector on the first ones
+    
+    
     }
-
+    
+    //Asks the DB for the Books and stores the info in rsBooks
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
