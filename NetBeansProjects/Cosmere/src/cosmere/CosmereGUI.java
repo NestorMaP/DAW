@@ -1,18 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package cosmere;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
- * @author nesxr
+ * @author NéstorMaP
  */
 public class CosmereGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CosmereGUI
-     */
+    private ResultSet rsBooks;
+    private boolean validBook;
+    private ResultSet rsCharacters;
+    private boolean validCharacter;
+    
     public CosmereGUI() {
         initComponents();
     }
@@ -26,25 +26,440 @@ public class CosmereGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jtpMain = new javax.swing.JTabbedPane();
+        jpBooks = new javax.swing.JPanel();
+        jspTableBooks = new javax.swing.JScrollPane();
+        jtableWB = new javax.swing.JTable();
+        jpWBPicture = new javax.swing.JPanel();
+        jpWBSelection = new javax.swing.JPanel();
+        jlWBSelDef = new javax.swing.JLabel();
+        jlWBBookSelected = new javax.swing.JLabel();
+        jbWBFirst = new javax.swing.JButton();
+        jbWBPrevious = new javax.swing.JButton();
+        jbWBNext = new javax.swing.JButton();
+        jbWBLast = new javax.swing.JButton();
+        jbWBAdd = new javax.swing.JButton();
+        jbWBUpdate = new javax.swing.JButton();
+        jbWBDelete = new javax.swing.JButton();
+        jpFilters = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jbWBFilter = new javax.swing.JButton();
+        jcbWBFilterTitle = new javax.swing.JCheckBox();
+        jcbWBFilterRead = new javax.swing.JCheckBox();
+        jtfWBFilterTitle = new javax.swing.JTextField();
+        jpChar = new javax.swing.JPanel();
+        jpWCPicture = new javax.swing.JPanel();
+        jpJWCSelection = new javax.swing.JPanel();
+        jlWCSelCharDef = new javax.swing.JLabel();
+        jlWCCharSelected = new javax.swing.JLabel();
+        jbWCFirst = new javax.swing.JButton();
+        jbWCPrevious = new javax.swing.JButton();
+        jbWCNext = new javax.swing.JButton();
+        jbWCLast = new javax.swing.JButton();
+        jbWCAdd = new javax.swing.JButton();
+        jbWCUpdate = new javax.swing.JButton();
+        jbWCDelete = new javax.swing.JButton();
+        jspTableChar = new javax.swing.JScrollPane();
+        jTableChar = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mini Cosmere Wiki");
+        setLocation(new java.awt.Point(600, 400));
+        setPreferredSize(new java.awt.Dimension(1150, 550));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
+
+        jtpMain.setPreferredSize(new java.awt.Dimension(600, 450));
+
+        jtableWB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ISBN", "Título", "Año de Publicación", "Páginas", "Saga", "Leído"
+            }
+        ));
+        jtableWB.setPreferredSize(new java.awt.Dimension(700, 450));
+        jspTableBooks.setViewportView(jtableWB);
+
+        javax.swing.GroupLayout jpWBPictureLayout = new javax.swing.GroupLayout(jpWBPicture);
+        jpWBPicture.setLayout(jpWBPictureLayout);
+        jpWBPictureLayout.setHorizontalGroup(
+            jpWBPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 395, Short.MAX_VALUE)
+        );
+        jpWBPictureLayout.setVerticalGroup(
+            jpWBPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jlWBSelDef.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlWBSelDef.setText("Seleccionado:");
+        jlWBSelDef.setPreferredSize(new java.awt.Dimension(80, 25));
+
+        jlWBBookSelected.setPreferredSize(new java.awt.Dimension(250, 25));
+
+        jbWBFirst.setText("<<");
+        jbWBFirst.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWBPrevious.setText("<");
+        jbWBPrevious.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWBNext.setText(">");
+        jbWBNext.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWBLast.setText(">>");
+        jbWBLast.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWBAdd.setText("AÑADIR");
+        jbWBAdd.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        jbWBUpdate.setText("MODIFICAR");
+        jbWBUpdate.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        jbWBDelete.setText("ELIMINAR");
+        jbWBDelete.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        javax.swing.GroupLayout jpWBSelectionLayout = new javax.swing.GroupLayout(jpWBSelection);
+        jpWBSelection.setLayout(jpWBSelectionLayout);
+        jpWBSelectionLayout.setHorizontalGroup(
+            jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWBSelectionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpWBSelectionLayout.createSequentialGroup()
+                        .addComponent(jlWBSelDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlWBBookSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpWBSelectionLayout.createSequentialGroup()
+                        .addComponent(jbWBAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbWBUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbWBDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpWBSelectionLayout.createSequentialGroup()
+                        .addComponent(jbWBFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWBPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWBNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWBLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jpWBSelectionLayout.setVerticalGroup(
+            jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWBSelectionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlWBSelDef, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlWBBookSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbWBFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWBPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWBNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWBLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbWBDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWBAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWBUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("FILTROS");
+
+        jbWBFilter.setText("Filtrar");
+
+        jcbWBFilterTitle.setText("Título:");
+        jcbWBFilterTitle.setPreferredSize(new java.awt.Dimension(70, 25));
+
+        jcbWBFilterRead.setText("Leído");
+        jcbWBFilterRead.setPreferredSize(new java.awt.Dimension(72, 22));
+
+        jtfWBFilterTitle.setPreferredSize(new java.awt.Dimension(64, 25));
+
+        javax.swing.GroupLayout jpFiltersLayout = new javax.swing.GroupLayout(jpFilters);
+        jpFilters.setLayout(jpFiltersLayout);
+        jpFiltersLayout.setHorizontalGroup(
+            jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFiltersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jcbWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpFiltersLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(117, 117, 117))
+                    .addGroup(jpFiltersLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jtfWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jpFiltersLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpFiltersLayout.createSequentialGroup()
+                        .addComponent(jcbWBFilterRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpFiltersLayout.createSequentialGroup()
+                        .addComponent(jbWBFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(148, 148, 148))))
+        );
+        jpFiltersLayout.setVerticalGroup(
+            jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFiltersLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbWBFilterRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbWBFilter)
+                .addGap(9, 9, 9))
+        );
+
+        javax.swing.GroupLayout jpBooksLayout = new javax.swing.GroupLayout(jpBooks);
+        jpBooks.setLayout(jpBooksLayout);
+        jpBooksLayout.setHorizontalGroup(
+            jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jpBooksLayout.createSequentialGroup()
+                .addGroup(jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBooksLayout.createSequentialGroup()
+                        .addComponent(jpWBPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jpWBSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jpFilters, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpBooksLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jspTableBooks)))
+                .addContainerGap())
+        );
+        jpBooksLayout.setVerticalGroup(
+            jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBooksLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpWBSelection, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBooksLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jpFilters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpWBPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jspTableBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jtpMain.addTab("Libros", jpBooks);
+
+        javax.swing.GroupLayout jpWCPictureLayout = new javax.swing.GroupLayout(jpWCPicture);
+        jpWCPicture.setLayout(jpWCPictureLayout);
+        jpWCPictureLayout.setHorizontalGroup(
+            jpWCPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jpWCPictureLayout.setVerticalGroup(
+            jpWCPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jlWCSelCharDef.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlWCSelCharDef.setText("Seleccionado:");
+        jlWCSelCharDef.setPreferredSize(new java.awt.Dimension(80, 25));
+
+        jlWCCharSelected.setPreferredSize(new java.awt.Dimension(250, 25));
+
+        jbWCFirst.setText("<<");
+        jbWCFirst.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWCPrevious.setText("<");
+        jbWCPrevious.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWCNext.setText(">");
+        jbWCNext.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWCLast.setText(">>");
+        jbWCLast.setPreferredSize(new java.awt.Dimension(75, 25));
+
+        jbWCAdd.setText("AÑADIR");
+        jbWCAdd.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        jbWCUpdate.setText("MODIFICAR");
+        jbWCUpdate.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        jbWCDelete.setText("ELIMINAR");
+        jbWCDelete.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        javax.swing.GroupLayout jpJWCSelectionLayout = new javax.swing.GroupLayout(jpJWCSelection);
+        jpJWCSelection.setLayout(jpJWCSelectionLayout);
+        jpJWCSelectionLayout.setHorizontalGroup(
+            jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpJWCSelectionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpJWCSelectionLayout.createSequentialGroup()
+                        .addComponent(jlWCSelCharDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlWCCharSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpJWCSelectionLayout.createSequentialGroup()
+                        .addComponent(jbWCAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbWCUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbWCDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpJWCSelectionLayout.createSequentialGroup()
+                        .addComponent(jbWCFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWCPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWCNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbWCLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpJWCSelectionLayout.setVerticalGroup(
+            jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpJWCSelectionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlWCSelCharDef, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlWCCharSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbWCFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWCPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWCNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWCLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbWCDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWCAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbWCUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTableChar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Libro", "Rol"
+            }
+        ));
+        jspTableChar.setViewportView(jTableChar);
+
+        javax.swing.GroupLayout jpCharLayout = new javax.swing.GroupLayout(jpChar);
+        jpChar.setLayout(jpCharLayout);
+        jpCharLayout.setHorizontalGroup(
+            jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCharLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpJWCSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jspTableChar, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jpCharLayout.setVerticalGroup(
+            jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCharLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jspTableChar, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpCharLayout.createSequentialGroup()
+                        .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jpJWCSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jtpMain.addTab("Personajes", jpChar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1127, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+        //Closing the ResultSets
+        try {
+            rsBooks.close();
+            rsCharacters.close();
+        } catch (SQLException sqlE) {
+            System.err.println("ERROR: The ResultSets were not properly closed. /" + sqlE);
+        }
+        
+        //Closing connection to DB
+        DBManager.close();
+        
+    }//GEN-LAST:event_formWindowClosed
+
+    
+    
+    
+    
+    
+    
+    
+    
+    //Pops up a windows with a mistake type SQLException
+    private void showWindowErrorSQL(SQLException sqlE) {
+        sqlE.printStackTrace();
+        JOptionPane.showMessageDialog(this, "An error with SQL has ocurred:\n" + sqlE.getMessage(), "SQL Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    //Pops up a windows with a mistake type Exception
+    private void showWindowError(Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "An error has ocurred:\n" + e.getMessage(), "Unexpected Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    //Pops up a windows with the message on parameter 
+    private void showWindowNotice(String message) {
+        JOptionPane.showMessageDialog(this, message, "Notice", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    //Pops up a windows with accept/don't accept message and returns true if OK
+    private boolean showWindowAccept(String message) {
+        int result = JOptionPane.showConfirmDialog(this, message, "Please confirm your decision", JOptionPane.OK_CANCEL_OPTION);
+        return (result == 0);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -78,5 +493,40 @@ public class CosmereGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable jTableChar;
+    private javax.swing.JButton jbWBAdd;
+    private javax.swing.JButton jbWBDelete;
+    private javax.swing.JButton jbWBFilter;
+    private javax.swing.JButton jbWBFirst;
+    private javax.swing.JButton jbWBLast;
+    private javax.swing.JButton jbWBNext;
+    private javax.swing.JButton jbWBPrevious;
+    private javax.swing.JButton jbWBUpdate;
+    private javax.swing.JButton jbWCAdd;
+    private javax.swing.JButton jbWCDelete;
+    private javax.swing.JButton jbWCFirst;
+    private javax.swing.JButton jbWCLast;
+    private javax.swing.JButton jbWCNext;
+    private javax.swing.JButton jbWCPrevious;
+    private javax.swing.JButton jbWCUpdate;
+    private javax.swing.JCheckBox jcbWBFilterRead;
+    private javax.swing.JCheckBox jcbWBFilterTitle;
+    private javax.swing.JLabel jlWBBookSelected;
+    private javax.swing.JLabel jlWBSelDef;
+    private javax.swing.JLabel jlWCCharSelected;
+    private javax.swing.JLabel jlWCSelCharDef;
+    private javax.swing.JPanel jpBooks;
+    private javax.swing.JPanel jpChar;
+    private javax.swing.JPanel jpFilters;
+    private javax.swing.JPanel jpJWCSelection;
+    private javax.swing.JPanel jpWBPicture;
+    private javax.swing.JPanel jpWBSelection;
+    private javax.swing.JPanel jpWCPicture;
+    private javax.swing.JScrollPane jspTableBooks;
+    private javax.swing.JScrollPane jspTableChar;
+    private javax.swing.JTable jtableWB;
+    private javax.swing.JTextField jtfWBFilterTitle;
+    private javax.swing.JTabbedPane jtpMain;
     // End of variables declaration//GEN-END:variables
 }
