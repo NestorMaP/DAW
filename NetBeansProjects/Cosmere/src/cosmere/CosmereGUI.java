@@ -2,6 +2,7 @@ package cosmere;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author NéstorMaP
@@ -10,26 +11,25 @@ public class CosmereGUI extends javax.swing.JFrame {
 
     //Variable Declaration
     private ResultSet rsBooks;
-    private boolean validBook;
+    private boolean currentBook;
     private ResultSet rsCharacters;
-    private boolean validCharacter;
+    private boolean currentCharacter;
     
     // Init Graphical Components
     public CosmereGUI() {
-        initComponents();
-    
+    initComponents();
+
     
     //Loading Driver and Connection to DB
     DBManager.loadDriver();
     DBManager.connect();
-    
+
     //Get ResultSets from Books and Characters and place selector on the first ones
+    initialize();
+    showCurrentData();
+}
     
-    
-    }
-    
-    //Asks the DB for the Books and stores the info in rsBooks
-    
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,13 +40,49 @@ public class CosmereGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jfModBooks = new javax.swing.JFrame();
+        jpMainBook = new javax.swing.JPanel();
+        jlMBTitle = new javax.swing.JLabel();
+        jpMBPanelMain = new javax.swing.JPanel();
+        jlMBPublicationYearDEF = new javax.swing.JLabel();
+        jlMBIsbnDEF = new javax.swing.JLabel();
+        jlMBTitleDEF = new javax.swing.JLabel();
+        jlMBReadDEF = new javax.swing.JLabel();
+        jlMBPagesDEF = new javax.swing.JLabel();
+        jlMBSeriesDEF = new javax.swing.JLabel();
+        jftfMBIsbn = new javax.swing.JFormattedTextField();
+        jtfMBTitle = new javax.swing.JTextField();
+        jftfMBPublicationYear = new javax.swing.JFormattedTextField();
+        jftfMBPages = new javax.swing.JFormattedTextField();
+        jtfMBSeries = new javax.swing.JTextField();
+        jrbMBReadYes = new javax.swing.JRadioButton();
+        jrbMBReadNo = new javax.swing.JRadioButton();
+        jbMBAccept = new javax.swing.JButton();
+        jbMBBack = new javax.swing.JButton();
+        jbMBClear = new javax.swing.JButton();
+        jfModChars = new javax.swing.JFrame();
+        jpMainChars = new javax.swing.JPanel();
+        jlMCTitle = new javax.swing.JLabel();
+        jpMCPanelMain = new javax.swing.JPanel();
+        jlMCIdDEF = new javax.swing.JLabel();
+        jlMCNameDEF = new javax.swing.JLabel();
+        jlMCIsbnBookDEF = new javax.swing.JLabel();
+        jlMCRoleDEF = new javax.swing.JLabel();
+        jtfMCId = new javax.swing.JTextField();
+        jtfMCName = new javax.swing.JTextField();
+        jftfMCIsbnBook = new javax.swing.JFormattedTextField();
+        jcbMCRole = new javax.swing.JComboBox<>();
+        jbMCAccept = new javax.swing.JButton();
+        jbMCBack = new javax.swing.JButton();
+        jbMCClear = new javax.swing.JButton();
+        gbBookReadYesNo = new javax.swing.ButtonGroup();
         jtpMain = new javax.swing.JTabbedPane();
         jpBooks = new javax.swing.JPanel();
         jspTableBooks = new javax.swing.JScrollPane();
         jtableWB = new javax.swing.JTable();
         jpWBPicture = new javax.swing.JPanel();
         jpWBSelection = new javax.swing.JPanel();
-        jlWBSelDef = new javax.swing.JLabel();
+        jlWBSelDEF = new javax.swing.JLabel();
         jlWBBookSelected = new javax.swing.JLabel();
         jbWBFirst = new javax.swing.JButton();
         jbWBPrevious = new javax.swing.JButton();
@@ -56,7 +92,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         jbWBUpdate = new javax.swing.JButton();
         jbWBDelete = new javax.swing.JButton();
         jpFilters = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jlWBFilterDEF = new javax.swing.JLabel();
         jbWBFilter = new javax.swing.JButton();
         jcbWBFilterTitle = new javax.swing.JCheckBox();
         jcbWBFilterRead = new javax.swing.JCheckBox();
@@ -64,7 +100,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         jpChar = new javax.swing.JPanel();
         jpWCPicture = new javax.swing.JPanel();
         jpJWCSelection = new javax.swing.JPanel();
-        jlWCSelCharDef = new javax.swing.JLabel();
+        jlWCSelCharDEF = new javax.swing.JLabel();
         jlWCCharSelected = new javax.swing.JLabel();
         jbWCFirst = new javax.swing.JButton();
         jbWCPrevious = new javax.swing.JButton();
@@ -74,7 +110,383 @@ public class CosmereGUI extends javax.swing.JFrame {
         jbWCUpdate = new javax.swing.JButton();
         jbWCDelete = new javax.swing.JButton();
         jspTableChar = new javax.swing.JScrollPane();
-        jTableChar = new javax.swing.JTable();
+        jtableWC = new javax.swing.JTable();
+
+        jfModBooks.setTitle("Modificación Libros");
+        jfModBooks.setLocation(new java.awt.Point(600, 400));
+        jfModBooks.setPreferredSize(new java.awt.Dimension(400, 530));
+        jfModBooks.setSize(new java.awt.Dimension(400, 530));
+
+        jlMBTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jlMBTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlMBTitle.setText("LIBRO");
+        jlMBTitle.setToolTipText("");
+
+        jlMBPublicationYearDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBPublicationYearDEF.setText("Año de publicación:");
+        jlMBPublicationYearDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBPublicationYearDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMBIsbnDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBIsbnDEF.setText("ISBN:");
+        jlMBIsbnDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBIsbnDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMBTitleDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBTitleDEF.setText("Título:");
+        jlMBTitleDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBTitleDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMBReadDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBReadDEF.setText("Leído:");
+        jlMBReadDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBReadDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMBPagesDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBPagesDEF.setText("Páginas:");
+        jlMBPagesDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBPagesDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMBSeriesDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMBSeriesDEF.setText("Saga:");
+        jlMBSeriesDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMBSeriesDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jftfMBIsbn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#############"))));
+        jftfMBIsbn.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jtfMBTitle.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jftfMBPublicationYear.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("####"))));
+        jftfMBPublicationYear.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jftfMBPages.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####"))));
+        jftfMBPages.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jtfMBSeries.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        gbBookReadYesNo.add(jrbMBReadYes);
+        jrbMBReadYes.setText("Sí");
+        jrbMBReadYes.setPreferredSize(new java.awt.Dimension(40, 30));
+
+        gbBookReadYesNo.add(jrbMBReadNo);
+        jrbMBReadNo.setText("No");
+        jrbMBReadNo.setPreferredSize(new java.awt.Dimension(40, 30));
+
+        jbMBAccept.setText("Aceptar");
+        jbMBAccept.setPreferredSize(new java.awt.Dimension(120, 40));
+        jbMBAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMBAcceptActionPerformed(evt);
+            }
+        });
+
+        jbMBBack.setText("Atrás");
+        jbMBBack.setPreferredSize(new java.awt.Dimension(120, 40));
+        jbMBBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMBBackActionPerformed(evt);
+            }
+        });
+
+        jbMBClear.setText("Limpiar datos");
+        jbMBClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMBClearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpMBPanelMainLayout = new javax.swing.GroupLayout(jpMBPanelMain);
+        jpMBPanelMain.setLayout(jpMBPanelMainLayout);
+        jpMBPanelMainLayout.setHorizontalGroup(
+            jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBTitleDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtfMBTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBPublicationYearDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jftfMBPublicationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBReadDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrbMBReadYes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrbMBReadNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBIsbnDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jftfMBIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBPagesDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jftfMBPages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMBSeriesDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtfMBSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addComponent(jbMBAccept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbMBBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jbMBClear, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jpMBPanelMainLayout.setVerticalGroup(
+            jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMBPanelMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBIsbnDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jftfMBIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBTitleDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfMBTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBPublicationYearDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jftfMBPublicationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBPagesDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jftfMBPages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBSeriesDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfMBSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMBReadDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrbMBReadYes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrbMBReadNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMBPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbMBAccept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbMBBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jbMBClear)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jpMainBookLayout = new javax.swing.GroupLayout(jpMainBook);
+        jpMainBook.setLayout(jpMainBookLayout);
+        jpMainBookLayout.setHorizontalGroup(
+            jpMainBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMainBookLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpMainBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlMBTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpMBPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jpMainBookLayout.setVerticalGroup(
+            jpMainBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMainBookLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlMBTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpMBPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jfModBooksLayout = new javax.swing.GroupLayout(jfModBooks.getContentPane());
+        jfModBooks.getContentPane().setLayout(jfModBooksLayout);
+        jfModBooksLayout.setHorizontalGroup(
+            jfModBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jfModBooksLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpMainBook, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jfModBooksLayout.setVerticalGroup(
+            jfModBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jfModBooksLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpMainBook, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jfModChars.setTitle("Modificación Personajes");
+        jfModChars.setLocation(new java.awt.Point(600, 400));
+        jfModChars.setPreferredSize(new java.awt.Dimension(400, 400));
+        jfModChars.setSize(new java.awt.Dimension(410, 310));
+
+        jlMCTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jlMCTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlMCTitle.setText("PERSONAJE");
+        jlMCTitle.setToolTipText("");
+
+        jpMCPanelMain.setPreferredSize(new java.awt.Dimension(400, 300));
+
+        jlMCIdDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMCIdDEF.setText("ID:");
+        jlMCIdDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMCIdDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMCNameDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMCNameDEF.setText("Nombre");
+        jlMCNameDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMCNameDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMCIsbnBookDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMCIsbnBookDEF.setText("ISBN Libro:");
+        jlMCIsbnBookDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMCIsbnBookDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jlMCRoleDEF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMCRoleDEF.setText("Rol");
+        jlMCRoleDEF.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jlMCRoleDEF.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        jtfMCId.setEditable(false);
+        jtfMCId.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jtfMCName.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jftfMCIsbnBook.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#############"))));
+        jftfMCIsbnBook.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jcbMCRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Protagonista", "Secundario", "Antagonista", "Otros" }));
+        jcbMCRole.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jbMCAccept.setText("Aceptar");
+        jbMCAccept.setPreferredSize(new java.awt.Dimension(120, 40));
+        jbMCAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMCAcceptActionPerformed(evt);
+            }
+        });
+
+        jbMCBack.setText("Atrás");
+        jbMCBack.setPreferredSize(new java.awt.Dimension(120, 40));
+        jbMCBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMCBackActionPerformed(evt);
+            }
+        });
+
+        jbMCClear.setText("Limpiar datos");
+        jbMCClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMCClearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpMCPanelMainLayout = new javax.swing.GroupLayout(jpMCPanelMain);
+        jpMCPanelMain.setLayout(jpMCPanelMainLayout);
+        jpMCPanelMainLayout.setHorizontalGroup(
+            jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMCIdDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtfMCId, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMCNameDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtfMCName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                                .addComponent(jlMCIsbnBookDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jftfMCIsbnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                                .addComponent(jbMCAccept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbMCBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jbMCClear, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jlMCRoleDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcbMCRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        jpMCPanelMainLayout.setVerticalGroup(
+            jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMCPanelMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMCIdDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfMCId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMCNameDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfMCName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMCIsbnBookDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jftfMCIsbnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlMCRoleDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbMCRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbMCAccept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbMCBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jbMCClear, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jpMainCharsLayout = new javax.swing.GroupLayout(jpMainChars);
+        jpMainChars.setLayout(jpMainCharsLayout);
+        jpMainCharsLayout.setHorizontalGroup(
+            jpMainCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMainCharsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpMainCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlMCTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jpMainCharsLayout.setVerticalGroup(
+            jpMainCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMainCharsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlMCTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jfModCharsLayout = new javax.swing.GroupLayout(jfModChars.getContentPane());
+        jfModChars.getContentPane().setLayout(jfModCharsLayout);
+        jfModCharsLayout.setHorizontalGroup(
+            jfModCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jfModCharsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpMainChars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jfModCharsLayout.setVerticalGroup(
+            jfModCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jfModCharsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpMainChars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Cosmere Wiki");
@@ -116,32 +528,67 @@ public class CosmereGUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jlWBSelDef.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jlWBSelDef.setText("Seleccionado:");
-        jlWBSelDef.setPreferredSize(new java.awt.Dimension(80, 25));
+        jlWBSelDEF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlWBSelDEF.setText("Seleccionado:");
+        jlWBSelDEF.setPreferredSize(new java.awt.Dimension(80, 25));
 
         jlWBBookSelected.setPreferredSize(new java.awt.Dimension(250, 25));
 
         jbWBFirst.setText("<<");
         jbWBFirst.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWBFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBFirstActionPerformed(evt);
+            }
+        });
 
         jbWBPrevious.setText("<");
         jbWBPrevious.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWBPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBPreviousActionPerformed(evt);
+            }
+        });
 
         jbWBNext.setText(">");
         jbWBNext.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWBNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBNextActionPerformed(evt);
+            }
+        });
 
         jbWBLast.setText(">>");
         jbWBLast.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWBLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBLastActionPerformed(evt);
+            }
+        });
 
         jbWBAdd.setText("AÑADIR");
         jbWBAdd.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWBAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBAddActionPerformed(evt);
+            }
+        });
 
         jbWBUpdate.setText("MODIFICAR");
         jbWBUpdate.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWBUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBUpdateActionPerformed(evt);
+            }
+        });
 
         jbWBDelete.setText("ELIMINAR");
         jbWBDelete.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWBDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpWBSelectionLayout = new javax.swing.GroupLayout(jpWBSelection);
         jpWBSelection.setLayout(jpWBSelectionLayout);
@@ -151,7 +598,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jpWBSelectionLayout.createSequentialGroup()
-                        .addComponent(jlWBSelDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlWBSelDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jlWBBookSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpWBSelectionLayout.createSequentialGroup()
@@ -168,14 +615,14 @@ public class CosmereGUI extends javax.swing.JFrame {
                         .addComponent(jbWBNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbWBLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jpWBSelectionLayout.setVerticalGroup(
             jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpWBSelectionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlWBSelDef, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlWBSelDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlWBBookSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,14 +635,19 @@ public class CosmereGUI extends javax.swing.JFrame {
                     .addComponent(jbWBDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbWBAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbWBUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("FILTROS");
+        jlWBFilterDEF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlWBFilterDEF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlWBFilterDEF.setText("FILTROS");
 
         jbWBFilter.setText("Filtrar");
+        jbWBFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBFilterActionPerformed(evt);
+            }
+        });
 
         jcbWBFilterTitle.setText("Título:");
         jcbWBFilterTitle.setPreferredSize(new java.awt.Dimension(70, 25));
@@ -215,7 +667,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpFiltersLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jlWBFilterDEF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(117, 117, 117))
                     .addGroup(jpFiltersLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -235,7 +687,7 @@ public class CosmereGUI extends javax.swing.JFrame {
             jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpFiltersLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlWBFilterDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +727,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                         .addComponent(jpFilters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jpWBPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jspTableBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                .addComponent(jspTableBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -292,32 +744,67 @@ public class CosmereGUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jlWCSelCharDef.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jlWCSelCharDef.setText("Seleccionado:");
-        jlWCSelCharDef.setPreferredSize(new java.awt.Dimension(80, 25));
+        jlWCSelCharDEF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlWCSelCharDEF.setText("Seleccionado:");
+        jlWCSelCharDEF.setPreferredSize(new java.awt.Dimension(80, 25));
 
         jlWCCharSelected.setPreferredSize(new java.awt.Dimension(250, 25));
 
         jbWCFirst.setText("<<");
         jbWCFirst.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWCFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCFirstActionPerformed(evt);
+            }
+        });
 
         jbWCPrevious.setText("<");
         jbWCPrevious.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWCPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCPreviousActionPerformed(evt);
+            }
+        });
 
         jbWCNext.setText(">");
         jbWCNext.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWCNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCNextActionPerformed(evt);
+            }
+        });
 
         jbWCLast.setText(">>");
         jbWCLast.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbWCLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCLastActionPerformed(evt);
+            }
+        });
 
         jbWCAdd.setText("AÑADIR");
         jbWCAdd.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWCAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCAddActionPerformed(evt);
+            }
+        });
 
         jbWCUpdate.setText("MODIFICAR");
         jbWCUpdate.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWCUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCUpdateActionPerformed(evt);
+            }
+        });
 
         jbWCDelete.setText("ELIMINAR");
         jbWCDelete.setPreferredSize(new java.awt.Dimension(100, 50));
+        jbWCDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWCDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpJWCSelectionLayout = new javax.swing.GroupLayout(jpJWCSelection);
         jpJWCSelection.setLayout(jpJWCSelectionLayout);
@@ -327,7 +814,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jpJWCSelectionLayout.createSequentialGroup()
-                        .addComponent(jlWCSelCharDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlWCSelCharDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jlWCCharSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpJWCSelectionLayout.createSequentialGroup()
@@ -344,14 +831,14 @@ public class CosmereGUI extends javax.swing.JFrame {
                         .addComponent(jbWCNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbWCLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jpJWCSelectionLayout.setVerticalGroup(
             jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpJWCSelectionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlWCSelCharDef, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlWCSelCharDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlWCCharSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -367,7 +854,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableChar.setModel(new javax.swing.table.DefaultTableModel(
+        jtableWC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -378,7 +865,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 "ID", "Nombre", "Libro", "Rol"
             }
         ));
-        jspTableChar.setViewportView(jTableChar);
+        jspTableChar.setViewportView(jtableWC);
 
         javax.swing.GroupLayout jpCharLayout = new javax.swing.GroupLayout(jpChar);
         jpChar.setLayout(jpCharLayout);
@@ -390,13 +877,13 @@ public class CosmereGUI extends javax.swing.JFrame {
                     .addComponent(jpJWCSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jspTableChar, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addComponent(jspTableChar, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpCharLayout.setVerticalGroup(
             jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCharLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jspTableChar, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpCharLayout.createSequentialGroup()
@@ -414,14 +901,14 @@ public class CosmereGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1127, Short.MAX_VALUE)
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -438,37 +925,561 @@ public class CosmereGUI extends javax.swing.JFrame {
             System.err.println("ERROR: The ResultSets were not properly closed. /" + sqlE);
         }
         
-        //Closing connection to DB
+        //Close connection to DB
         DBManager.close();
-        
+              
     }//GEN-LAST:event_formWindowClosed
+
+
+// ACTION PEFORMED FOR BOOK WINDOW
+    
+    private void jbWBFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBFirstActionPerformed
+        showFirstBook();
+    }//GEN-LAST:event_jbWBFirstActionPerformed
+
+    private void jbWBPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBPreviousActionPerformed
+        showPreviousBook();
+    }//GEN-LAST:event_jbWBPreviousActionPerformed
+
+    private void jbWBNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBNextActionPerformed
+        showNextBook();
+    }//GEN-LAST:event_jbWBNextActionPerformed
+
+    private void jbWBLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBLastActionPerformed
+        showLastBook();
+    }//GEN-LAST:event_jbWBLastActionPerformed
+
+    private void jbWBAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBAddActionPerformed
+        //Hide main Window
+        this.setVisible(false);
+        
+        //Empty all data for window Add/Modify Book
+        jftfMBIsbn.setText("");
+        jtfMBTitle.setText("");
+        jftfMBPublicationYear.setText("");
+        jftfMBPages.setText("");
+        jtfMBSeries.setText("");
+        jrbMBReadNo.setSelected(true);
+        
+        //Show add/modify book Window
+        jfModBooks.setVisible(true);
+        
+    }//GEN-LAST:event_jbWBAddActionPerformed
+
+    private void jbWBUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBUpdateActionPerformed
+        
+        if (!currentBook) {
+            showWindowNotice("No hay ningún libro seleccionado.\nPruebe a añadir un libro nuevo.");
+        } else {
+            
+            try {
+                //Get selected book info
+                String isbn = rsBooks.getString(DBManager.DB_LIB_ISBN);
+                jftfMBIsbn.setText(isbn);
+                String title = rsBooks.getString(DBManager.DB_LIB_TIT);
+                jtfMBTitle.setText(title);
+                int pubYear = rsBooks.getInt(DBManager.DB_LIB_PUB);
+                jftfMBPublicationYear.setText("" + pubYear);
+                int pages = rsBooks.getInt(DBManager.DB_LIB_PAG);
+                jtfMBSeries.setText("" + pages);
+                String series = rsBooks.getString(DBManager.DB_LIB_SER);
+                jtfMBSeries.setText(series);
+                boolean read = rsBooks.getBoolean(DBManager.DB_LIB_READ);
+                jrbMBReadYes.setSelected(read);
+                jrbMBReadNo.setSelected(!read);
+                
+                //Hide main Window
+                this.setVisible(false);
+                
+                //Show edit/modify Window
+                jfModBooks.setVisible(true);
+                
+            } catch(SQLException sqlE) {
+                showWindowErrorSQL(sqlE);
+            }
+        }
+    }//GEN-LAST:event_jbWBUpdateActionPerformed
+
+    private void jbWBDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBDeleteActionPerformed
+        
+        if (!currentBook) {
+            showWindowNotice("No hay ningún libro seleccionado.\nPruebe a añadir un libro nuevo.");
+        } else {
+            //Window to ask for a second confirm
+            boolean accepted = showWindowAccept("¿Quiere eliminar el libro difinitivamente?");
+            
+            //After second confirmation the book is deleted
+            if (accepted) {
+                
+                try {
+                    //Delete the Book
+                    String isbn = rsBooks.getString(DBManager.DB_LIB_ISBN);
+                    DBManagerBooks.deleteBook(isbn);
+                    
+                    //Update all the Book data
+                    initialize();
+                    showCurrentData();
+                    
+                } catch (Exception e) {
+                    showWindowError(e);
+                }
+            }
+        }
+    }//GEN-LAST:event_jbWBDeleteActionPerformed
+
+    private void jbWBFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbWBFilterActionPerformed
 
     
     
+    //ACTION PERFORMED FOR CHARACTER WINDOW
+    
+    private void jbWCFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCFirstActionPerformed
+        showFirstCharacter();
+    }//GEN-LAST:event_jbWCFirstActionPerformed
+
+    private void jbWCPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCPreviousActionPerformed
+        showPreviousCharacter();
+    }//GEN-LAST:event_jbWCPreviousActionPerformed
+
+    private void jbWCNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCNextActionPerformed
+        showNextCharacter();
+    }//GEN-LAST:event_jbWCNextActionPerformed
+
+    private void jbWCLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCLastActionPerformed
+        showLastCharacter();
+    }//GEN-LAST:event_jbWCLastActionPerformed
+
+    private void jbWCAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCAddActionPerformed
+        //Hide main Window
+        this.setVisible(false);
+        
+        //Empty all data for window Add/Modify Book
+        jtfMCId.setText("##");
+        jtfMCName.setText("");
+        jftfMCIsbnBook.setText("");
+        jcbMCRole.getItemAt(3);
+        
+        //Show add/modify book Window
+        jfModBooks.setVisible(true);
+    }//GEN-LAST:event_jbWCAddActionPerformed
+
+    private void jbWCUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCUpdateActionPerformed
+        
+        if (!currentCharacter) {
+            showWindowNotice("No hay ningún personaje seleccionado.\nPruebe a añadir un personaje nuevo.");
+        } else {
+            
+            try {
+                //Get selected book info
+                int id = rsCharacters.getInt(DBManager.DB_PER_ID);
+                jtfMCId.setText(""+id);
+                String name = rsCharacters.getString(DBManager.DB_PER_NAME);
+                jtfMCName.setText(name);
+                String isbn = rsCharacters.getString(DBManager.DB_PER_LIB_ISBN);
+                jftfMCIsbnBook.setText(isbn);
+                String role = rsCharacters.getString(DBManager.DB_PER_ROLE);
+                jcbMCRole.setSelectedItem(role);
+
+                
+                //Hide main Window
+                this.setVisible(false);
+                
+                //Show edit/modify Window
+                jfModChars.setVisible(true);
+                
+            } catch(SQLException sqlE) {
+                showWindowErrorSQL(sqlE);
+            }
+        }
+    }//GEN-LAST:event_jbWCUpdateActionPerformed
+
+    private void jbWCDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCDeleteActionPerformed
+        
+        if (!currentCharacter) {
+            showWindowNotice("No hay ningún personaje seleccionado.\nPruebe a añadir un personaje nuevo.");
+        } else {
+            //Window to ask for a second confirm
+            boolean accepted = showWindowAccept("¿Quiere eliminar el libro difinitivamente?");
+            
+            //After second confirmation the book is deleted
+            if (accepted) {
+                
+                try {
+                    //Delete the Book
+                    int id = rsCharacters.getInt(DBManager.DB_PER_ID);
+                    DBManagerCharacters.deleteCharacter(id);
+                    
+                    //Update all the Book data
+                    initialize();
+                    showCurrentData();
+                    
+                } catch (Exception e) {
+                    showWindowError(e);
+                }
+            }
+        }
+    }//GEN-LAST:event_jbWCDeleteActionPerformed
+
+    
+    //ACTION PERFORMED FOR ADD/MODIFY BOOK WINDOW
+    
+    private void jbMBAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMBAcceptActionPerformed
+        //Store the new Book in the DB
+        String isbn = jftfMBIsbn.getText();
+        String title = jtfMBTitle.getText();
+        int pubYear = Integer.parseInt(jftfMBPublicationYear.getText());
+        int pages = Integer.parseInt(jtfMBSeries.getText());
+        String series =jtfMBSeries.getText();
+        boolean read = jrbMBReadYes.isSelected();
+        
+        DBManagerBooks.updateBook(isbn, title, pubYear, pages, series, read);
+        
+        //Hide add/modify Book window and show main window
+        jfModBooks.setVisible(false);
+        this.setVisible(true);
+        
+        //Update and show last Book
+        initialize();
+        showLastBook();        
+    }//GEN-LAST:event_jbMBAcceptActionPerformed
+
+    private void jbMBBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMBBackActionPerformed
+        //Hide add/modify Book window and show main window
+        jfModBooks.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jbMBBackActionPerformed
+
+    private void jbMBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMBClearActionPerformed
+        //Empty all data for window Add/Modify Book except for ISBN
+        jtfMBTitle.setText("");
+        jftfMBPublicationYear.setText("");
+        jftfMBPages.setText("");
+        jtfMBSeries.setText("");
+        jrbMBReadNo.setSelected(true);
+    }//GEN-LAST:event_jbMBClearActionPerformed
+    
+    
+    //ACTION PERFORMED FOR ADD/MODIFY CHARACTER WINDOW
+    
+    private void jbMCAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCAcceptActionPerformed
+        //Store the new Character in the DB
+        int id = Integer.parseInt(jtfMCId.getText());
+        String name = jtfMCName.getText();
+        String isbn = jftfMCIsbnBook.getText();
+        String role = String.valueOf(jcbMCRole.getSelectedItem());
+        
+        DBManagerCharacters.updateCharacter(id,name, isbn, role);
+        
+        //Hide add/modify Character window and show main window
+        jfModChars.setVisible(false);
+        this.setVisible(true);
+        
+        //Update and show last Character
+        initialize();
+        showLastCharacter();        
+    }//GEN-LAST:event_jbMCAcceptActionPerformed
+
+    private void jbMCBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCBackActionPerformed
+        //Hide add/modify Character window and show main window
+        jfModChars.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jbMCBackActionPerformed
+
+    private void jbMCClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCClearActionPerformed
+        //Empty all data for window Add/Modify Book
+        jtfMCName.setText("");
+        jftfMCIsbnBook.setText("");
+        jcbMCRole.getItemAt(3);
+    }//GEN-LAST:event_jbMCClearActionPerformed
+    
+    
+    /////////////////
+    // ALL METHODS //
+    /////////////////    
+    
+    /**
+     * Initialize the database by storing the first ReusltSets and pointing to the fist instance of each one
+     *
+     */
+    private void initialize() {
+        try{
+            //Close current ResultSets
+            if (rsBooks != null) {
+                rsBooks.close();
+            }
+            if (rsCharacters != null) {
+                rsCharacters.close();
+            }
+            
+            //Ask the DB for the current tables
+            rsBooks = DBManagerBooks.getTable(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE,DBManager.DB_LIB);
+            rsCharacters = DBManagerCharacters.getTable(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE,DBManager.DB_PER);
+            
+            //Set current to the first instance
+            currentBook = rsBooks.first();
+            currentCharacter = rsCharacters.first();
+        } catch(SQLException sqlE) {
+            System.err.println("ERROR: The ResultSets were not properly initialized. /" + sqlE);
+        }
+    }
+    
+    /**
+     * Show selected (current) info for Book (jlWBBookSelected) and Character (jlWCCharSelected)
+     * 
+     * It is necessary to distribute responsibilities for larger DB, with only 2 tables this is fine.
+     */
+    private void showCurrentData() {
+        String titulo = ""; // ID Book
+        String nombre = "";   // ID Character
+        
+        //Get current data for Book and Character
+        if (currentBook) {
+            try {
+                titulo = rsBooks.getString(DBManager.DB_LIB_TIT);
+            } catch (SQLException sqlE) {
+                showWindowErrorSQL(sqlE);
+            }
+        }
+        if (currentCharacter) {
+            try {
+                nombre = rsCharacters.getString(DBManager.DB_PER_NAME);
+            } catch (SQLException sqlE) {
+                showWindowErrorSQL(sqlE);
+            }
+        }
+        
+        //Print info on screen
+        jlWBBookSelected.setText(titulo);
+        jlWCCharSelected.setText(nombre);
+        
+        //TABLE MANAGEMENT      
+        //BOOKS
+        
+        //Set Model
+        try{
+            DefaultTableModel bookModel = new DefaultTableModel(new String[]{"ISBN","Título","Año de publicación","Páginas","Saga","Leído"}, 0);
+            jtableWB.setModel(bookModel);
+
+            //Get another ResultSet for viewing purposes (Table ResultSet Books)
+            ResultSet trsb = DBManager.getTable(DBManager.DB_LIB);
+
+            //Iterate the ResultSet adding rows
+            String isbn,tit,ser,read;
+            int pub,pag;
+
+            while(trsb.next()) {
+                isbn = trsb.getString(DBManager.DB_LIB_ISBN);
+                tit = trsb.getString(DBManager.DB_LIB_TIT);
+                pub = trsb.getInt(DBManager.DB_LIB_PUB);
+                pag = trsb.getInt(DBManager.DB_LIB_PAG);
+                ser = trsb.getString(DBManager.DB_LIB_SER);
+                read = trsb.getString(DBManager.DB_LIB_READ);
+                
+                //Add row
+                bookModel.addRow(new Object[]{isbn,tit,pub,pag,ser,read});
+            }
+            
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        }
+
+        //CHARACTERS
+        
+        //Set Model
+        try{
+            DefaultTableModel characterModel = new DefaultTableModel(new String[]{"ID","Nombre","Libro (ISBN)","Rol"}, 0);
+            jtableWC.setModel(characterModel);
+
+            //Get another ResultSet for viewing purposes (Table ResultSet Characters)
+            ResultSet trsc = DBManager.getTable(DBManager.DB_PER);
+
+            //Iterate the ResultSet adding rows
+            String name,isbn,rol;
+            int id;
+
+            while(trsc.next()) {
+                id = trsc.getInt(DBManager.DB_PER_ID);
+                name = trsc.getString(DBManager.DB_PER_NAME);
+                isbn = trsc.getString(DBManager.DB_PER_LIB_ISBN);
+                rol = trsc.getString(DBManager.DB_PER_ROLE);
+                
+                //Add row
+                characterModel.addRow(new Object[]{id,name,isbn,rol});
+            }
+            
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        }
+        
+    }
+    
+    
+    ///////////////////////////////////////
+    // METHODS FOR BUTTONS ( << < > >> ) //
+    ///////////////////////////////////////
+    
+    //BOOKS WINDOW
+    
+    /**
+     * Selects and prints first instance of Book in jlWBBookSelected
+     */
+    private void showFirstBook() {
+        try {
+            currentBook = rsBooks.first();
+            showCurrentData();
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints previous instance of Book in jlWBBookSelected
+     */
+    private void showPreviousBook() {
+        try {
+            if (!rsBooks.isFirst()){
+                currentBook = rsBooks.previous();
+                showCurrentData();
+            }
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints next instance of Book in jlWBBookSelected
+     */
+    private void showNextBook() {
+        try {
+            if (!rsBooks.isLast()){
+                currentBook = rsBooks.next();
+                showCurrentData();
+            }
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints last instance of Book in jlWBBookSelected
+     */
+    private void showLastBook() {
+        try {
+            currentBook = rsBooks.last();
+            showCurrentData();
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    //CHARACTER WINDOW
+    
+    /**
+     * Selects and prints first instance of Character in jlWCCharSelected
+     */
+    private void showFirstCharacter() {
+        try {
+            currentCharacter = rsCharacters.first();
+            showCurrentData();
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints previous instance of Character in jlWCCharSelected
+     */
+    private void showPreviousCharacter() {
+        try {
+            if (!rsCharacters.isFirst()){
+                currentCharacter = rsCharacters.previous();
+                showCurrentData();
+            }
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints next instance of Character in jlWCCharSelected
+     */
+    private void showNextCharacter() {
+        try {
+            if (!rsCharacters.isLast()){
+                currentCharacter = rsCharacters.next();
+                showCurrentData();
+            }
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
+    
+    /**
+     * Selects and prints last instance of Character in jlWCCharSelected
+     */
+    private void showLastCharacter() {
+        try {
+            currentCharacter = rsCharacters.last();
+            showCurrentData();
+        } catch (SQLException sqlE) {
+            showWindowErrorSQL(sqlE);
+        } catch (Exception e) {
+            showWindowError(e);
+        }
+    }
     
     
     
+    ////////////////////////////////
+    // METHODS FOR POP UP WINDOWS //
+    ////////////////////////////////
     
-    
-    
-    //Pops up a windows with a mistake type SQLException
+    /**
+     * Pops up a windows with a mistake type SQLException
+     *
+     */
     private void showWindowErrorSQL(SQLException sqlE) {
         sqlE.printStackTrace();
         JOptionPane.showMessageDialog(this, "An error with SQL has ocurred:\n" + sqlE.getMessage(), "SQL Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    //Pops up a windows with a mistake type Exception
+    /**
+     * Pops up a windows with a mistake type Exception
+     *
+     */
     private void showWindowError(Exception e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "An error has ocurred:\n" + e.getMessage(), "Unexpected Error", JOptionPane.ERROR_MESSAGE);
     }
     
-    //Pops up a windows with the message on parameter 
+    /**
+     * Pops up a windows with the message on parameter
+     *
+     */
     private void showWindowNotice(String message) {
         JOptionPane.showMessageDialog(this, message, "Notice", JOptionPane.WARNING_MESSAGE);
     }
     
-    //Pops up a windows with accept/don't accept message and returns true if OK
+    /**
+     * Pops up a windows with accept/don't accept message and returns true if OK
+     *
+     */
     private boolean showWindowAccept(String message) {
         int result = JOptionPane.showConfirmDialog(this, message, "Please confirm your decision", JOptionPane.OK_CANCEL_OPTION);
         return (result == 0);
@@ -507,8 +1518,13 @@ public class CosmereGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTable jTableChar;
+    private javax.swing.ButtonGroup gbBookReadYesNo;
+    private javax.swing.JButton jbMBAccept;
+    private javax.swing.JButton jbMBBack;
+    private javax.swing.JButton jbMBClear;
+    private javax.swing.JButton jbMCAccept;
+    private javax.swing.JButton jbMCBack;
+    private javax.swing.JButton jbMCClear;
     private javax.swing.JButton jbWBAdd;
     private javax.swing.JButton jbWBDelete;
     private javax.swing.JButton jbWBFilter;
@@ -524,22 +1540,53 @@ public class CosmereGUI extends javax.swing.JFrame {
     private javax.swing.JButton jbWCNext;
     private javax.swing.JButton jbWCPrevious;
     private javax.swing.JButton jbWCUpdate;
+    private javax.swing.JComboBox<String> jcbMCRole;
     private javax.swing.JCheckBox jcbWBFilterRead;
     private javax.swing.JCheckBox jcbWBFilterTitle;
+    private javax.swing.JFrame jfModBooks;
+    private javax.swing.JFrame jfModChars;
+    private javax.swing.JFormattedTextField jftfMBIsbn;
+    private javax.swing.JFormattedTextField jftfMBPages;
+    private javax.swing.JFormattedTextField jftfMBPublicationYear;
+    private javax.swing.JFormattedTextField jftfMCIsbnBook;
+    private javax.swing.JLabel jlMBIsbnDEF;
+    private javax.swing.JLabel jlMBPagesDEF;
+    private javax.swing.JLabel jlMBPublicationYearDEF;
+    private javax.swing.JLabel jlMBReadDEF;
+    private javax.swing.JLabel jlMBSeriesDEF;
+    private javax.swing.JLabel jlMBTitle;
+    private javax.swing.JLabel jlMBTitleDEF;
+    private javax.swing.JLabel jlMCIdDEF;
+    private javax.swing.JLabel jlMCIsbnBookDEF;
+    private javax.swing.JLabel jlMCNameDEF;
+    private javax.swing.JLabel jlMCRoleDEF;
+    private javax.swing.JLabel jlMCTitle;
     private javax.swing.JLabel jlWBBookSelected;
-    private javax.swing.JLabel jlWBSelDef;
+    private javax.swing.JLabel jlWBFilterDEF;
+    private javax.swing.JLabel jlWBSelDEF;
     private javax.swing.JLabel jlWCCharSelected;
-    private javax.swing.JLabel jlWCSelCharDef;
+    private javax.swing.JLabel jlWCSelCharDEF;
     private javax.swing.JPanel jpBooks;
     private javax.swing.JPanel jpChar;
     private javax.swing.JPanel jpFilters;
     private javax.swing.JPanel jpJWCSelection;
+    private javax.swing.JPanel jpMBPanelMain;
+    private javax.swing.JPanel jpMCPanelMain;
+    private javax.swing.JPanel jpMainBook;
+    private javax.swing.JPanel jpMainChars;
     private javax.swing.JPanel jpWBPicture;
     private javax.swing.JPanel jpWBSelection;
     private javax.swing.JPanel jpWCPicture;
+    private javax.swing.JRadioButton jrbMBReadNo;
+    private javax.swing.JRadioButton jrbMBReadYes;
     private javax.swing.JScrollPane jspTableBooks;
     private javax.swing.JScrollPane jspTableChar;
     private javax.swing.JTable jtableWB;
+    private javax.swing.JTable jtableWC;
+    private javax.swing.JTextField jtfMBSeries;
+    private javax.swing.JTextField jtfMBTitle;
+    private javax.swing.JTextField jtfMCId;
+    private javax.swing.JTextField jtfMCName;
     private javax.swing.JTextField jtfWBFilterTitle;
     private javax.swing.JTabbedPane jtpMain;
     // End of variables declaration//GEN-END:variables

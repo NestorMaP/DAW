@@ -8,7 +8,7 @@ import java.sql.*;
 public class DBManagerCharacters extends DBManager{
     
     /**
-     * Asks the DDBB for the character with the ID on parameter
+     * Asks the DB for the character with the ID on parameter
      * @param id Character id
      * @return ResultSet with the result, null if error
      */
@@ -34,7 +34,7 @@ public class DBManagerCharacters extends DBManager{
     }
 
     /**
-     * Checks if the character with the id on parameter exists in the DDBB
+     * Checks if the character with the id on parameter exists in the DB
      *
      * @param id Character id
      * @return true if exists, false if not
@@ -60,14 +60,14 @@ public class DBManagerCharacters extends DBManager{
     }
     
     /**
-     * Asks the DDBB to create a new instance of Character
+     * Asks the DB to create a new instance of Character
      *
      * @param name Character name
      * @param isbn Book ISBN
      * @param role Character role
      * @return true if the insert was successful, false if not
      */
-    public static boolean insertBook(String name, String isbn, String role) {
+    public static boolean insertCharacter(String name, String isbn, String role) {
         try {
             //Get table Characters in ResultSet
             System.out.print("Adding new character " + name + "...");
@@ -92,7 +92,7 @@ public class DBManagerCharacters extends DBManager{
     }
 
     /**
-     * Asks the DDBB to modify an existent instance of Character
+     * Asks the DB to modify an existent instance of Character
      *
      * @param id Character ID
      * @param newName Character name
@@ -132,7 +132,7 @@ public class DBManagerCharacters extends DBManager{
     }
 
     /**
-     * Asks the DDBB to delete an existent instance of Character
+     * Asks the DB to delete an existent instance of Character
      *
      * @param id Deleted Character ID
      * @return true if the delete process was successful, false if not

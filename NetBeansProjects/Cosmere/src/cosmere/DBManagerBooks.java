@@ -8,7 +8,7 @@ import java.sql.*;
 public class DBManagerBooks extends DBManager{
     
     /**
-     * Asks the DDBB for the book with the ISBN on parameter
+     * Asks the DB for the book with the ISBN on parameter
      * @param isbn Book ISBN
      * @return ResultSet with the result null if error
      */
@@ -34,7 +34,7 @@ public class DBManagerBooks extends DBManager{
     }
 
     /**
-     * Checks if the book with the ISBN on parameter exists in the DDBB
+     * Checks if the book with the ISBN on parameter exists in the DB
      *
      * @param isbn Book ISBN
      * @return true if exists, false if not
@@ -60,7 +60,7 @@ public class DBManagerBooks extends DBManager{
     }
     
     /**
-     * Asks the DDBB to create a new instance of Book
+     * Asks the DB to create a new instance of Book
      *
      * @param isbn Book ISBN
      * @param title Book title
@@ -98,7 +98,7 @@ public class DBManagerBooks extends DBManager{
     }
 
     /**
-     * Asks the DDBB to modify an existent instance of Book
+     * Asks the DB to modify an existent instance of Book
      *
      * @param isbn Book ISBN
      * @param newTitle Book title
@@ -142,7 +142,7 @@ public class DBManagerBooks extends DBManager{
     }
 
     /**
-     * Asks the DDBB to delete an existent instance of Book
+     * Asks the DB to delete an existent instance of Book
      *
      * @param isbn Deleted book ISBN
      * @return true if the delete process was successful, false if not

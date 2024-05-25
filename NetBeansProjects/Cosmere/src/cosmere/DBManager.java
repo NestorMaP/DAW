@@ -62,13 +62,13 @@ public class DBManager {
     }
     
     /**
-     * Tries to connect with the DDBB
+     * Tries to connect with the DB
      *
      * @return true if the connection was successful, false if not
      */
     public static boolean connect() {
         try {
-            System.out.print("Connecting with DDBB...");
+            System.out.print("Connecting with DB...");
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             System.out.println("SUCCESS!");
             return true;
@@ -99,7 +99,7 @@ public class DBManager {
     }
     
     /**
-     * Ends connection with the DDBB
+     * Ends connection with the DB
      */
     public static void close() {
         try {
@@ -136,7 +136,7 @@ public class DBManager {
     }
     
     /**
-     * Gets the complete table from the DDBB as "Default"
+     * Gets the complete table from the DB as "Default"
      *
      * @param table Table to store in the ResultSet
      * @return ResultSet (default) of the table selected, null if error
