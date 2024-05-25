@@ -15,6 +15,11 @@ public class CosmereGUI extends javax.swing.JFrame {
     private ResultSet rsCharacters;
     private boolean currentCharacter;
     
+    //This variable is used to store if we are adding or updating when we press jbMBAccept or jbMCAccept
+    // true --> add
+    // false -> update
+    private boolean adding = true;
+    
     // Init Graphical Components
     public CosmereGUI() {
     initComponents();
@@ -114,7 +119,6 @@ public class CosmereGUI extends javax.swing.JFrame {
 
         jfModBooks.setTitle("Modificación Libros");
         jfModBooks.setLocation(new java.awt.Point(600, 400));
-        jfModBooks.setPreferredSize(new java.awt.Dimension(400, 530));
         jfModBooks.setSize(new java.awt.Dimension(400, 530));
 
         jlMBTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -320,8 +324,8 @@ public class CosmereGUI extends javax.swing.JFrame {
 
         jfModChars.setTitle("Modificación Personajes");
         jfModChars.setLocation(new java.awt.Point(600, 400));
-        jfModChars.setPreferredSize(new java.awt.Dimension(400, 400));
-        jfModChars.setSize(new java.awt.Dimension(410, 310));
+        jfModChars.setPreferredSize(new java.awt.Dimension(400, 500));
+        jfModChars.setSize(new java.awt.Dimension(410, 510));
 
         jlMCTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jlMCTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -441,7 +445,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlMCRoleDEF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbMCRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(jpMCPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbMCAccept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbMCBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -458,7 +462,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpMainCharsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlMCTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
+                    .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jpMainCharsLayout.setVerticalGroup(
@@ -467,7 +471,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jlMCTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -491,7 +495,6 @@ public class CosmereGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Cosmere Wiki");
         setLocation(new java.awt.Point(600, 400));
-        setPreferredSize(new java.awt.Dimension(1150, 550));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -963,6 +966,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         
         //Show add/modify book Window
         jfModBooks.setVisible(true);
+        adding = true; //To distinguish between add or update
         
     }//GEN-LAST:event_jbWBAddActionPerformed
 
@@ -993,6 +997,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 
                 //Show edit/modify Window
                 jfModBooks.setVisible(true);
+                adding = false; //To distinguish between add or update
                 
             } catch(SQLException sqlE) {
                 showWindowErrorSQL(sqlE);
@@ -1006,7 +1011,7 @@ public class CosmereGUI extends javax.swing.JFrame {
             showWindowNotice("No hay ningún libro seleccionado.\nPruebe a añadir un libro nuevo.");
         } else {
             //Window to ask for a second confirm
-            boolean accepted = showWindowAccept("¿Quiere eliminar el libro difinitivamente?");
+            boolean accepted = showWindowAccept("¿Quiere eliminar el libro definitivamente?");
             
             //After second confirmation the book is deleted
             if (accepted) {
@@ -1059,10 +1064,10 @@ public class CosmereGUI extends javax.swing.JFrame {
         jtfMCId.setText("##");
         jtfMCName.setText("");
         jftfMCIsbnBook.setText("");
-        jcbMCRole.getItemAt(3);
         
         //Show add/modify book Window
-        jfModBooks.setVisible(true);
+        jfModChars.setVisible(true);
+        adding = true; //To distinguish between add or update
     }//GEN-LAST:event_jbWCAddActionPerformed
 
     private void jbWCUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWCUpdateActionPerformed
@@ -1088,6 +1093,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 
                 //Show edit/modify Window
                 jfModChars.setVisible(true);
+                adding = false; //To distinguish between add or update
                 
             } catch(SQLException sqlE) {
                 showWindowErrorSQL(sqlE);
@@ -1101,7 +1107,7 @@ public class CosmereGUI extends javax.swing.JFrame {
             showWindowNotice("No hay ningún personaje seleccionado.\nPruebe a añadir un personaje nuevo.");
         } else {
             //Window to ask for a second confirm
-            boolean accepted = showWindowAccept("¿Quiere eliminar el libro difinitivamente?");
+            boolean accepted = showWindowAccept("¿Quiere eliminar el libro definitivamente?");
             
             //After second confirmation the book is deleted
             if (accepted) {
@@ -1130,11 +1136,17 @@ public class CosmereGUI extends javax.swing.JFrame {
         String isbn = jftfMBIsbn.getText();
         String title = jtfMBTitle.getText();
         int pubYear = Integer.parseInt(jftfMBPublicationYear.getText());
-        int pages = Integer.parseInt(jtfMBSeries.getText());
+        int pages = Integer.parseInt(jftfMBPages.getText());
         String series =jtfMBSeries.getText();
         boolean read = jrbMBReadYes.isSelected();
         
-        DBManagerBooks.updateBook(isbn, title, pubYear, pages, series, read);
+        //Depending if we are adding or updating
+        if(adding) {
+            DBManagerBooks.insertBook(isbn, title, pubYear, pages, series, read);
+        } else {
+            DBManagerBooks.updateBook(isbn, title, pubYear, pages, series, read);
+        }
+        
         
         //Hide add/modify Book window and show main window
         jfModBooks.setVisible(false);
@@ -1142,7 +1154,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         
         //Update and show last Book
         initialize();
-        showLastBook();        
+        showFirstBook();        
     }//GEN-LAST:event_jbMBAcceptActionPerformed
 
     private void jbMBBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMBBackActionPerformed
@@ -1165,12 +1177,19 @@ public class CosmereGUI extends javax.swing.JFrame {
     
     private void jbMCAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCAcceptActionPerformed
         //Store the new Character in the DB
-        int id = Integer.parseInt(jtfMCId.getText());
-        String name = jtfMCName.getText();
+                String name = jtfMCName.getText();
         String isbn = jftfMCIsbnBook.getText();
         String role = String.valueOf(jcbMCRole.getSelectedItem());
         
-        DBManagerCharacters.updateCharacter(id,name, isbn, role);
+        //Depending if we are adding or updating
+        if(adding) {
+            DBManagerCharacters.insertCharacter(name, isbn, role);
+        } else {
+            int id = Integer.parseInt(jtfMCId.getText());
+            DBManagerCharacters.updateCharacter(id, name, isbn, role);
+        }
+        
+        
         
         //Hide add/modify Character window and show main window
         jfModChars.setVisible(false);
@@ -1178,7 +1197,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         
         //Update and show last Character
         initialize();
-        showLastCharacter();        
+        showFirstCharacter();        
     }//GEN-LAST:event_jbMCAcceptActionPerformed
 
     private void jbMCBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCBackActionPerformed
@@ -1266,8 +1285,9 @@ public class CosmereGUI extends javax.swing.JFrame {
             ResultSet trsb = DBManager.getTable(DBManager.DB_LIB);
 
             //Iterate the ResultSet adding rows
-            String isbn,tit,ser,read;
+            String isbn,tit,ser;
             int pub,pag;
+            boolean read;
 
             while(trsb.next()) {
                 isbn = trsb.getString(DBManager.DB_LIB_ISBN);
@@ -1275,7 +1295,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 pub = trsb.getInt(DBManager.DB_LIB_PUB);
                 pag = trsb.getInt(DBManager.DB_LIB_PAG);
                 ser = trsb.getString(DBManager.DB_LIB_SER);
-                read = trsb.getString(DBManager.DB_LIB_READ);
+                read = trsb.getBoolean(DBManager.DB_LIB_READ);
                 
                 //Add row
                 bookModel.addRow(new Object[]{isbn,tit,pub,pag,ser,read});

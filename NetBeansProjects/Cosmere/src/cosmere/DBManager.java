@@ -32,7 +32,7 @@ public class DBManager {
     
     //Management table "personajes"
     protected static final String DB_PER = "personajes";
-    protected static final String DB_PER_SELECT = "SELECT * FROM " + DB_LIB;
+    protected static final String DB_PER_SELECT = "SELECT * FROM " + DB_PER;
     protected static final String DB_PER_ID = "id";
     protected static final String DB_PER_NAME = "nombre";
     protected static final String DB_PER_LIB_ISBN = "libro_isbn";
