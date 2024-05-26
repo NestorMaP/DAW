@@ -65,7 +65,7 @@
             <Component class="javax.swing.JLabel" name="jlMBTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="48" style="1"/>
+                  <Font name="Pristina" size="48" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="LIBRO"/>
@@ -350,6 +350,9 @@
         <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
           <Point value="[600, 400]"/>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[400, 500]"/>
+        </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[410, 510]"/>
         </Property>
@@ -397,7 +400,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jlMCTitle" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jpMCPanelMain" pref="382" max="32767" attributes="0"/>
+                      <Component id="jpMCPanelMain" pref="395" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -407,7 +410,7 @@
             <Component class="javax.swing.JLabel" name="jlMCTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="48" style="1"/>
+                  <Font name="Pristina" size="48" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="PERSONAJE"/>

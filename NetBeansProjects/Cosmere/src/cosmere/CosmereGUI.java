@@ -125,7 +125,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         jfModBooks.setLocation(new java.awt.Point(600, 400));
         jfModBooks.setSize(new java.awt.Dimension(400, 530));
 
-        jlMBTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jlMBTitle.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         jlMBTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlMBTitle.setText("LIBRO");
         jlMBTitle.setToolTipText("");
@@ -328,9 +328,10 @@ public class CosmereGUI extends javax.swing.JFrame {
 
         jfModChars.setTitle("Modificación Personajes");
         jfModChars.setLocation(new java.awt.Point(600, 400));
+        jfModChars.setPreferredSize(new java.awt.Dimension(400, 500));
         jfModChars.setSize(new java.awt.Dimension(410, 510));
 
-        jlMCTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jlMCTitle.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         jlMCTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlMCTitle.setText("PERSONAJE");
         jlMCTitle.setToolTipText("");
@@ -474,7 +475,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jlMCTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                .addComponent(jpMCPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -922,7 +923,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addGroup(jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jspTableChar, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpCharLayout.createSequentialGroup()
-                        .addComponent(jpWCPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jpJWCSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
