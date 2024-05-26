@@ -1,5 +1,6 @@
 package cosmere;
 
+import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ public class CosmereGUI extends javax.swing.JFrame {
     // Init Graphical Components
     public CosmereGUI() {
     initComponents();
-
+    this.setIcon();
     
     //Loading Driver and Connection to DB
     DBManager.loadDriver();
@@ -86,6 +87,7 @@ public class CosmereGUI extends javax.swing.JFrame {
         jspTableBooks = new javax.swing.JScrollPane();
         jtableWB = new javax.swing.JTable();
         jpWBPicture = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jpWBSelection = new javax.swing.JPanel();
         jlWBSelDEF = new javax.swing.JLabel();
         jlWBBookSelected = new javax.swing.JLabel();
@@ -99,11 +101,13 @@ public class CosmereGUI extends javax.swing.JFrame {
         jpFilters = new javax.swing.JPanel();
         jlWBFilterDEF = new javax.swing.JLabel();
         jbWBFilter = new javax.swing.JButton();
-        jcbWBFilterTitle = new javax.swing.JCheckBox();
         jcbWBFilterRead = new javax.swing.JCheckBox();
-        jtfWBFilterTitle = new javax.swing.JTextField();
+        jtfWBFilter = new javax.swing.JTextField();
+        jcfWBFilter = new javax.swing.JComboBox<>();
+        jbWBUnfilter = new javax.swing.JButton();
         jpChar = new javax.swing.JPanel();
         jpWCPicture = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jpJWCSelection = new javax.swing.JPanel();
         jlWCSelCharDEF = new javax.swing.JLabel();
         jlWCCharSelected = new javax.swing.JLabel();
@@ -324,7 +328,6 @@ public class CosmereGUI extends javax.swing.JFrame {
 
         jfModChars.setTitle("Modificación Personajes");
         jfModChars.setLocation(new java.awt.Point(600, 400));
-        jfModChars.setPreferredSize(new java.awt.Dimension(400, 500));
         jfModChars.setSize(new java.awt.Dimension(410, 510));
 
         jlMCTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -495,6 +498,8 @@ public class CosmereGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Cosmere Wiki");
         setLocation(new java.awt.Point(600, 400));
+        setName("frameMain"); // NOI18N
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -520,15 +525,23 @@ public class CosmereGUI extends javax.swing.JFrame {
         jtableWB.setPreferredSize(new java.awt.Dimension(700, 450));
         jspTableBooks.setViewportView(jtableWB);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout jpWBPictureLayout = new javax.swing.GroupLayout(jpWBPicture);
         jpWBPicture.setLayout(jpWBPictureLayout);
         jpWBPictureLayout.setHorizontalGroup(
             jpWBPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(jpWBPictureLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jpWBPictureLayout.setVerticalGroup(
             jpWBPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpWBPictureLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jlWBSelDEF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -618,7 +631,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                         .addComponent(jbWBNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbWBLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpWBSelectionLayout.setVerticalGroup(
             jpWBSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,54 +665,67 @@ public class CosmereGUI extends javax.swing.JFrame {
             }
         });
 
-        jcbWBFilterTitle.setText("Título:");
-        jcbWBFilterTitle.setPreferredSize(new java.awt.Dimension(70, 25));
-
         jcbWBFilterRead.setText("Leído");
         jcbWBFilterRead.setPreferredSize(new java.awt.Dimension(72, 22));
 
-        jtfWBFilterTitle.setPreferredSize(new java.awt.Dimension(64, 25));
+        jtfWBFilter.setPreferredSize(new java.awt.Dimension(64, 25));
+
+        jcfWBFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ISBN", "Título", "Año de Publicación", "Páginas", "Saga" }));
+
+        jbWBUnfilter.setText("Revertir");
+        jbWBUnfilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbWBUnfilterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpFiltersLayout = new javax.swing.GroupLayout(jpFilters);
         jpFilters.setLayout(jpFiltersLayout);
         jpFiltersLayout.setHorizontalGroup(
             jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpFiltersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jcbWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFiltersLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcbWBFilterRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFiltersLayout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
                 .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpFiltersLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jlWBFilterDEF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(117, 117, 117))
-                    .addGroup(jpFiltersLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jtfWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jpFiltersLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpFiltersLayout.createSequentialGroup()
-                        .addComponent(jcbWBFilterRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jpFiltersLayout.createSequentialGroup()
-                        .addComponent(jbWBFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(148, 148, 148))))
+                        .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpFiltersLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jlWBFilterDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jpFiltersLayout.createSequentialGroup()
+                                .addComponent(jbWBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbWBUnfilter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jpFiltersLayout.createSequentialGroup()
+                            .addComponent(jtfWBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFiltersLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jcfWBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(24, 24, 24)))))
         );
         jpFiltersLayout.setVerticalGroup(
             jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpFiltersLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jlWBFilterDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfWBFilterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtfWBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcfWBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbWBFilterRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbWBFilter)
-                .addGap(9, 9, 9))
+                .addGroup(jpFiltersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbWBFilter)
+                    .addComponent(jbWBUnfilter))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpBooksLayout = new javax.swing.GroupLayout(jpBooks);
@@ -709,11 +735,12 @@ public class CosmereGUI extends javax.swing.JFrame {
             .addGroup(jpBooksLayout.createSequentialGroup()
                 .addGroup(jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBooksLayout.createSequentialGroup()
-                        .addComponent(jpWBPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpWBPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jpWBSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jpWBSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jpFilters, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jpFilters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
                     .addGroup(jpBooksLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jspTableBooks)))
@@ -725,26 +752,31 @@ public class CosmereGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpWBSelection, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBooksLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jpFilters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jpWBPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpWBPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpFilters, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jspTableBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addComponent(jspTableBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jtpMain.addTab("Libros", jpBooks);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/charDesign.jpg"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(375, 240));
+
         javax.swing.GroupLayout jpWCPictureLayout = new javax.swing.GroupLayout(jpWCPicture);
         jpWCPicture.setLayout(jpWCPictureLayout);
         jpWCPictureLayout.setHorizontalGroup(
             jpWCPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpWCPictureLayout.setVerticalGroup(
             jpWCPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpWCPictureLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(77, 77, 77))
         );
 
         jlWCSelCharDEF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -834,7 +866,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                         .addComponent(jbWCNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbWCLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpJWCSelectionLayout.setVerticalGroup(
             jpJWCSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -880,17 +912,17 @@ public class CosmereGUI extends javax.swing.JFrame {
                     .addComponent(jpJWCSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jspTableChar, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+                .addComponent(jspTableChar, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpCharLayout.setVerticalGroup(
             jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCharLayout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addGroup(jpCharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jspTableChar, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpCharLayout.createSequentialGroup()
-                        .addComponent(jpWCPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jpWCPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jpJWCSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -904,14 +936,14 @@ public class CosmereGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1179, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                .addComponent(jtpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1033,9 +1065,61 @@ public class CosmereGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jbWBDeleteActionPerformed
 
     private void jbWBFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBFilterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbWBFilterActionPerformed
+        // Set Book Model
+        DefaultTableModel filteredBookModel = new DefaultTableModel(new String[]{"ISBN","Título","Año de publicación","Páginas","Saga","Leído"}, 0);
+        jtableWB.setModel(filteredBookModel);
+        
+        //Store variables needed
+        String query = getFilterQuery();
+        
+        //Get desired ResultSet for filtering purposes (Table ResultSet Books Filtered)
+        ResultSet trsbf = DBManager.getTable(DBManager.DB_LIB + query);
 
+        updateBookTable(filteredBookModel, trsbf);
+            
+            
+    }//GEN-LAST:event_jbWBFilterActionPerformed
+    
+    private String getFilterQuery() {
+        String query = " WHERE ";
+        String textField = jtfWBFilter.getText();
+        
+        //Check if the checbox Leído is selected and adds the needed order to query
+        if(jcbWBFilterRead.isSelected()) {
+            query += DBManager.DB_LIB_READ + " = true";
+        } else {
+            query += DBManager.DB_LIB_READ + " = false";
+        }
+        
+        //Check if the user has written anything on the textField and updates the String if so
+        if(textField.equals("")) {
+            return query;
+        } else {
+            query += " AND ";
+        }
+        
+        //Adds to the query the info from the text and combobox
+        String comboBoxValue = jcfWBFilter.getSelectedItem().toString();
+        //ISBN
+        if (comboBoxValue.equalsIgnoreCase(DBManager.DB_LIB_ISBN)) {
+            query += DBManager.DB_LIB_ISBN + " LIKE '%" + textField + "%'";
+        //Title
+        } else if (comboBoxValue.contains("tulo")) {
+            query += DBManager.DB_LIB_TIT + " LIKE '%" + textField + "%'";
+        //Publication Year
+        } else if (comboBoxValue.contains("blicac")) { //
+            query += DBManager.DB_LIB_PUB + " = " + textField;
+        //Page number
+        } else if (comboBoxValue.contains("ginas")) { //
+            query += DBManager.DB_LIB_PAG + " = " + textField;
+        //Series
+        } else if (comboBoxValue.equalsIgnoreCase(DBManager.DB_LIB_SER)) { //
+            query += DBManager.DB_LIB_SER + " LIKE '%" + textField + "%'";
+        }
+        
+        return query;
+    }
+                                             
     
     
     //ACTION PERFORMED FOR CHARACTER WINDOW
@@ -1177,7 +1261,7 @@ public class CosmereGUI extends javax.swing.JFrame {
     
     private void jbMCAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMCAcceptActionPerformed
         //Store the new Character in the DB
-                String name = jtfMCName.getText();
+        String name = jtfMCName.getText();
         String isbn = jftfMCIsbnBook.getText();
         String role = String.valueOf(jcbMCRole.getSelectedItem());
         
@@ -1212,6 +1296,15 @@ public class CosmereGUI extends javax.swing.JFrame {
         jftfMCIsbnBook.setText("");
         jcbMCRole.getItemAt(3);
     }//GEN-LAST:event_jbMCClearActionPerformed
+
+    
+    // BUTTON FOR UNFILTER ADDED LATER
+    
+    private void jbWBUnfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbWBUnfilterActionPerformed
+        jtfWBFilter.setText("");
+        initialize();
+        showCurrentData();
+    }//GEN-LAST:event_jbWBUnfilterActionPerformed
     
     
     /////////////////
@@ -1277,33 +1370,15 @@ public class CosmereGUI extends javax.swing.JFrame {
         //BOOKS
         
         //Set Model
-        try{
+        
             DefaultTableModel bookModel = new DefaultTableModel(new String[]{"ISBN","Título","Año de publicación","Páginas","Saga","Leído"}, 0);
             jtableWB.setModel(bookModel);
 
             //Get another ResultSet for viewing purposes (Table ResultSet Books)
             ResultSet trsb = DBManager.getTable(DBManager.DB_LIB);
 
-            //Iterate the ResultSet adding rows
-            String isbn,tit,ser;
-            int pub,pag;
-            boolean read;
-
-            while(trsb.next()) {
-                isbn = trsb.getString(DBManager.DB_LIB_ISBN);
-                tit = trsb.getString(DBManager.DB_LIB_TIT);
-                pub = trsb.getInt(DBManager.DB_LIB_PUB);
-                pag = trsb.getInt(DBManager.DB_LIB_PAG);
-                ser = trsb.getString(DBManager.DB_LIB_SER);
-                read = trsb.getBoolean(DBManager.DB_LIB_READ);
-                
-                //Add row
-                bookModel.addRow(new Object[]{isbn,tit,pub,pag,ser,read});
-            }
+            updateBookTable(bookModel, trsb);
             
-        } catch (SQLException sqlE) {
-            showWindowErrorSQL(sqlE);
-        }
 
         //CHARACTERS
         
@@ -1333,6 +1408,34 @@ public class CosmereGUI extends javax.swing.JFrame {
             showWindowErrorSQL(sqlE);
         }
         
+    }
+    
+    /**
+     * 
+     * @param bookModel Default Table Model for Books table
+     * @param trsb Result Set for table Books
+     */
+    private void updateBookTable(DefaultTableModel bookModel, ResultSet trsb) {
+            
+            String isbn,tit,ser;
+            int pub,pag;
+            boolean read;
+            
+            try {
+                while(trsb.next()) {
+                    isbn = trsb.getString(DBManager.DB_LIB_ISBN);
+                    tit = trsb.getString(DBManager.DB_LIB_TIT);
+                    pub = trsb.getInt(DBManager.DB_LIB_PUB);
+                    pag = trsb.getInt(DBManager.DB_LIB_PAG);
+                    ser = trsb.getString(DBManager.DB_LIB_SER);
+                    read = trsb.getBoolean(DBManager.DB_LIB_READ);
+
+                    //Add row
+                    bookModel.addRow(new Object[]{isbn,tit,pub,pag,ser,read});
+                }
+            } catch (SQLException sqlE) {
+                showWindowErrorSQL(sqlE);
+            }
     }
     
     
@@ -1505,6 +1608,16 @@ public class CosmereGUI extends javax.swing.JFrame {
         return (result == 0);
     }
     
+    /**
+     * Sets the icon for the main window
+     */
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(("src/assets/appIcon.png")));
+    }
+    
+    //////////
+    // MAIN //
+    //////////
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1539,6 +1652,8 @@ public class CosmereGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup gbBookReadYesNo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbMBAccept;
     private javax.swing.JButton jbMBBack;
     private javax.swing.JButton jbMBClear;
@@ -1552,6 +1667,7 @@ public class CosmereGUI extends javax.swing.JFrame {
     private javax.swing.JButton jbWBLast;
     private javax.swing.JButton jbWBNext;
     private javax.swing.JButton jbWBPrevious;
+    private javax.swing.JButton jbWBUnfilter;
     private javax.swing.JButton jbWBUpdate;
     private javax.swing.JButton jbWCAdd;
     private javax.swing.JButton jbWCDelete;
@@ -1562,7 +1678,7 @@ public class CosmereGUI extends javax.swing.JFrame {
     private javax.swing.JButton jbWCUpdate;
     private javax.swing.JComboBox<String> jcbMCRole;
     private javax.swing.JCheckBox jcbWBFilterRead;
-    private javax.swing.JCheckBox jcbWBFilterTitle;
+    private javax.swing.JComboBox<String> jcfWBFilter;
     private javax.swing.JFrame jfModBooks;
     private javax.swing.JFrame jfModChars;
     private javax.swing.JFormattedTextField jftfMBIsbn;
@@ -1607,7 +1723,7 @@ public class CosmereGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jtfMBTitle;
     private javax.swing.JTextField jtfMCId;
     private javax.swing.JTextField jtfMCName;
-    private javax.swing.JTextField jtfWBFilterTitle;
+    private javax.swing.JTextField jtfWBFilter;
     private javax.swing.JTabbedPane jtpMain;
     // End of variables declaration//GEN-END:variables
 }

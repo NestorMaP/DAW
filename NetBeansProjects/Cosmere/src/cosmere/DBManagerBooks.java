@@ -92,6 +92,7 @@ public class DBManagerBooks extends DBManager{
             return true;
 
         } catch (SQLException sqlE) {
+            System.out.println("FAIL!");
             sqlE.printStackTrace();
             return false;
         }

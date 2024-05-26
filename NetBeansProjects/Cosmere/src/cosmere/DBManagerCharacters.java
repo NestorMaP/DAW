@@ -86,7 +86,8 @@ public class DBManagerCharacters extends DBManager{
             return true;
 
         } catch (SQLException sqlE) {
-            sqlE.printStackTrace();
+            System.out.println("FAIL!");
+            System.err.println("ERROR: " + sqlE + "\n¿Existe el ISBN?");
             return false;
         }
     }
