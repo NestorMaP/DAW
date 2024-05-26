@@ -78,25 +78,6 @@ public class DBManager {
         }
     }
     
-    /**
-     * Checks the connection and prints the result
-     *
-     * @return true if the connection Exists and is Valid, false if not
-     */
-    public static boolean isConnected() {
-        try {
-            if (conn != null && conn.isValid(0)) {
-                System.out.println(DB_MSQ_CONN_SUCCESS);
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException sqlE) {
-            System.out.println(DB_MSQ_CONN_ERROR);
-            sqlE.printStackTrace();
-            return false;
-        }
-    }
     
     /**
      * Ends connection with the DB

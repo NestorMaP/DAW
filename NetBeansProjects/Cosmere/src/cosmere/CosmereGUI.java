@@ -1017,7 +1017,7 @@ public class CosmereGUI extends javax.swing.JFrame {
                 int pubYear = rsBooks.getInt(DBManager.DB_LIB_PUB);
                 jftfMBPublicationYear.setText("" + pubYear);
                 int pages = rsBooks.getInt(DBManager.DB_LIB_PAG);
-                jtfMBSeries.setText("" + pages);
+                jftfMBPages.setText("" + pages);
                 String series = rsBooks.getString(DBManager.DB_LIB_SER);
                 jtfMBSeries.setText(series);
                 boolean read = rsBooks.getBoolean(DBManager.DB_LIB_READ);
