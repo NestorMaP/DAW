@@ -78,7 +78,6 @@ public class DBManager {
         }
     }
     
-    
     /**
      * Ends connection with the DB
      */
@@ -126,23 +125,5 @@ public class DBManager {
         return getTable(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY, table);
     }
 
-    /**
-     * @param table Table print
-     * Prints the selected table content
-     */
-    public static void printTableLibros() {
-        try {
-            ResultSet rs = getTable(DB_LIB);
-            while (rs.next()) {
-                int id = rs.getInt(DB_LIB_ISBN);
-                String t = rs.getString(DB_LIB_TIT);
-                int y = rs.getInt(DB_LIB_PUB);
-                System.out.println(id + "\t" + t + "\t" + y);
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
         
 }
