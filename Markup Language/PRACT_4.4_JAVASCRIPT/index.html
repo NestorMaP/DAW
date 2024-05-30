@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionari Pràctica 4.4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1 class="text-header">REGISTRO</h1>
+    </div>
+    <div class="main-container">
+        <div class="alert" id="alertUserEmpty"><p>El usuario no puede estar vacío.</p></div>
+        <div class="alert" id="alertUserLower"><p>El usuario debe estar en minúsculas.</p></div>
+        <div class="alert" id="alertEmail"><p>Introduce un email válido.</p></div>
+        <div class="alert" id="alertPassShort"><p>La contraseña debe tener al menos 8 caracteres.</p></div>
+        <div class="alert" id="alertPassCaps"><p>La contraseña debe tener al menos una mayúscula y una minúscula.</p></div>
+        <div class="alert" id="alertPassSymbol"><p>La contraseña debe tener al menos un símbolo (&-%-$-#-@-€-.).</p></div>
+        <div class="alert" id="alertPassMatch"><p>Las contraseñas no coinciden.</p></div>
+        <div class="success"><p>¡Registrado!</p></div>
+        <form id="form">
+            <label>Usuario</label>
+            <input type="text" id="usuari"><br>
+            <label>Email</label>
+            <input type="text" id="email"><br>
+            <label>Contraseña</label>
+            <input type="password" id="pass"><br>
+            <label>Repite Contraseña</label>
+            <input type="password" id="validatePass"><br>
+            <button id="showPass">Mostrar Contraseña</button>
+            <input class="enviar" type="submit" id="submit" value="Enviar">
+        </form>
+
+    </div>
+   
+    <script src="javascript.js"></script>
+</body>
+</html>
