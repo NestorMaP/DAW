@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Editor Pràctica 4.5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1 class="text-header">WEB EDITOR</h1>
+    </div>
+    <div class="main-container">
+
+        <div class="dynamicElement"></div>
+       
+        <form id="form">
+            
+            <label for="heightSlider" id="alturaLabel">Altura: 50px</label>
+            <input type="range" min="30" max="100" value="50" id="heightSlider"> <br>
+            
+            <label for="widthSlider" id="anchuraLabel">Ancho: 100%</label>
+            <input type="range" min="30" max="100" value="100" id="widthSlider"> <br>
+
+            <label for="borderSlider" id="borderLabel">Border Radius: 10px</label>
+            <input type="range" min="0" max="30" value="10" id="borderSlider"> <br>
+
+            <label for="colorSelector">Color:</label>
+            <select id="colorSelector">
+                <option value="opcion1">Rojo</option>
+                <option value="opcion2">Verde</option>
+                <option value="opcion3">Azul</option>
+            </select> <br>
+        
+            <label for="borderSelector">Borde:</label>
+            <select id="borderSelector">
+                <option value="opcion1">Sí</option>
+                <option value="opcion2">No</option>
+            </select>
+        
+            
+        </form>
+
+        <div class="centered-flex">
+            <button class="enviar">Enviar</button>
+        </div>
+
+
+    </div>
+   
+    <script src="javascript.js"></script>
+</body>
+</html>
