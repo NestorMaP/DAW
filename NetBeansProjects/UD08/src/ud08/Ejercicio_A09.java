@@ -20,7 +20,7 @@ public class Ejercicio_A09 {
             System.out.print("Introduce el numerador: ");
             A = in.nextInt();
             
-            System.out.print("Intdocue el denominador: ");
+            System.out.print("Introduce el denominador: ");
             B = in.nextInt();
             
             result = A/B;
