@@ -1,0 +1,349 @@
+	Workshop 3A. Ej 1:
+
+CREATE TABLE peliculas(
+  cod_pel INTEGER CHECK(cod_pel>0),
+  nombre VARCHAR(50) NOT NULL,
+  director VARCHAR(50),
+  anyo DATE,
+  genero VARCHAR(10) CHECK (genero IN ('suspense','accion','terror','comedia','drama','cienciafic')),
+  visionada VARCHAR(2) CHECK (visionada IN ('si','no')),
+  CONSTRAINT pel_cod_pk PRIMARY KEY (cod_pel)
+);
+
+
+
+	Workshop A. Ej 2:
+
+DROP TABLE IF EXISTS pais;
+CREATE TABLE pais(
+  nombre_p VARCHAR(30),
+  bandera VARCHAR(70),
+  renta FLOAT,
+  CONSTRAINT pai_nom_pk PRIMARY KEY(nombre_p)
+);
+
+DROP TABLE IF EXISTS ciudad;
+CREATE TABLE ciudad(
+  nombre_c VARCHAR(40),
+  habitantes INTEGER,
+  nombre_p VARCHAR(30),
+  CONSTRAINT ciu_nom_pk PRIMARY KEY (nombre_c, nombre_p),
+  CONSTRAINT ciu_nom_fk FOREIGN KEY (nombre_p) REFERENCES pais(nombre_p)
+);
+
+
+
+	Workshop A. Ej 3:
+
+DROP TABLE IF EXISTS recurso;
+DROP TABLE IF EXISTS pleito;
+
+CREATE TABLE pleito(
+  cod_pleito INTEGER,
+  resultado VARCHAR(10) CHECK (resultado IN
+  ('culpable','inocente','sobreseido')),
+  CONSTRAINT ple_cod_pk PRIMARY KEY (cod_pleito)
+);
+
+CREATE TABLE recurso(
+  cod_rec INTEGER,
+  fecha DATE,
+  cod_pleito INTEGER,
+  CONSTRAINT rec_cod_pk PRIMARY KEY(cod_rec),
+  CONSTRAINT rec_cod_fk FOREIGN KEY(cod_pleito) REFERENCES pleito(cod_pleito)
+);
+
+
+
+	Workshop A. Ej 4:
+
+DROP TABLE IF EXISTS venta;
+DROP TABLE IF EXISTS coche;
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS empleado;
+
+CREATE TABLE empleado (
+  cod_emp INTEGER,
+  telf VARCHAR(9),
+  constraint emp_cod_pk PRIMARY KEY (cod_emp)
+);
+
+CREATE TABLE cliente (
+  dni VARCHAR(9),
+  nombre VARCHAR(30),
+  apellidos VARCHAR(60),
+  CONSTRAINT cli_dni_pk PRIMARY KEY (dni)
+);
+
+CREATE TABLE coche (
+  n_bastidor VARCHAR(17),
+  marca VARCHAR(20),
+  modelo VARCHAR(15),
+  color VARCHAR(8) 
+  CONSTRAINT coc_col_ck CHECK (color IN 
+  ('rojo','blanco','azul','negro','plata','gris','amarillo','verde')),
+  matricula VARCHAR(7) NOT NULL,
+  CONSTRAINT coc_nba_pk PRIMARY KEY (n_bastidor)
+);
+
+CREATE TABLE venta (
+  cod_emp INTEGER NOT NULL,
+  dni VARCHAR(9),
+  n_bastidor VARCHAR(17),
+  fecha DATE NOT NULL,
+  precio INTEGER NOT NULL,
+  CONSTRAINT ven_nba_pk PRIMARY KEY (n_bastidor, dni),
+  CONSTRAINT ven_nba_fk FOREIGN KEY (n_bastidor) REFERENCES coche(n_bastidor),
+  CONSTRAINT ven_cod_fk FOREIGN KEY (cod_emp) REFERENCES empleado(cod_emp),
+  CONSTRAINT ven_dni_fk FOREIGN KEY (dni) REFERENCES cliente(dni),
+  CONSTRAINT ven_pre_ck CHECK (PRECIO>0)
+);
+
+
+
+	Workshop A. Ej 5:
+
+ALTER TABLE pleito ADD juez VARCHAR(50);
+
+
+
+	Workshop A. Ej 6:
+
+ALTER TABLE empleado ADD nombre VARCHAR(50);
+
+
+
+	Workshop A. Ej 7:
+
+ALTER TABLE venta MODIFY precio FLOAT;
+
+
+
+	Workshop A. Ej 8:
+
+ALTER TABLE peliculas DROP director;
+
+
+
+	Workshop A. Ej 9:
+
+DROP TABLE peliculas;
+
+
+
+	Workshop A. Ej 10:
+
+ALTER TABLE ciudad ADD CONSTRAINT ciu_hab_ck CHECK (habitantes>0);
+
+
+
+	Workshop A. Ej 11.1:
+
+DROP TABLE IF EXISTS escala;
+DROP TABLE IF EXISTS picos;
+DROP TABLE IF EXISTS telefonos;
+DROP TABLE IF EXISTS alpinistas;
+DROP TABLE IF EXISTS asociacion;
+
+CREATE TABLE asociacion (
+  codigo VARCHAR(4),
+  nombre VARCHAR(30),
+  ubicacion VARCHAR(30),
+  CONSTRAINT aso_cod_pk PRIMARY KEY (codigo)
+);
+
+CREATE TABLE alpinistas (
+  nif VARCHAR(9),
+  nombre VARCHAR(30),
+  fecha_nacimiento DATE,
+  codigo VARCHAR(4),
+  fecha_ingreso DATE,
+  CONSTRAINT alp_nif_pk PRIMARY KEY (nif),
+  CONSTRAINT alp_cod_fk FOREIGN KEY (codigo) REFERENCES asociacion(codigo)
+);
+
+CREATE TABLE telefonos (
+  nif VARCHAR(9),
+  telefono VARCHAR(9),
+  CONSTRAINT tel_nif_pk PRIMARY KEY (nif, telefono),
+  CONSTRAINT tel_nif_fk FOREIGN KEY (nif) REFERENCES alpinistas(nif)
+);
+
+CREATE TABLE picos (
+  nombre VARCHAR(30),
+  altura INTEGER,
+  coordenadas VARCHAR(10),
+  pais VARCHAR(20),
+  CONSTRAINT pic_nom_pk PRIMARY KEY (nombre)
+);
+
+CREATE TABLE escala (
+  nif VARCHAR(9),
+  nombre VARCHAR(30),
+  fecha_inicio DATE,
+  tiempo VARCHAR(10),
+  oxigeno DECIMAL(3,2),
+  cara VARCHAR (20),
+  CONSTRAINT esc_nif_pk PRIMARY KEY (nif, nombre),
+  CONSTRAINT esc_nif_fk FOREIGN KEY (nif) REFERENCES alpinistas(nif),
+  CONSTRAINT esc_nom_fk FOREIGN KEY (nombre) REFERENCES picos(nombre)
+);
+
+
+
+	Workshop A. Ej 11.2:
+
+NO PROCEDE
+
+
+
+	Workshop A. Ej 11.3:
+
+ALTER TABLE picos ADD observaciones VARCHAR(100);
+
+
+
+	Workshop A. Ej 11.4:
+
+ALTER TABLE asociacion MODIFY codigo VARCHAR(5);
+
+
+
+	Workshop A. Ej 11.5:
+
+ALTER TABLE alpinistas ADD ruta_foto VARCHAR(1024);
+--Aquí añadimos una ruta para la foto ya que no es recomendable
+guardar archivos multimedia en una BBDD;
+
+
+
+	Workshop A. Ej 11.6:
+
+ALTER TABLE alpinistas MODIFY fecha_ingreso TIMESTAMP;
+
+
+
+	Workshop A. Ej 11.7:
+
+ALTER TABLE picos ADD CONSTRAINT pic_coo_uk UNIQUE (coordenadas);
+
+
+
+	Workshop A. Ej 11.8:
+
+ALTER TABLE telefonos DROP CONSTRAINT tel_nif_fk;
+
+ALTER TABLE telefonos ADD CONSTRAINT tel_nif_fk FOREIGN KEY (nif) 
+REFERENCES alpinistas(nif) ON DELETE CASCADE;
+
+
+
+	Workshop A. Ej 11.9:
+
+ALTER TABLE alpinistas DROP CONSTRAINT alp_cod_fk;
+
+ALTER TABLE alpinistas ADD CONSTRAINT alp_cod_fk FOREIGN KEY (codigo)
+REFERENCES asociacion(codigo) ON DELETE CASCADE;
+
+
+
+	Workshop A. Ej 12:
+
+DROP TABLE IF EXISTS vendedores;
+DROP TABLE IF EXISTS sucursales;
+DROP TABLE IF EXISTS lineas_factura;
+DROP TABLE IF EXISTS grupos;
+DROP TABLE IF EXISTS facturas;
+DROP TABLE IF EXISTS clientes;
+DROP TABLE IF EXISTS articulos;
+
+CREATE TABLE articulos (
+  id_art INTEGER,
+  nombre VARCHAR(30) DEFAULT '',
+  precio FLOAT default 0.0,
+  codigo VARCHAR(7),
+  id_gru INTEGER DEFAULT 0 NOT NULL,
+  CONSTRAINT art_id_pk PRIMARY KEY (id_art)
+);
+
+CREATE TABLE clientes (
+  id_cli INTEGER NOT NULL,
+  nombre VARCHAR(60) DEFAULT '' NOT NULL,
+  direccion VARCHAR(80) DEFAULT '',
+  CONSTRAINT cli_idc_pk PRIMARY KEY (id_cli)
+);
+
+CREATE TABLE facturas (
+  id_fac INTEGER NOT NULL,
+  serie VARCHAR(1) DEFAULT '' NOT NULL,
+  numero INTEGER DEFAULT 0 NOT NULL,
+  fecha DATE,
+  id_cli INTEGER default 0 NOT NULL,
+  id_ven INTEGER NOT NULL,
+  CONSTRAINT fac_idf_pk PRIMARY KEY (ID_FAC)
+);
+
+CREATE TABLE grupos (
+  id_gru INTEGER,
+  descripcion VARCHAR(15) DEFAULT '' NOT NULL,
+  CONSTRAINT gru_idg_pk PRIMARY KEY (id_gru)
+);
+
+CREATE TABLE lineas_factura (
+  id_lin INTEGER NOT NULL,
+  id_fac INTEGER DEFAULT 0 NOT NULL,
+  importe FLOAT DEFAULT 0 NOT NULL,
+  id_art INTEGER NOT NULL,
+  cantidad INTEGER NOT NULL,
+  fecha DATE,
+  id_suc INTEGER DEFAULT 0 NOT NULL,
+  CONSTRAINT lin_pk PRIMARY KEY (id_lin, id_fac)
+);
+
+CREATE TABLE sucursales (
+  id_suc INTEGER NOT NULL,
+  descripcion VARCHAR(15) DEFAULT '' NOT NULL,
+  CONSTRAINT suc_ids_pk PRIMARY KEY (id_suc)
+);
+
+CREATE TABLE vendedores (
+  id_ven INTEGER NOT NULL,
+  nombre VARCHAR(50) DEFAULT '' NOT NULL,
+  fecha_ingreso DATE NOT NULL,
+  salario FLOAT DEFAULT 0 NOT NULL,
+  CONSTRAINT ven_idv_pk PRIMARY KEY (id_ven)
+);
+
+ALTER TABLE articulos ADD CONSTRAINT art_idg_fk FOREIGN KEY (id_gru)
+REFERENCES grupos(id_gru) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE facturas 
+ADD CONSTRAINT fac_idc_fk FOREIGN KEY (id_cli) 
+REFERENCES clientes(id_cli) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT fac_idv_fk FOREIGN KEY (id_ven)
+REFERENCES vendedores(id_ven) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE lineas_factura 
+ADD CONSTRAINT lin_idf_fk FOREIGN KEY (id_fac) 
+REFERENCES facturas(id_fac) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT lin_ida_fk FOREIGN KEY (id_art)
+REFERENCES articulos(id_art) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT lin_ids_fk FOREIGN KEY (id_suc)
+REFERENCES sucursales(id_suc) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+	Workshop A. Ej 13:
+
+DROP TABLE IF EXISTS producto;
+DROP TABLE IF EXISTS linea;
+DROP TABLE IF EXISTS pedido;
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS usuario;
+
+CREATE TABLE usuario (
+  dni VARCHAR(9),
+  nombre VARCHAR(30),
+  fecha_nac DATE,
+  CONSTRAINT usu_dni_pk PRIMARY KEY (dni)
+);
