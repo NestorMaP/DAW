@@ -7,11 +7,7 @@
 </head>
 <body>
     <?php
-        $a = 5;
-        do {
-            $a -=3;
-        } while ($a > 10);
-        echo $a;
+        
     ?>
 </body>
 </html>

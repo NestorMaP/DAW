@@ -1,8 +1,9 @@
+<?php
 /**
-* @author NestorM
-* @version 28/09/2024
+*@author NestorM
+*@version 28/09/2024
 */
-
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +33,7 @@
     <?php
         echo '<ul>';
         for ($i = 1; $i <= 5; $i++) {
-            echo '<li><a href="#sec$i">Section $i</a></li>';
+            echo '<li><a href="#sec'.$i.'">Section '.$i.'</a></li>';
         }
     ?>
     <br>
@@ -122,10 +123,10 @@
         <article id="sec4">
             <h1>Tabla</h1>
                 <?php    
-                    $day = (int)date('d',$v3);
-                    $month = (int)date('m',$v3);
+                    $day = intval(date('d',$v3));
+                    $month = intval(date('m',$v3));
                 
-                    // Rows=days & Columns=Months 
+                    // Rows=days && Columns=Months 
                     echo '<table id="table_sec4">';
                         for ($i=1; $i<=$day; $i++){
                             echo '<tr>';
@@ -141,7 +142,46 @@
 
         <article id="sec5">
             <h1>Cambio</h1>
+            <?php
+                $v5 = rand(1,1000);
+                echo 'Total €: '.$v5.'<br>';
 
+                $n500 = intval($v5/500);
+                $v5 -= ($n500*500);
+                echo $n500.' billetes de 500.<br>';
+
+                $n200 = intval($v5/200);
+                $v5 -= $n200*200;
+                echo $n200.' billetes de 200.<br>';
+
+                $n100 = intval($v5/100);
+                $v5 -= $n100*100;
+                echo $n100.' billetes de 100.<br>';
+
+                $n50 = intval($v5/50);
+                $v5 -= $n50*50;
+                echo $n50.' billetes de 50.<br>';
+
+                $n20 = intval($v5/20);
+                $v5 -= $n20*20;
+                echo $n20.' billetes de 20.<br>';
+
+                $n10 = intval($v5/10);
+                $v5 -= $n10*10;
+                echo $n10.' billetes de 10.<br>';
+
+                $n5 = intval($v5/5);
+                $v5 -= $n5*5;
+                echo $n5.' billetes de 5.<br>';
+
+                $n2 = intval($v5/2);
+                $v5 -= $n2*2;
+                echo $n2.' mondedas de 2.<br>';
+
+                $n1 = intval($v5/1);
+                $v5 -= $n1*1;
+                echo $n1.' mondedas de 1.<br>';
+            ?>
         </article>
     </section>
 </body>
