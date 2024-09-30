@@ -47,6 +47,7 @@
                 echoInfo($empire_army[$i]);
             }
         echo '    </tr>';
+        echo '</table>';
 
         echo '<h2>';
             $victory = war($rebel_army, $empire_army);
@@ -58,7 +59,7 @@
             } else {
                 echo 'DRAW';
             }
-        echo '</h2>'
+        echo '</h2>';
     ?>
 </body>
 </html>
