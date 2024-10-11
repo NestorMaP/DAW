@@ -38,24 +38,21 @@
             // Validate Title
             $title = clean_input($_POST['title']);
             /* 
-            ACTIVITY 3
-            if (!preg_match($title_regexp,$title)) {
-                $errors['title'] = '<-- Max. 30 characters';
-            }
-            */
+            ACTIVITY 2
             $title = clean_input($_POST['title']);
             if(strlen($title) > 30) {
                 $errors['title'] = '<-- Max 30 characters';
             }
+            */
+            if (!preg_match($title_regexp,$title)) {
+                $errors['title'] = '<-- Max. 30 characters';
+            }
+            
             // Validate Author
             $author = clean_input($_POST['author']);
-            
             /*
-            ACTIVITY 3
-            if (!preg_match($author_regexp,$author)) {
-                $errors['author'] = '<-- Name & surename with no special characters';
-            }
-            */
+            ACTIVITY 2
+            
             $author_array = explode(' ', $author);
             if (str_word_count($author) < 2) {
                 $errors['author'] = '<-- Name and Surename[s]';
@@ -67,19 +64,23 @@
                     }
                 }
             }
+            */
+            if (!preg_match($author_regexp,$author)) {
+                $errors['author'] = '<-- Name & surename with no special characters';
+            }
 
             // Validate publisher
-            /*
-            ACTIVITY 3
-            if (!preg_match($publisher_regexp,$publisher)) {
-                $errors['publisher'] = '<-- Max 20 non-special characters';
-            }
-            */
             $publisher = clean_input($_POST['publisher']);
-            if(strlen($publisher) > 20) {
+            /*
+            ACTIVITY 2
+                if(strlen($publisher) > 20) {
                 $errors['publisher'] = '<-- Max 20 characters';
             } else if (!ctype_alpha($publisher)) {
                 $errors ['publisher'] = '<-- No special characters allowed';
+            }
+            */
+            if (!preg_match($publisher_regexp,$publisher)) {
+                $errors['publisher'] = '<-- Max 20 non-special characters';
             }
 
             // Edit year of edition
@@ -87,40 +88,36 @@
             $edition_date_array = explode ('-', $edition_date);
             $edition_date = $edition_date_array[0];
 
-            // Edit language
-            /*
-            ACTIVITY 3
+            // Edit language          
+            $language = clean_input($_POST['language']);
             if (!preg_match($language_regexp,$language)) {
                 $errors['language'] = '<-- Please select a valid option';
             }
-            */
-            $language = clean_input($_POST['language']);
-
             // Validate ISBN
-            /*
-            ACTIVITY 3
-            if (!preg_match($isbn_regexp,$isbn)) {
-                $errors['isbn'] = '<-- Please select a valid option';
-            }
-            */
             $isbn = clean_input($_POST['isbn']);
+            /*
+            ACTIVITY 2
             if (!ctype_digit($isbn)) {
                 // Although the form should validate the followning...
                 $errors['isbn'] = '<-- Only numerical characters';
             } else if (strlen($isbn) < 13 || strlen($isbn) > 13) {
                 $errors['isbn'] = '<-- ISBN must contain exactly 13 characters';
             }
-
-            // Validate Synopsis
-            /*
-            ACTIVITY 3
-            if (!preg_match($synopsis_regexp,$synopsis)) {
-                $errors['synopsis'] = '<-- Please select a valid option';
-            }
             */
-            $synopsis = clean_input($_POST['synopsis']); 
+            if (!preg_match($isbn_regexp,$isbn)) {
+                $errors['isbn'] = '<-- Please select a valid option';
+            }
+            // Validate Synopsis
+            $synopsis = clean_input($_POST['synopsis']);
+            /*
+            ACTIVITY 2
             if (str_word_count($synopsis) > 50) {
                 $errors['synopsis'] = '<-- The synopsis should not be longer than 50 words';
+            }
+            */
+            
+            if (!preg_match($synopsis_regexp,$synopsis)) {
+                $errors['synopsis'] = '<-- Please select a valid option';
             }
             
             // Validate Cover
@@ -225,47 +222,62 @@
     <h1>Book Form</h1>
     <form action="#" method="post" enctype="multipart/form-data">
     
-    <input type="hidden" name="MAX_FILE_SIZE" value="2000000"> <!-- 2MB -->
+        <input type="hidden" name="MAX_FILE_SIZE" value="2000000"> <!-- 2MB -->
         
-    Title: <input type="text" name="title" id="title" value="<?php echo $title; ?>">
-    <span class="error"><?php echo isset($errors['title']) ? $errors['title'] : '' ?></span>
-    <br>
-    Author: <input type="text" name="author" id="author" value="<?php echo $author; ?>">
-    <span class="error"><?php echo isset($errors['author']) ? $errors['author'] : '' ?></span>
-    <br>
-    Publisher: <input type="text" name="publisher" id="publisher" value="<?php echo $publisher; ?>">
-    <span class="error"><?php echo isset($errors['publisher']) ? $errors['publisher'] : '' ?></span>
-    <br>
-    <label for="languages">Language: </label>
-    <select name="language" id="language">
-        <option value="English">English</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Valencian">Valencian</option>
-    </select>
-    <br>
-    Year of edition: <input type="month" name="edition_date" id="edition_year" value="<?php echo $edition_date; ?>">
-    <span class="error"><?php echo isset($errors['edition_date']) ? $errors['edition_date'] : '' ?></span>
-    <br>
-    ISBN: <input type="number" name="isbn" id="isbn" value="<?php echo $isbn; ?>">
-    <span class="error"><?php echo isset($errors['isbn']) ? $errors['isbn'] : '' ?></span>
-    <br>
-    <label for="synopsis">Synopsis: </label>
-    <textarea name="synopsis" id="synopsis" rows="2" cols="20"><?php echo $synopsis ?></textarea>
-    <span class="error"><?php echo isset($errors['synopsis']) ? $errors['synopsis'] : '' ?></span>
-    <br>
-    
-    Cover: <input type="file" name="cover" id="cover">
-    <span class="error"><?php echo isset($errors['cover']) ? $errors['cover'] : '' ?></span>
-    <br>
-    Sample: <input type="file" name="sample" id="sample">
-    <span class="error"><?php echo isset($errors['sample']) ? $errors['sample'] : '' ?></span>
-    <br>
-    <span class="error"><?php echo isset($errors['empty_field']) ? $errors['empty_field'] : '' ?></span>
-    <br>
-    <input type="submit" value="Send!">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" value="<?php echo $title; ?>">
+        <span class="error"><?php echo isset($errors['title']) ? $errors['title'] : '' ?></span>
+        <br>
+
+        <label for="author">Author: </label>
+        Author: <input type="text" name="author" id="author" value="<?php echo $author; ?>">
+        <span class="error"><?php echo isset($errors['author']) ? $errors['author'] : '' ?></span>
+        <br>
+
+        <label for="publisher">Publisher: </label>
+        <input type="text" name="publisher" id="publisher" value="<?php echo $publisher; ?>">
+        <span class="error"><?php echo isset($errors['publisher']) ? $errors['publisher'] : '' ?></span>
+        <br>
+
+        <label for="languages">Language: </label>
+        <select name="language" id="language">
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Valencian">Valencian</option>
+        </select>
+        <br>
+
+        <label for="edition_year">Year of edition: </label>
+        <input type="month" name="edition_date" id="edition_year" value="<?php echo $edition_date; ?>">
+        <span class="error"><?php echo isset($errors['edition_date']) ? $errors['edition_date'] : '' ?></span>
+        <br>
+
+        <label for="isbn">ISBN: </label>
+        <input type="number" name="isbn" id="isbn" value="<?php echo $isbn; ?>">
+        <span class="error"><?php echo isset($errors['isbn']) ? $errors['isbn'] : '' ?></span>
+        <br>
+
+        <label for="synopsis">Synopsis: </label>
+        <textarea name="synopsis" id="synopsis" rows="2" cols="20"><?php echo $synopsis ?></textarea>
+        <span class="error"><?php echo isset($errors['synopsis']) ? $errors['synopsis'] : '' ?></span>
+        <br>
+        
+        <!--External files-->
+        <label for="cover">Cover: </label>
+        <input type="file" name="cover" id="cover">
+        <span class="error"><?php echo isset($errors['cover']) ? $errors['cover'] : '' ?></span>
+        <br>
+
+        <label for="samle">Sample: </label>
+        <input type="file" name="sample" id="sample">
+        <span class="error"><?php echo isset($errors['sample']) ? $errors['sample'] : '' ?></span>
+        <br>
+
+        <!--Errors-->
+        <span class="error"><?php echo isset($errors['empty_field']) ? $errors['empty_field'] : '' ?></span>
+        <br>
+        <input type="submit" value="Send!">
 
     </form>
-
 </body>
 </html>
-
