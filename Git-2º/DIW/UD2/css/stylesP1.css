@@ -1,0 +1,29 @@
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.menu ul {
+  list-style-type: none;
+  width: 8em;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  padding: 1px;
+  margin-bottom: 4px;
+  background-color: #00f;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.menu li a {
+  display: block;
+  width: 100%;
+}
+
+.menu li:hover {
+  border: 2px solid #f00;
+}
