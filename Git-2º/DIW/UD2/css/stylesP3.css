@@ -1,0 +1,49 @@
+table {
+  border: solid 1px;
+  border-radius: 2px;
+}
+
+th,
+td {
+  border: solid 1px;
+}
+
+tr th {
+  background-color: #eee;
+}
+
+tr th:only-of-type {
+  background-color: rgb(210, 246, 255);
+}
+
+tr:nth-child(even) {
+  background-color: #fbffbc;
+}
+
+.euro {
+  background: url(/assets/currencies/euro.png) no-repeat left center;
+  padding: 0 0.3em 0 1.2em;
+}
+
+.dolar {
+  background: url(/assets/currencies/dolar.png) no-repeat left center;
+  padding: 0 0.3em 0 1.2em;
+}
+
+.pound {
+  background: url(/assets/currencies/libra.png) no-repeat left center;
+  padding: 0 0.3em 0 1.2em;
+}
+
+.yen {
+  background: url(/assets/currencies/yen.png) no-repeat left center;
+  padding: 0 0.3em 0 1.2em;
+}
+
+td {
+  text-align: right;
+}
+
+tr:nth-child(n + 1):hover {
+  background-color: #ff6;
+}
