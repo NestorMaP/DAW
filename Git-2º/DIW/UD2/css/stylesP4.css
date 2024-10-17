@@ -1,0 +1,53 @@
+/* menu */
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*menu items*/
+#menu ul li {
+  position: relative;
+  float: left;
+  padding: 0;
+  margin: 0;
+  background-color: #2e518b;
+  padding: 5px 10px;
+}
+
+/* hover de menu */
+#menu ul li:hover {
+  background-color: #5b78a7;
+}
+
+/* links */
+#menu ul a {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'HelveticaNeue', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* drop-down menu */
+#menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #eee;
+  padding: 0;
+}
+
+/* drop-down menu items */
+#menu ul ul li {
+  float: none;
+  width: 8em;
+}
+
+/* menu items when hover */
+#menu ul li:hover > ul {
+  display: block;
+}
