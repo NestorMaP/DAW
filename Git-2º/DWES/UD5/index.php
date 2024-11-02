@@ -42,7 +42,3 @@
 </body>
 </html>
 
-<!-- TO DO LIST
-  - Style.
-  - Check adding a game name which already exists.
-    -->
