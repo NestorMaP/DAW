@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.boxes {
+  border: 1px solid black;
+  font-size: 35px;
+  height: 80vh;
+  border-radius: 10px;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+@media (width <=1250px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .left {
+    width: 100%;
+    height: 45%;
+  }
+
+  .right {
+    width: 100%;
+    height: 45%;
+  }
+}
