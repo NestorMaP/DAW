@@ -1,0 +1,35 @@
+.red{
+    background: red;
+}
+
+.blue{
+    background: blue;
+}
+
+.green{
+    background: lime;
+}
+
+.salmon{
+    background: lightsalmon;
+}
+
+.magenta{
+    background: magenta;
+}
+
+.grey {
+    background: lightgrey;
+}
+
+.cyan{
+    background: cyan;
+}
+
+.box{
+    height: 10vh;
+}
+
+.trap{
+    width: 100%;
+}
