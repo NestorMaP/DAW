@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 4</title>
-    <style>
-      .hidden {
-        display: none;
-      }
-    </style>
   </head>
   <body>
-    <p class="elem" id="elem1">Elemento 1</p>
-    <p class="elem" id="elem2">Elemento 2</p>
-    <p class="elem" id="elem3">Elemento 3</p>
-    <button id="main_btn">Reaparecer</button>
+    <label for="num1">Num 1: </label>
+    <input type="number" id="num1">
+    <br>
+
+    <label for="num2">Num 2: </label>
+    <input type="number" id="num2">
+    <br>
+    
+    <p id="result">Result: </p>
+    
+    <br>
+    <button type="submit" id="sum">Sum!</button>
+    <button type="submit" id="substract">Subtract!</button>
+    <button type="submit" id="multiply">Multiply!</button>
+    <button type="submit" id="divide">Divide!</button>
 
     <p><a href="index.html"><-- Go Back</a></p>
-    <script src="./js/ej4.js"></script>
+    <script type="module" src="./js/ej4.js"></script>
   </body>
 </html>
