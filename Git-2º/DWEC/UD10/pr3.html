@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrastre de una capa en otra</title>
-    <style>
-        div{
-            border: 1px solid #000;
-            padding: 1em;
-            position: fixed;
-            top: 20px;
-            width: 200px;
-            height: 100px;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica 3</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="paragraph1"></div>
+    <div id="paragraph2"></div>
 
-        #capa1{
-            left: 50px;
-        }
-        #capa2{
-            left: 400px;
-        }
-    </style>
-</head>
-<body>
-    <div id="capa1" draggable="true" style="background-color: yellow">Soy arrastrable</div>
-    <div id="capa2">Soy el destino</div>
+    <script type="module">
+      import { count } from './js/modules/timer.js';
 
-    <script src="./js/pr3.js"></script>
-</body>
+      // First paragraph: from 6 to 0 interval = 1s
+      count(6, document.getElementById('paragraph1'));
+
+      // Second paragraph: from 60 to 0 interval = 0.1s
+      count(60, document.getElementById('paragraph2'), 100, () => {
+        let finalParagraph = document.createElement('p');
+        finalParagraph.textContent = 'END';
+        document.getElementById('paragraph2').appendChild(finalParagraph);
+      });
+    </script>
+  </body>
 </html>
