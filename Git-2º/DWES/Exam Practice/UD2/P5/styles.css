@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./assets/StarWarsSpace.webp');
+    color: white;
+    align-items: center;
+}
+
+table {
+    margin-top: 20px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-size: small;
+}
+
+td {
+    vertical-align: top;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    width: 150px;
+}
+
+td img {
+    display: block;
+    margin: 10px auto;
+    width: 75px;
+}
+
+.player  {
+    height: 300px;
+    width: 300px;
+}
+
+.results {
+    height: 25px;
+    text-decoration: solid;
+}
+
+#rebels td img {
+    transform: rotate(180deg);
+}
+
+h2{
+    margin-top: 5px;
+}
