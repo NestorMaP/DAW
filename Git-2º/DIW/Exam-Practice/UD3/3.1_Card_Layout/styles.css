@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    margin: 15px;
+    border: 5px solid #add8e6;
+    border-radius: 10px;
+    padding: 15px;
+    width: 700px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+article {
+    border: 1px solid #000;
+    height: 200px;
+    width: 200px;
+    background: #d3d3d3;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (width <= 1250px) {
+    section {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+}

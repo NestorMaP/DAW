@@ -1,0 +1,27 @@
+.red{
+    background: red;
+}
+
+.blue{
+    background: blue;
+}
+
+.green{
+    background: lime;
+}
+
+.salmon {
+    background: lightsalmon;
+}
+
+.magenta{
+    background: magenta;
+}
+
+@media (min-width:768px){
+
+    .col5{
+        max-width: 20% !important;
+    }
+    
+}
