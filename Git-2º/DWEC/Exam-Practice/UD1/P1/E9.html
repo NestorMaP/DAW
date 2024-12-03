@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Formulari d'inscripció Cyberwall</h1>
+    <form>
+        <label>Name:</label><br>
+        <input type="text" required placeholder="Nom i cognoms..."><br>
+        
+        <label>Create a user name:</label><br>
+        <input type="text" required><br>
+        
+        <label>Create a password:</label><br>
+        <input type="password" required><br><br>
+
+        <!--Sería mejor poner type="date" pero en ese caso sale en inglés (mm/dd/yyyy) y no como en la imagen-->
+        <label>Birthday:</label>
+        <input type="text" placeholder="dd/mm/aaaa"><br>
+
+        <label>I am:</label>
+        <input list="options"><br>
+            <datalist id="options">
+                <option value="a student"></option>
+                <option value="a teacher"></option>
+                <option value="a business owner"></option>
+                <option value="self-employed"></option>
+                <option value="other"></option>
+            </datalist>
+
+        <label>Mobile phone:</label><br>
+        <input type="number" required><br>
+
+        <label>Select your English level (0-10):</label><br>
+        <input type="range" min="0" max="10" step="1"><br>
+
+        <input type="submit" value="Sign me up">
+
+    </form>
+</body>
+</html>
