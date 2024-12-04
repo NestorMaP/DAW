@@ -15,7 +15,7 @@
                     
         $result = $connection ->prepare($UPDATE_TOKEN_QUERY);
         $result->bindParam(':token',$token);
-        $result->bindParam(':user_id',$_SESSION['id']);
+        $result->bindParam(':user_id',$_SESSION['user']['id']);
         $result->execute();
     } catch (PDOException $e) {
         echo 'Connexion failure: '. $e->getMessage();

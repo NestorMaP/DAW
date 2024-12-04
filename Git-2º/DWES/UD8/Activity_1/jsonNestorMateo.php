@@ -1,5 +1,5 @@
 <?php
-    header('Content-Type: application/json; charset=utf-');
+    header('Content-Type: application/json; charset=utf-8');
 
     include ('db_vars_inc.php');
 

@@ -1,0 +1,258 @@
+/*
+DARK BLUE:   #31515D  #31515DA1
+MEDIUM BLUE: #48C5BE
+LIGHT BLUE:  #C4DBD9
+BEIGE:       #E6DBCF
+LIGHT RED:   #C37C79
+*/
+/** {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+img {
+  width: 50px;
+}
+.product_details img {
+  width: 150px;
+}
+.product_details_ch img {
+  width: 150px;
+}
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #C4DBD9;
+  color: #31515D;
+}
+
+/* Header styles */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #C4DBD9;
+  color: #31515D;
+  border-bottom: 2px solid #31515D;
+}
+
+.header-text {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-text h1 {
+  font-size: 2.5rem;
+}
+
+.header-text h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #31515da1;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  gap: 20px;
+}
+
+.header-icons a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.header-icons a:hover img {
+  opacity: 0.8;
+}
+
+/* Product section styles */
+.product {
+  width: 250px;
+  height: 400px;
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.product_title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product_details {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.product img {
+  display: inline-block;
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.product a {
+  text-decoration: none;
+}
+
+.product button {
+  padding: 10px 15px;
+  background-color: #31515D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position:absolute;
+  bottom:0;
+}
+
+.product button:hover {
+  background-color: #31515Da1;
+}
+
+
+/* Login form styling 
+DARK BLUE:   #31515D  #31515DA1
+MEDIUM BLUE: #48C5BE
+LIGHT BLUE:  #C4DBD9
+BEIGE:       #E6DBCF
+LIGHT RED:   #C37C79
+*/
+#login_form {
+  margin: 20px;
+  background: #E6DBCF;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+#login_form label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+  color: #31515D;
+}
+
+#login_form input[type="text"],
+#login_form input[type="password"],
+#login_form input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#login_form input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+#login_form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #31515D;
+  color: #C4DBD9;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#login_form button:hover {
+  background-color: #31515DA1;
+}
+
+/* Message styling */
+#login_form p {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+#login_form a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#login_form a:hover {
+  text-decoration: underline;
+}
+
+/* Cart Summary Styles */
+.product_ch {
+  background-color: #E6DBCF;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product_ch a img {
+  width: 50px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.product_title_ch {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #C37C79;
+}
+
+.product_details_ch {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.product_ch a {
+  color: #C37C79;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.product_ch a:hover {
+  text-decoration: underline;
+}
+
+/* Cart Icon */
+.chart img {
+  width: 70px;
+  height: 70px;
+}

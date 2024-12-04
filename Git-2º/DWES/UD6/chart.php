@@ -152,7 +152,7 @@
         }
     } else {
         echo "<p>Please login: <a href='login.php'>Login</a></p>";
-    }  
+    }
     ?>
 </body>
 </html>
