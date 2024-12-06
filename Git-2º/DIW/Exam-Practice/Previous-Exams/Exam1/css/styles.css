@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+.hepta-contenedor{
+    width: 980px;
+    margin: auto;
+}
+
+.hepta-fila {
+    width: 100%;
+    margin: 5px 0;
+    clear: both;
+    background: gray;
+}
+
+.hepta-dk-1, .hepta-dk-2, .hepta-dk-3, .hepta-dk-4, .hepta-dk-5, .hepta-dk-6, .hepta-dk-7, .hepta-mv-1, .hepta-mv-2, .hepta-mv-3, .hepta-mv-4, .hepta-mv-5, .hepta-mv-6, .hepta-mv-7 {
+    float: left;
+}
+
+.hepta-dk-1{
+    width: 14.29%;
+}
+
+.hepta-dk-2{
+    width: 28.57%;
+}
+
+.hepta-dk-3{
+    width: 42.86%
+}
+
+.hepta-dk-4{
+    width: 57.14%
+}
+
+.hepta-dk-5{
+    width: 71.43%;
+}
+
+.hepta-dk-6{
+    width: 85.71%;
+}
+
+.hepta-dk-7{
+    width: 100%;
+}
+
+@media (max-width: 770px) {
+    
+    .hepta-contenedor{
+        width: 100%;
+    }
+
+    .hepta-dk-1, .hepta-dk-2, .hepta-dk-3, .hepta-dk-4, .hepta-dk-5, .hepta-dk-6, .hepta-dk-7{
+        width: 100%
+    }
+}
+
+.hepta-mv-1{
+    width: 14.29%;
+}
+
+.hepta-mv-2{
+    width: 28.57%;
+}
+
+.hepta-mv-3{
+    width: 42.86%
+}
+
+.hepta-mv-4{
+    width: 57.14%
+}
+
+.hepta-mv-5{
+    width: 71.43%;
+}
+
+.hepta-mv-6{
+    width: 85.71%;
+}
+
+.hepta-mv-7{
+    width: 100%;
+}
+
+@media (min-width: 770px) {
+    /*En resoluciones dk (Desktop) sea display:none*/
+    .oculta-dk{
+        display: none;
+    }  
+}
+
+@media (max-width: 770px) {
+    /*En resoluciones dk (Desktop) sea display:none*/
+    .oculta-mv{
+        display: none;
+    }  
+}

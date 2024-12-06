@@ -1,5 +1,21 @@
 *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family:'Times New Roman', Times, serif;
+}
+
+body{
+  background: #f1efce
+}
+
+h1 {
+  margin: 15px;
+  color: #284957
+}
+
+.menu {
+  margin: 20px;
 }
 
 .menu ul {
@@ -10,7 +26,8 @@
 }
 
 .menu li {
-  background: #00f;
+  background: #284957;
+  border-radius: 5px; 
   color: #fff;
   padding: 1px;
   margin-bottom: 4px;
@@ -25,5 +42,5 @@
 }
 
 .menu li:hover {
-  border: 2px solid #f00;
+  border: 2px solid #d29f3a;
 }

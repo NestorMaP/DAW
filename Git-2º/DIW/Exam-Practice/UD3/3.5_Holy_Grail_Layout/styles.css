@@ -61,12 +61,12 @@
   }
 
   .c {
-    height: 30vh;
+    height: 60%;
     flex-basis: 100%
   }
 
   .d {
-    height: 20vh;
+    height: 40%;
     flex-basis: 100%
   }
 }

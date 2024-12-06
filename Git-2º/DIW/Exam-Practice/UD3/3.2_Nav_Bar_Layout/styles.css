@@ -6,6 +6,8 @@
 
 nav {
   width: 500px;
+  padding: 20px;
+  margin: 20px;
 }
 
 nav ul {
@@ -14,6 +16,7 @@ nav ul {
   border: 1px solid #000;
   display: flex;
   justify-content: space-evenly;
+  font-size: 1.2em;
 }
 
 @media (width <= 1250px) {

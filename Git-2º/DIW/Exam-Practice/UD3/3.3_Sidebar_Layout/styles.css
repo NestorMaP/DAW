@@ -33,7 +33,8 @@
 
 @media (width <= 1250px){
   .container {
-    flex-flow: wrap
+    display: flex;
+    flex-direction: column;
   }
 
   .left {

@@ -10,6 +10,8 @@
   float: left;
   margin: 0;
   padding: 0;
+  width: 6em;
+  text-align: center;
 }
 
 #menu ul a {
@@ -20,7 +22,6 @@
   font-size: 15px;
   padding: 10px;
   font-family:Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -29,6 +30,7 @@
 }
 
 #menu ul ul {
+  width: 6em;
   display: none;
   position: absolute;
   top: 100%;
@@ -39,12 +41,12 @@
 
 #menu ul ul li {
   float: none;
-  width: 100px;
+  width: 6em;
 }
 
 #menu ul ul a {
   line-height: 120%;
-  padding: 10px 15px;
+  padding: 10px;
 }
 
 #menu ul li:hover>ul {

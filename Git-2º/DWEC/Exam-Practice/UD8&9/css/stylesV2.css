@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #d3d3d3;
+}
+
+.container {
+    height: 100vh;
+    margin: 20px;
+}
+
+.menu {
+    padding: 10px;
+    display: flex;
+}
+
+.menu ul {
+    background: #eee;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+.menu ul ul{
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.menu ul li {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: #000;
+}
+
+.menu ul li ul li {
+    padding: 10px;
+}
+
+.menu ul li:hover > ul {
+    display: block;
+}
+
+.menu ul li ul li:hover {
+    text-decoration:underline;
+    font-weight: bold;
+}
+

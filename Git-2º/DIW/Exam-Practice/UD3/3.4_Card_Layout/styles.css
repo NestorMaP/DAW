@@ -28,7 +28,7 @@
 
 .c {
   width: calc(33.33% - 5px);
-  order:4
+  order:3
 }
 
 .d {
@@ -57,6 +57,4 @@
   .e {
     width: 100%;
   }
-
-
 }

@@ -4,6 +4,7 @@
 
 .blue{
     background: blue;
+    color: white;
 }
 
 .green{
@@ -32,4 +33,10 @@
 
 .trap{
     width: 100%;
+}
+
+.container {
+    border: 2px solid black;
+    max-height: 100vh;
+    margin: auto;
 }
