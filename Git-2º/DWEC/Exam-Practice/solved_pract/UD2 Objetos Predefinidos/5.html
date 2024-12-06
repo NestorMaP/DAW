@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor de 9 números</title>
+</head>
+<body>
+    <h3>Introduce 9 números:</h3>
+    <div id="numeros">
+      <input type="number" class="numero" />
+      <input type="number" class="numero" />
+      <input type="number" class="numero" /><br />
+      <input type="number" class="numero" />
+      <input type="number "class="numero" />
+      <input type="number" class="numero" /><br />
+      <input type="number" class="numero" />
+      <input type="number" class="numero" />
+      <input type="number" class="numero" />
+    </div>
+    <button onclick="mostrarMayor()">Mostrar mayor</button>
+
+    <script>
+        function mostrarMayor() {
+            // Obtener todos los inputs con clase 'numero'
+            var inputs = document.getElementsByClassName('numero');
+            var mayor = Number(inputs[0].value) // Inicializar con el primer valor
+
+            // Recorrer los inputs y calcular el mayor número usando Math.max
+            for (var i = 1; i<inputs.length; i++) {
+                var numeroActual = Number(inputs[i].value);
+                mayor = Math.max(mayor, numeroActual);
+            }
+            alert('El mayor número es: ' + mayor);
+        }
+    </script>
+</body>
+</html>

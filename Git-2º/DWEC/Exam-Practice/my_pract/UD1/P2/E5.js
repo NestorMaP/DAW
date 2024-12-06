@@ -5,5 +5,5 @@ const BLUE = "#0000FF"
 let bgColor = "";
 
 function changeColor(color){
-    document.bgColor = color;
+    document.body.style.background = color;
 }

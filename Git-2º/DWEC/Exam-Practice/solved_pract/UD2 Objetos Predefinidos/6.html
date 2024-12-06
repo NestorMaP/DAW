@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha de Hoy</title>
+</head>
+<body>
+    <button onclick="mostrarFecha()">Mostrar Fecha</button>
+
+    <script>
+        function mostrarFecha() {
+            const hoy = new Date();
+
+            // Obtener día de la semana
+            const diasSemana = [
+                'domingo',
+                'lunes',
+                'martes',
+                'miércoles',
+                'jueves',
+                'viernes',
+                'sábado',
+            ];
+            const diaSemana = diasSemana[hoy.getDay()];
+
+            // Obtener el día del mes
+            const dia = hoy.getDate();
+
+            // Obtener el mes
+            const meses = [
+                'enero',
+                'febrero',
+                'marzo',
+                'abril',
+                'mayo',
+                'junio',
+                'julio',
+                'agosto',
+                'septiembre',
+                'octubre',
+                'noviembre',
+                'diciembre',
+            ];
+            const mes = meses[hoy.getMonth()];
+
+            // Obtener el año
+            const anio = hoy.getFullYear();
+
+            // Mostrar la fecha en el formato correcto
+            alert(`Hoy es ${diaSemana}, ${dia} de ${mes} de ${anio}.`)
+        }
+    </script>
+</body>
+</html>

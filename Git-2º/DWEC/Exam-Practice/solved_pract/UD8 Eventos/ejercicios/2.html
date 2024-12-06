@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguimiento Ratón</title>
+</head>
+<body>
+  <p id="p1"></p>
+  <script>
+    // Función que actualiza un elemento p con id p1, mostrando posición del ratón
+    function mostrarPosicion(evento) {
+      document.getElementById('p1').innerHTML =
+      'Posición X: ' + evento.clientX + '<br>' + 'Posición Y: ' + evento.clientY;
+    }
+
+    // Asignamos un manejador a onmouseover
+    document.onmousemove = mostrarPosicion;
+  </script>
+</body>
+</html>

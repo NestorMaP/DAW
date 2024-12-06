@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcularEdad</title>
+</head>
+<body>
+    <h3>Selecciona tu fecha de nacimiento</h3>
+    <input type="date" id="fechaNacimiento">
+    <button onclick="calcularEdad()">Calcular Edad</button>
+
+    <script>
+        function calcularEdad() {
+            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            const diferenciaMeses = hoy.getMonth() - fechaNacimiento.getMonth();
+
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            alert(`Tienes ${edad} años.`);
+        }
+    </script>
+</body>
+</html>

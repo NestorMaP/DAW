@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de números</title>
+</head>
+<body>
+    <h3>Introduce un número decimal:</h3>
+    <input type="number" id="decimalInput" />
+    <button onclick="convertirNumeros()">Convertir</button>
+
+    <h3>Resultados:</h3>
+    <table border="1">
+        <tr>
+            <th>Tipo</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Binario</td>
+            <td id="bin"></td>
+        </tr>
+        <tr>
+            <td>Octal</td>
+            <td id="oct"></td>
+        </tr>
+        <tr>
+            <td>Hexadecimal</td>
+            <td id="hex"></td>
+        </tr>
+    </table>
+
+    <script>
+        function convertirNumeros() {
+            const decimal = parseInt(document.getElementById('decimalInput').value);
+
+            document.getElementById('bin').innerText = decimal.toString(2);
+            document.getElementById('oct').innerText = decimal.toString(8);
+            document.getElementById('hex').innerText = decimal.toString(16).toUpperCase();
+        }
+    </script>
+</body>
+</html>

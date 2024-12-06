@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementos P Desaparecen y Eliminan</title>
+</head>
+<body>
+  <div id="contenedor">
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <p>Párrafo 3</p>
+  </div>
+  <button id="reaparecer">Reaparecer</button>
+
+  <script>
+    const contenedor = document.getElementById('contenedor');
+    const parrafos = document.getElementsByTagName('p'); // Seleccionar todos los elementos <p>
+
+    // Agregar eventos a cada párrafo directamente
+    for (let i=0; i<parrafos.length; i++) {
+      const parrafo = parrafos[i];
+
+      // Click izquierdo para ocultar
+      parrafo.addEventListener('click', () => {
+        parrafo.style.display = 'none';
+      });
+
+      // Click derecho para eliminar
+      parrafo.addEventListener('contextmenu', (event) => {
+        event.preventDefault(); // Evita el menú contextual
+        parrafo.remove(); // Elimina el párrafo del DOM
+      })
+
+      // Reaparecer los párrafos ocultos
+      document.getElementById('reaparecer').addEventListener('click', () => {
+        for (let i=0; i<parrafos.length; i++) {
+          const parrafo = parrafos[i];
+          if (parrafo.style.display === 'none') {
+            parrafo.style.display = '';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar "HOLA" en una tabla</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td id="cell1"></td>
+            <td id="cell2"></td>
+            <td id="cell3"></td>
+            <td id="cell4"></td>
+        </tr>
+    </table>
+    <button onclick="mostrarHola()">Mostrar HOLA</button>
+
+    <script>
+        function mostrarHola() {
+            var letras = ['H','O','L','A'];
+
+            for (let i=0; i<letras.length; i++) {
+                document.getElementById('cell' + (i+1)).innerText = letras[i];
+            }
+        }
+    </script>
+</body>
+</html>

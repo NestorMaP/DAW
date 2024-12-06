@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Días desde el nacimiento</title>
+</head>
+<body>
+    <h3>Introduce tu fecha de nacimiento (YYYY/MM/DD)</h3>
+    <input type="date" id="fechaNacimiento" />
+    <button onclick="calcularDias()">Calcular Días</button>
+    
+    <script>
+        function calcularDias() {
+            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            const hoy = new Date();
+            console.log(hoy-fechaNacimiento);
+            const diferencia = Math.floor((hoy - fechaNacimiento) / (1000*60*60*24));
+            alert(`Han transcurrido ${diferencia} días desde tu nacimiento.`)
+        }
+    </script>
+</body>
+</html>

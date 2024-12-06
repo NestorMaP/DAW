@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar palabra en una tabla</title>
+</head>
+<body>
+    <h3>Introduce una palabra:</h3>
+    <input type="text" id="inputWord" placeholder="Introduce una palabra"/>
+    <button onclick="mostrarPalabra()">Mostrar palabra</button>
+
+    <table border="1">
+        <tr id="tableRow"></tr>
+    </table>
+
+    <script>
+        function mostrarPalabra() {
+            const palabra = document.getElementById('inputWord').value.toUpperCase();
+            const filaTabla = document.getElementById('tableRow');
+
+            // Limpiar la tabla antes de agregar nuevas celdas
+            filaTabla.innerHTML = '';
+
+            //Mostrar las letras en las celdas
+            for(let i=0; i<palabra.length; i++) {
+                filaTabla.innerHTML += '<td></td>';
+
+                filaTabla.getElementsByTagName('td')[i].innerText = palabra[i];
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+div {
+  border: 1px solid black;
+  padding: 1em;
+  position: fixed;
+  top: 20px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+}
+#capa1 {
+  left: 50px;
+  background-color: yellow;
+}
+#capa2 {
+  left: 400px;
+  background-color: white;
+}

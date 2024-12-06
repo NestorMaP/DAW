@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Número aleatorio en </title>
+</head>
+<body>
+  <button id="nuevoNumero">NuevoNumero</button>
+  <ul id="listaNumeros"></ul>
+
+  <script>
+    const boton = document.getElementById('nuevoNumero');
+    const lista = document.getElementById('listaNumeros');
+
+    boton.addEventListener("click", () => {
+      const numeroAleatorio = Math.floor(Math.random()*100) +1;
+      const elemento = document.createElement('li');
+      elemento.textContent = numeroAleatorio;
+      lista.appendChild(elemento)
+    })
+  </script>
+</body>
+</html>

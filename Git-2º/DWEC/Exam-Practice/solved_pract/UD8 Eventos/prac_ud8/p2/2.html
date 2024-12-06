@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Validación</title>
+</head>
+<body>
+  <form id="formulario">
+    <label for="email">Email: </label>
+    <input type="text" id="email" name="email" />
+    <p id="errorEmail" style="color: #f00; display: none">El email debe tener el formato xxxx@yyyy.zzzz</p>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" />
+    <p id="errorPassword" style="color: #f00; display: none">La constraseña debe tener entre 8 y 10 caracteres</p>
+
+    <button type="submit" id="enviar" disabled>Enviar</button>
+  </form>
+
+  <script>
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorEmail = document.getElementById('errorEmail');
+    const errorPassword = document.getElementById('errorPassword');
+    const enviarBtn = document.getElementById('enviar');
+
+    // Validación de email
+    function validarEmail() {
+      const email = emailInput.value;
+      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Formato xxxx@yyyy.zzzz complicado
+      const emailRegex = /@.+\./;
+
+      if (!emailRegex.test(email)) {
+        errorEmail.style.display = 'block';
+        return false;
+      } else {
+        errorEmail.style.display = 'none';
+        return true;
+      }
+    }
+
+    // Validación de password
+    function validarPassword() {
+      const password = passwordInput.value;
+
+      if(password.length < 8 || password.length > 10) {
+        errorPassword.style.display = 'block';
+        return false;
+      } else {
+        errorPassword.style.display = 'none';
+        return true;
+      }
+    }
+
+    // Desactivar mensajes de error al modificar los campos
+    emailInput.addEventListener('focus', () => {
+      errorEmail.style.display = 'none';
+    });
+    passwordInput.addEventListener('focus', () => {
+      errorPasswrod.style.display = 'none';
+    });
+
+    // Verificar validación al perder el foco en los campos
+    emailInput.addEventListener('blur', () => {
+      validarEmail();
+    });
+    passwordInput.addEventListener('blur', () => {
+      validarPassword();
+    });
+
+    // Activar el botón de Enviar
+    password.addEventListener('blur',() => {
+      if (validarPassword() && validarEmail()) {
+        enviarBtn.disabled = false;
+      }
+    })
+  </script>
+</body>
+</html>
