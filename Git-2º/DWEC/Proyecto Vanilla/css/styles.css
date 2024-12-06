@@ -1,0 +1,8 @@
+.field{
+    display: none;
+}
+
+.error {
+    display: none;
+    color: #f00;
+}
