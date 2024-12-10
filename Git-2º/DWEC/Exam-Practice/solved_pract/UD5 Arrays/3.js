@@ -17,7 +17,7 @@ console.log(datos);
 
 // 4. Ordenar por edad
 datos.sort(function (a,b) {
-return a.edad - b.edad
+return a.edad - b.edad;
 });
 console.log('Orden por edad');
 console.log(datos);

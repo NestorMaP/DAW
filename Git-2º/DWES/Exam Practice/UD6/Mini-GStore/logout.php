@@ -15,7 +15,7 @@
 
     // Destroy the session
     session_unset();
-    session_destroy();+
+    session_destroy();
     setcookie('token','',time() - 1,'/');
 
     // Redirect user

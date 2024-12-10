@@ -2,8 +2,8 @@
 class Person {
     public static $quantityOfCharacters = 0;
     private int $id, $age;
-    private ?self $father, $mother, $spouse;
-    private string $name, $surname, $gender, $house; // Indicates that can return null or an instance of the class Person
+    private ?self $father, $mother, $spouse; // Indicates that can return null or an instance of the class Person
+    private string $name, $surname, $gender, $house;
     private array $children = [], $siblings = [];
     private $picture;
 

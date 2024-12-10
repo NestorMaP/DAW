@@ -47,7 +47,7 @@
 
                 //Connection for the games
                 $result = $connection->prepare($PLATFORM_QUERY);
-                $result->bindParam(':platgorm_name',$platform_name,PDO::PARAM_STR);
+                $result->bindParam(':platform_name',$platform_name,PDO::PARAM_STR);
                 $result->execute();
                 // ECHOES
                 include('./print_game.inc.php');
