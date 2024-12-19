@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div id= "welcome-message" class="welcome-message">
-        <p>Bienevenido, pulsa Control + F10 o espera 5 segundos</p>
-    </div>
-
-    <form>
-        <div id="field" class="field">
-            <label for="user">Usuario</label>
-            <input type="text" name="user" id="user" placeholder="Enter you email">
-            <div id = "error" class="error">Correo incorrecto (Ej: blabla@bla.bla)</div>
-            <p>Pulse fuera del campo de entrada para continuar.</p>
+    <div class="container">
+        <div id= "welcome-message" class="welcome-message">
+            <p>Bienevenido, pulsa Control + F10 o espera 5 segundos</p>
         </div>
-    </form>
-    <script type="module" src="./js/index.js"></script>
+
+        <form>
+            <div id="field" class="field">
+                <label for="user">Usuario</label>
+                <input type="text" name="user" id="user" placeholder="Enter you email">
+                <div id = "error" class="error">Correo incorrecto (Ej: blabla@bla.bla)</div>
+                <p>Pulse fuera del campo de entrada para continuar.</p>
+            </div>
+        </form>
+        <script type= "module" src="./javascript/index.js"></script>
+    </div>
 </body>
 </html>

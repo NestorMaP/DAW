@@ -2,7 +2,7 @@
     display: none;
 }
 
-.error {
+.errors p {
     display: none;
     color: #f00;
 }

@@ -1,10 +1,10 @@
-import * as cookies from './js/cookies.js';
+import * as cookies from "./cookies.js";
 
 // HTML Elements
-let welcome_message = document.getElementById('welcome-message');
-let form_field = document.getElementById('field');
-let userInput = document.getElementById('user');
-let errorMessage = document.getElementById('error');
+const welcome_message = document.getElementById('welcome-message');
+const form_field = document.getElementById('field');
+const userInput = document.getElementById('user');
+const errorMessage = document.getElementById('error');
 
 function divChanger() {
     welcome_message.style.display = 'none';
@@ -35,14 +35,16 @@ function showError() {
         errorMessage.style.display = "none";
 
         // Guardar cookies del usuario
-        let data = {
-            email : userInput.value,
-            lastAccess : new Date()
+        let userData = {
+            email: userInput.value,
+            lastAccess: new Date(),
+            questions: ''
         };
         
-        cookies.setCookie(userInput.value,data,1);
+        cookies.setCookie(userInput.value,userData,1);
+        cookies.setCookie('currentUser',userInput.value,7);
         // Redirigir
-        window.location.href = "./login.html"
+        window.location.href = "../login.html";
     }
 }
 

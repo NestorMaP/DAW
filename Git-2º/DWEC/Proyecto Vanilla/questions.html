@@ -4,8 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla 3</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div id="left" class="left">
+            <form>
+                <div class="formField">
+                    <label for="question">Pregunta: </label>
+                    <input type="text" id="question" />
+                </div>
+
+                <div class="formField radioBtns">
+                    <label for="true">Verdadero</label> 
+                    <input type="radio" id="true" name="radio" value="Verdadero" />
+
+                    <label for="false">Falso</label> 
+                    <input type="radio" id="false" name="radio" value="Falso" />
+                </div>
+
+                <div class="formField">
+                    <label for="score">Puntuación: </label>
+                    <input type="text" id="score" name="score" />
+                </div>
+                <div class="errors" id="errors" style="display:none">
+                    <p>Error: </p>
+                </div>
+            </form>
+            <div class="buttons">
+                <button id="back-button" name="back-button">Atrás</button>
+                <button id="record-button" name="record-button" disabled>Grabar</button>
+            </div>
+        </div>
+
+        <div id="right" class="right">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Respuesta</th>
+                        <th>Puntuación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="module" src="./javascript/questions.js"></script>
 </body>
 </html>
