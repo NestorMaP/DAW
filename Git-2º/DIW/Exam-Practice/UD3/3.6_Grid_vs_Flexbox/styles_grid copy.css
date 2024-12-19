@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background: #1d202b;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
-  display: grid;
+  display: grid; /*<----------------------*/
   align-items: center;
 }
 
@@ -18,17 +18,17 @@ body{
   max-width: 1200px;
   margin: auto;
   padding: 40px 0;
-  display: grid;
-  grid-template-columns: 7fr 3fr;
-  column-gap: 20px;
+  display: grid; /*<----------------------*/
+  grid-template-columns: 7fr 3fr; /*<-----*/
+  column-gap: 20px; /*<-------------------*/
 }
 
 .contenedor-conciertos {
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
   column-gap: 20px;
-  row-gap: 20px
+  row-gap: 20px;
 }
 
 .card {
@@ -41,7 +41,6 @@ body{
   background-size: cover;
   background-position: center center;
 }
-
 
 .card:nth-child(1) {
   background-image: url('./img/1.jpg');
@@ -64,20 +63,22 @@ body{
 
 .card .textos {
   height: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  display: grid; /*<----------------------*/
+  grid-template-rows: 1fr auto;/*<--------*/
+  
 }
 
-.banner{
-  display: grid;
-  grid-template-rows: 2fr 6fr 1fr;
-  align-items: center;
+.banner {
+  display: grid; /*<----------------------*/
+  grid-template-rows: 2fr 6fr 1fr; /*<----*/
+  align-items: center; /*<----------------*/
   border-radius: 10px;
   text-align: center;
   padding: 20px;
   background-image: url('./img/banner.jpg');
   background-position: center center;
   background-size: cover;
+  
 }
 
 .banner ul {

@@ -52,6 +52,7 @@
 
   .d {
     width: calc(50% - 5px);
+    order: 3
   }
 
   .e {

@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f1e9;
+}
+
+#pagina {
+    width: 980px;
+    margin: auto;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+}
+
+.cabecera li {
+    list-style-type: none;
+}
+
+.cabecera li a {
+    text-decoration: none;
+}
+
+.cabecera a{
+    color: green;
+}
+
+.cabecera div:nth-child(3) {
+    padding-right: 10px;
+}
+
+.menu {
+    height: 40px;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    align-items: center;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 50px;
+}
+
+.menu ul li:first-child {
+    margin-left: 10px;
+}
+
+.menu a{
+    color: #e4c038;
+    text-decoration: none;
+}
+
+.menu {
+    background: #1b4b3d;
+}
+
+#bloque_superior>div:nth-child(3) {
+    display: flex;
+}
+
+#bloque_superior>div:nth-child(3)>div:first-child{
+    flex-basis: 20%
+}
+
+.cuerpo_pagina {
+    flex-basis: 80%;
+    background-image: url('../images/xip.jpg');
+}
+
+#bloque_superior>div:nth-child(3)>div:first-child li {
+    list-style: none;
+}
+
+#bloque_superior>div:nth-child(3) {
+    background: white;
+}
+
+#bloque_superior>div:nth-child(3)>div {
+    padding: 15px;
+}
+
+#bloque_superior>div:nth-child(3)>div:first-child li a {
+    text-decoration: none;
+    color: green;
+    padding: 10px 30px;
+}
+
+.tabla {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
+
+.tabla .row>div {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+}
+
+.total_lista, .linea_lista {
+    background: white;
+}
+
+.linea_lista .c1 img {
+    float: left;
+    height: 50px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-shadow: 4px 4px 4px #888;
+    margin: 4px 10px 4px 4px;
+}
+
+.cabecera_lista {
+    background: rgba(200,200,200,0.75);
+}
+
+.tabla {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#pie {
+    display: flex;
+    justify-content: flex-start;
+    background: white;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+#pie li{
+    list-style: none;
+}
+
+#pie li a{
+    text-decoration: none;
+    color: green;
+}
+
+#pie>div {
+    margin-right: 50px;
+}
+
+h1 {
+    font-size:20px;
+}
+
+#copyright {
+    margin-top: 25px;
+}
