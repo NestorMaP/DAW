@@ -2,6 +2,11 @@
     display: none;
 }
 
+.errors {
+    display: none;
+    color: #f00;
+}
+
 .errors p {
     display: none;
     color: #f00;

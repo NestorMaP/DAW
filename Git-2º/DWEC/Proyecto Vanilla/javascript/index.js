@@ -1,10 +1,15 @@
 import * as cookies from "./cookies.js";
 
+// Delete Cookie "currentUser"
+if (cookies.getCookie('currentUser') !== null) {
+    cookies.deleteCookie('currentUser');
+};
+
 // HTML Elements
 const welcome_message = document.getElementById('welcome-message');
 const form_field = document.getElementById('field');
 const userInput = document.getElementById('user');
-const errorMessage = document.getElementById('error');
+const errorMessage = document.getElementById('errors');
 
 function divChanger() {
     welcome_message.style.display = 'none';
@@ -41,8 +46,8 @@ function showError() {
             questions: ''
         };
         
-        cookies.setCookie(userInput.value,userData,1);
-        cookies.setCookie('currentUser',userInput.value,7);
+        cookies.setCookie(userInput.value,userData,7);
+        cookies.setCookie('currentUser',userInput.value,1);
         // Redirigir
         window.location.href = "../login.html";
     }
