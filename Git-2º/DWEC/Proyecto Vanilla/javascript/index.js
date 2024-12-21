@@ -16,7 +16,7 @@ function divChanger() {
     form_field.style.display = 'block';
 }
 // Se ejecutará automáticamente en 5 segs
-setTimeout(divChanger,1); // Change to 5000
+setTimeout(divChanger,5000); // Change to 5000
 
 // Se ejecuta si el usuario aprieta Ctrl+F10
 document.addEventListener('keydown', function(event) {
@@ -43,10 +43,12 @@ function showError() {
         let userData = {
             email: userInput.value,
             lastAccess: new Date(),
-            questions: ''
+            questions: []
         };
         
-        cookies.setCookie(userInput.value,userData,7);
+        if (cookies.getCookie(userInput.value) == null) {
+            cookies.setCookie(userInput.value,userData,7);
+        }
         cookies.setCookie('currentUser',userInput.value,1);
         // Redirigir
         window.location.href = "../login.html";

@@ -11,3 +11,7 @@
     display: none;
     color: #f00;
 }
+
+.container-questions {
+    display: flex;
+}
