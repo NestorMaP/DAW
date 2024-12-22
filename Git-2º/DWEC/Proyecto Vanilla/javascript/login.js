@@ -4,6 +4,7 @@ import * as cookies from "./cookies.js";
 const welcomeMessage = document.getElementById('welcome-message');
 const dateMessage = document.getElementById('date-message');
 const questionsBtn = document.getElementById('questions-button');
+const questionnaireBtn = document.getElementById('questionnaire-button');
 
 // Cookie info
 const currentUser = cookies.getCookie('currentUser');
@@ -19,3 +20,8 @@ dateMessage.innerText += ` ${new Date(userInfo.lastAccess).toLocaleDateString()}
 questionsBtn.addEventListener("click",() => {
     window.location.href = "../questions.html";
 });
+
+// Cambiar pantalla cuando se pulsa el botón "Cuestionario"
+questionnaireBtn.addEventListener("click", () => {
+    window.location.href = "../questionnaire.html";
+})

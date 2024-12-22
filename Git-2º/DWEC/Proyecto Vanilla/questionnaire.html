@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla 4</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container-questionnaire">
+
+        <div class="questions-container">
+            <div class="question-list" id="question-list">
+                <h2>Preguntas Disponibles</h2>
+                <!-- Preguntas generadas dinámicamente -->
+            </div>
+
+            <div class="question-destination" id="question-destination">
+                <h2>Preguntas Seleccionadas</h2>
+                <!-- Área de dragging de preguntas -->
+            </div>
+        </div>
+
+        <div class="duration-control">
+            <button id="decrease-duration" aria-label="Disminuir duración">-</button>
+            <div class="duration-display" id="duration-display">1</div>
+            <button id="increase-duration" aria-label="Aumentar duración">+</button>
+        </div>
+
+        <button id="end-questionnaire" class="end-button">Acabar</button>
+    </div>
+
+    <script type="module" src="./javascript/questionnaire.js"></script>
+</body>
+</html>

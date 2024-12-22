@@ -18,7 +18,7 @@ let questions = [];
 
 // Obtener usuario actual
 const currentUserEmail = cookies.getCookie('currentUser');
-let currentUserData = cookies.getCookie(currentUserEmail);
+const currentUserData = cookies.getCookie(currentUserEmail);
 
 
 // Función para validar campos del formulario
@@ -68,7 +68,11 @@ scoreInput.addEventListener('keyup', toggleRecordBtn);
 
 // Función para simular un retraso
 function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(function(resolve) {
+    setTimeout(function() {
+      resolve();
+    }, ms);
+  });
 }
 
 // Función para agregar una pregunta al almacenamiento y la tabla
@@ -80,7 +84,7 @@ async function addQuestionToTable() {
   // Crear nueva pregunta
   const newQuestion = { question, score, answer };
 
-  // Agregar una fila provisional en la tabla
+  // Creación de fila provisional para la tabla
   const row = document.createElement('tr');
   row.innerHTML = `
     <td>${question}</td>
@@ -90,7 +94,7 @@ async function addQuestionToTable() {
   `;
   tableBody.appendChild(row);
 
-  // Limpiar formulario inmediatamente
+  // Limpiar formulario antes de simular el retraso de 5s
   questionInput.value = '';
   scoreInput.value = '';
   radioTrue.checked = false;
@@ -123,8 +127,20 @@ async function addQuestionToTable() {
 
 recordBtn.addEventListener('click', addQuestionToTable);
 
-// Cargar preguntas desde la cookie del usuario actual
-function loadQuestionsFromCookies() {
+// Cargar preguntas desde la cookie del usuario actual con parámetro de espera
+async function loadQuestionsFromCookies(wait = true) {
+  // Cargar mensaje de cargado
+  tableBody.innerHTML = `<tr><td>Cargando preguntas...</td></tr>`;
+  
+  // Simular retraso de 5 segundos según parámetro
+  if (wait) {
+    await delay(5000);
+  }
+
+  // Cargar mensaje de cargado
+  tableBody.innerHTML = '';
+
+  // Cargar las preguntas de la cookie
   if (currentUserData.questions) {
     currentUserData.questions.forEach(({ question, answer, score }) => {
       const row = document.createElement('tr');
@@ -149,54 +165,3 @@ backBtn.addEventListener('click', () => {
 loadQuestionsFromCookies();
 
 
-/*
-// Función para simular un retraso
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-// Funnción para cargar las cookies
-async function loadQuestions (delay = false) {
-
-}
-
-
-// Función asincrónica para agregar una pregunta a la tabla
-async function addQuestionToTable() {
-  const question = questionInput.value.trim();
-  const score = scoreInput.value.trim();
-  const answer = radioTrue.checked ? "Verdadero" : "Falso";
-
-  // Crear una nueva fila en la tabla
-  const row = document.createElement("tr");
-  row.innerHTML = `
-    <td>${question}</td>
-    <td>${answer}</td>
-    <td>${score}</td>
-    <td>Guardando...</td>
-  `;
-  tableBody.appendChild(row);
-
-  // Esperar 5 segundos antes de cambiar el estado
-  await delay(5000);
-  row.cells[3].textContent = "OK";
-}
-
-// Función asincrónica para manejar el botón de grabar
-recordBtn.addEventListener("click", async () => {
-  await addQuestionToTable();
-
-  // Limpiar el formulario inmediatamente
-  questionInput.value = "";
-  scoreInput.value = "";
-  radioTrue.checked = false;
-  radioFalse.checked = false;
-  recordBtn.disabled = true;
-});
-
-// Botón de retroceso
-backBtn.addEventListener("click", () => {
-  // Aquí puedes implementar la lógica para volver a la pantalla anterior.
-  alert("Regresando a la pantalla anterior...");
-});
-*/
