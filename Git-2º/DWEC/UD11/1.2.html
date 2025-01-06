@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <!--En base a la solución propuesta-->
+    <h1>Lista de Usuarios</h1>
+    <ul id="user-list">
+      <!-- Aquí se insertará la lista de usuarios -->
+    </ul>
+    <script>
+        // Selección del elemento <ul> donde se mostrará la lista de usuarios
+        const userList = document.getElementById('user-list');
+
+        // Función para obtener los datos y mostrarlos
+        fetch ('https://reqres.in/api/users?page=1')
+          .then((response) => (response.json()))
+          .then ((data) => {
+            // Iterar sobre los usuarios y agregarlos al <ul>
+              data.data.forEach((user) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${user.first_name} - ${user.email}`;
+                userList.appendChild(listItem);
+              });
+          });
+    </script>
+  </body>
+</html>
