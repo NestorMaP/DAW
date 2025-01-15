@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class MovieCrew extends Model
+{
+    protected $table = 'movie_crew';
+    
+    public function movie() {
+        return $this->belongsTo(Movie::class);
+    }
+
+    public function person() {
+        return $this->belongsTo(Person::class);
+    }
+}
