@@ -1,0 +1,31 @@
+<!-- REVISAR MOTIVO DE NO FUNCIONAMIENTO -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+    <!-- Script en el head para asegurar su carga antes -->
+     <script>
+      function mostrarNotificacion() {
+        if (Notification.permission === "granted") {
+          new Notification("Ejemplo de título de notificación", {
+            body: "Ejemplo de cuerpo de notificación",
+            icon: "./assets/notification.png"
+          });
+        } else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then((permiso) => {
+            if (permiso === "granted") {
+              mostrarNotificacion();
+            }
+          });
+        } else {
+          alert("Permisos para notificaciones denegados.");
+        }
+      }
+     </script>
+  </head>
+  <body>
+    <button onclick="mostrarNotificacion()">Mostrar Notificación</button>
+  </body>
+</html>

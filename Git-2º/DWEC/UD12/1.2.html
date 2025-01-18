@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <!-- Script en el head para asegurar su carga antes -->
+     <script>
+      function cambiarVelocidad() {
+        const video = document.getElementById("video");
+        const velocidad = document.getElementById("velocidad").value;
+        video.playbackRate = parseFloat(velocidad);
+      };
+     </script>
+  </head>
+  <body>
+    <h1>Ejemplo vídeo con controles</h1>
+    <video id="video" controls width="600">
+      <source src="./assets/world.mp4" type="video/mp4">
+      El navegador no soporta el vídeo.
+    </video>
+    <br>
+    <label for="velocidad">Selecciona la velocidad de reproducción: </label>
+    <select id="velocidad" onchange="cambiarVelocidad()">
+      <option value="0.5">x0.5</option>
+      <option value="1">x1</option>
+      <option value="1.5">x1.5</option>
+      <option value="2">x2</option>
+    </select>
+  </body>
+</html>

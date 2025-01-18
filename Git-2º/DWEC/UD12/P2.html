@@ -1,0 +1,31 @@
+<!-- COMPROBAR FUNCIONAMIENTO -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica 2: APIs</title>
+    <style>
+      body {
+        text-align: center;
+        margin: 20px;
+      }
+      video {
+        margin-top: 20px;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Práctica II: Capturar multimedia</h1>
+    <video id="preview" autoplay></video>
+    <div>
+      <button id="start">Comenzar captura</button>
+      <button id="stop" disabled>Parar captura</button>
+      <a id="download" href="#" download="recording.webm"
+        >Descargar grabación</a
+      >
+    </div>
+    <script src="./scripts/p2.js"></script>
+  </body>
+</html>

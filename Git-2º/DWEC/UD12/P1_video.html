@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+    <h1>Vídeo</h1>
+    <video id="myVideo" controls>
+        <source src="./assets/world.mp4" type="video/mp4">
+        El navegador no soporta el vídeo.
+    </video>
+    <p id="video-info"></p>
+    <script>
+        const video = document.getElementById('myVideo');
+        const info = document.getElementById('video-info');
+
+        // Pausar / reproducir click izquierdo
+        video.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        // Mostrar duración click derecho
+        video.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            const duration = video.duration;
+            const minutes = Math.floor(duration/60);
+            const seconds = Math.floor(duration%60);
+            info.textContent = `Duración: ${minutes}' ${seconds}''`;
+        });
+    </script>
+</body>
+</html>

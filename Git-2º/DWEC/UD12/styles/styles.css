@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  margin: 20px;
+}
+#notification {
+  display: none;
+  margin: 20px;
+  padding: 10px;
+  background-color: #f0c14c;
+  color: #115;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+video {
+  margin-top: 20px;
+  max-width: 100%;
+}
+#video-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #444;
+}
