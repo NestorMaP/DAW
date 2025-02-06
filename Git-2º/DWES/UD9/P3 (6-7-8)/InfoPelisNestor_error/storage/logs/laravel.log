@@ -1,0 +1,538 @@
+[2025-01-29 16:06:29] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:06:36] local.ERROR: There are no commands defined in the "package" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"package\" namespace. at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(709): Symfony\\Component\\Console\\Application->findNamespace('package')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(284): Symfony\\Component\\Console\\Application->find('package:discove...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#6 {main}
+"} 
+[2025-01-29 16:07:29] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:08:29] local.ERROR: Uncaught ReflectionException: Class "blade.compiler" does not exist in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:944
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(944): ReflectionClass->__construct('blade.compiler')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('blade.compiler')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('blade.compiler', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(124): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#6 Command line code(1): app('Illuminate\\View...')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [blade.compiler] does not exist. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:946
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('blade.compiler')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('blade.compiler', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(124): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#5 Command line code(1): app('Illuminate\\View...')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"blade.compiler\" does not exist in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:944
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(944): ReflectionClass->__construct('blade.compiler')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('blade.compiler')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(124): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#6 Command line code(1): app('Illuminate\\\\View...')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [blade.compiler] does not exist. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:946
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('blade.compiler')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(124): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#5 Command line code(1): app('Illuminate\\\\View...')
+#6 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:946)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:08:29] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:08:58] local.ERROR: There are no commands defined in the "package" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"package\" namespace. at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(709): Symfony\\Component\\Console\\Application->findNamespace('package')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(284): Symfony\\Component\\Console\\Application->find('package:discove...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#6 {main}
+"} 
+[2025-01-29 16:09:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:10:29] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:13:30] local.ERROR: There are no commands defined in the "package" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"package\" namespace. at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(709): Symfony\\Component\\Console\\Application->findNamespace('package')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(284): Symfony\\Component\\Console\\Application->find('package:discove...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#6 {main}
+"} 
+[2025-01-29 16:13:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:14:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:15:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:16:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:17:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:18:29] local.ERROR: Uncaught ReflectionException: Class "blade.compiler" does not exist in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:944
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(944): ReflectionClass->__construct('blade.compiler')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('blade.compiler')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('blade.compiler', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(124): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#6 Command line code(1): app('Illuminate\\View...')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [blade.compiler] does not exist. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:946
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('blade.compiler')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('blade.compiler', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(124): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#5 Command line code(1): app('Illuminate\\View...')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"blade.compiler\" does not exist in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:944
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(944): ReflectionClass->__construct('blade.compiler')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('blade.compiler')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(124): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#6 Command line code(1): app('Illuminate\\\\View...')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [blade.compiler] does not exist. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:946
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('blade.compiler')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(124): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#5 Command line code(1): app('Illuminate\\\\View...')
+#6 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:946)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:18:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:19:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:20:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-29 16:21:30] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php:1201
+Stack trace:
+#0 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(953): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(819): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1051): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(755): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1033): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Container\Container.php(1565): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(239): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(210): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\nesxr\Documents\GitHub\DAW\Git-2º\DWES\UD9\P3 (6-7-8)\InfoPelisNestor\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201
+Stack trace:
+#0 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(953): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(819): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1051): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(755): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1033): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1565): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(239): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(210): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\nesxr\\Documents\\GitHub\\DAW\\Git-2º\\DWES\\UD9\\P3 (6-7-8)\\InfoPelisNestor\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1201)
+[stacktrace]
+#0 {main}
+"} 

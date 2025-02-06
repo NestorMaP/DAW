@@ -1,0 +1,42 @@
+// Building custom grid system
+
+// As percentage() is deprecated we use the mathematical function instead
+
+$column-spacing: 2%;
+$number-cols: 12;
+.col {
+    float:left;
+    margin-right:$column-spacing;
+}
+
+/* We use for bucle to create it afterwards.
+.col-1 {width:percentage(1 / 12) - $column-spacing;}
+.col-2 {width:percentage(2 / 12) - $column-spacing;}
+.col-3 {width:percentage(3 / 12) - $column-spacing;}
+.col-4 {width:percentage(4 / 12) - $column-spacing;}
+.col-5 {width:percentage(5 / 12) - $column-spacing;}
+.col-6 {width:percentage(6 / 12) - $column-spacing;}
+.col-7 {width:percentage(7 / 12) - $column-spacing;}
+.col-8 {width:percentage(8 / 12) - $column-spacing;}
+.col-9 {width:percentage(9 / 12) - $column-spacing;}
+.col-10 {width:percentage(10 / 12) - $column-spacing;}
+.col-11 {width:percentage(11 / 12) - $column-spacing;}
+.col-12 {width:percentage(12 / 12) - $column-spacing;}
+*/
+
+@for $size from 1 through $number-cols {
+    .col-#{$size}{ 
+        @if $size == $number-cols {
+            width: ($size / $number-cols) * 100%; // No restar column-spacing en el último elemento
+        } @else {
+            width: ($size / $number-cols) * 100% - $column-spacing;
+        }
+    }
+}
+
+.row {
+    margin-top:$column-spacing;
+    &:after {
+        clear:both;
+    }
+}

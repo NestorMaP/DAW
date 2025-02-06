@@ -1,0 +1,17 @@
+// 🎨 Define the base color
+$base-color: #3498db; // Primary color (blue)
+$light-steps: 10; // Number of steps
+
+@mixin getColors($base-color) {
+// 🛠️ Generate classes with progressively lighter shades
+    @for $i from 0 through ($light-steps - 1) {
+        $lightness: ($i / ($light-steps - 1)) * 100%;
+        
+        .--primary-color-#{$i} {
+            background-color: mix(white, $base-color, $lightness); // !!!!
+        }
+    }
+}
+//FUNCTION MIX IMPORTANT
+@include getColors(red);
+@include getColors(grey);

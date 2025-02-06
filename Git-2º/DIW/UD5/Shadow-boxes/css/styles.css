@@ -1,0 +1,63 @@
+html {
+  background-color: lightgray;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+div {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.g--shadow-none {
+  box-shadow: 0 0px 0px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-1 {
+  box-shadow: 0 3px 5px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-2 {
+  box-shadow: 0 6px 10px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-3 {
+  box-shadow: 0 9px 15px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-4 {
+  box-shadow: 0 12px 20px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-5 {
+  box-shadow: 0 15px 25px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-none {
+  box-shadow: 0 0px 0px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-1 {
+  box-shadow: 0 3px 5px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-2 {
+  box-shadow: 0 6px 10px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-3 {
+  box-shadow: 0 9px 15px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-4 {
+  box-shadow: 0 12px 20px hsl(0, 0%, 0.2%);
+}
+
+.g--shadow-5 {
+  box-shadow: 0 15px 25px hsl(0, 0%, 0.2%);
+}/*# sourceMappingURL=styles.css.map */

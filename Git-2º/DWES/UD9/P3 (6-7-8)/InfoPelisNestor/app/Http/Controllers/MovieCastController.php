@@ -12,7 +12,7 @@ class MovieCastController extends Controller
      */
     public function index()
     {
-         return view('movie_cast.index');
+        return view('movie_cast.index');
     }
 
     /**

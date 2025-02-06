@@ -1,0 +1,37 @@
+@function getFontSize($index) {
+    // Avoid magic numbers
+    $base-size: 16px;
+    $growth-rate: 1.2;
+
+    $result: $base-size * pow($growth-rate, $index);
+    @return $result;
+}
+
+// Power function to calculate exponents manually
+@function pow($base, $exponent) {
+    $result: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $result: $result * $base;
+        }
+    } @else if $exponent < 0 {
+        @for $i from $exponent to 0 {
+            $result: calc($result / $base);
+        }
+    }
+
+    @return $result;
+}
+
+$min-size: -3;
+$max-size: 6;
+
+@for $i from $min-size through $max-size {
+    $class-name: if($i < 0, "g--font-size-#{abs($i)}s", if($i == 0, "g--font-size", "g--font-size-#{$i}l"));
+
+    .#{$class-name} {
+        font-size: getFontSize($i);
+    }
+}
+

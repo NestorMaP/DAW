@@ -1,0 +1,43 @@
+html {
+    background-color: lightgray;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+div {
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+/////////////// ALTERNATIVE 1  ///////////////
+//////////////////////////////////////////////
+
+@for $j from 0 to 6 {
+    $name: $j;
+
+    @if $j==0 {
+        $name: "none";
+    }
+    .g--shadow-#{$name} {
+        box-shadow: 0 $j*3px $j*5px hsl(0,0%,0.2%);
+    }
+}
+
+
+/////////////// ALTERNATIVE 2  ///////////////
+//////////////////////////////////////////////
+
+$list: (none,1,2,3,4,5);
+@each $value in $list {
+    .g--shadow-#{$value} {
+        @if $value == 'none' {
+            $value: 0;
+        }
+    box-shadow: 0 (($value*3px)) $value*5px hsl(0,0%,0.2);
+    }
+}

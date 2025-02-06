@@ -1,0 +1,42 @@
+// Define breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
+$column-spacing: 2%;
+$number-cols: 12;
+
+// Define mixin
+@mixin generate-columns($prefix) {
+    @for $size from 1 through $number-cols {
+        .col-#{$prefix}-#{$size} {
+            width: calc($size / $number-cols) * 100%;
+            float: left;
+            padding: 5px;
+        }
+    }
+}
+// Generate basic classes (without media queries)
+@include generate-columns(xs);
+
+// Apply media queries for sm, md & lg
+@media screen and (min-width: $breakpoint-sm) {
+    @include generate-columns(sm)
+}
+
+@media screen and (min-width: $breakpoint-md) {
+    @include generate-columns(md);
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+    @include generate-columns(lg);
+}
+
+// Additional classes for structure
+.row {
+    display:flex;
+    flex-wrap: wrap;
+    margin-left: -$column-spacing;
+    margin-right: -$column-spacing;
+}

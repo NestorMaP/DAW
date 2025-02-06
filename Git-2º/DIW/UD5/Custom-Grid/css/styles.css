@@ -1,0 +1,73 @@
+.col {
+  float: left;
+  margin-right: 2%;
+}
+
+/* We use for bucle to create it afterwards.
+.col-1 {width:percentage(1 / 12) - $column-spacing;}
+.col-2 {width:percentage(2 / 12) - $column-spacing;}
+.col-3 {width:percentage(3 / 12) - $column-spacing;}
+.col-4 {width:percentage(4 / 12) - $column-spacing;}
+.col-5 {width:percentage(5 / 12) - $column-spacing;}
+.col-6 {width:percentage(6 / 12) - $column-spacing;}
+.col-7 {width:percentage(7 / 12) - $column-spacing;}
+.col-8 {width:percentage(8 / 12) - $column-spacing;}
+.col-9 {width:percentage(9 / 12) - $column-spacing;}
+.col-10 {width:percentage(10 / 12) - $column-spacing;}
+.col-11 {width:percentage(11 / 12) - $column-spacing;}
+.col-12 {width:percentage(12 / 12) - $column-spacing;}
+*/
+.col-1 {
+  width: 6.3333333333%;
+}
+
+.col-2 {
+  width: 14.6666666667%;
+}
+
+.col-3 {
+  width: 23%;
+}
+
+.col-4 {
+  width: 31.3333333333%;
+}
+
+.col-5 {
+  width: 39.6666666667%;
+}
+
+.col-6 {
+  width: 48%;
+}
+
+.col-7 {
+  width: 56.3333333333%;
+}
+
+.col-8 {
+  width: 64.6666666667%;
+}
+
+.col-9 {
+  width: 73%;
+}
+
+.col-10 {
+  width: 81.3333333333%;
+}
+
+.col-11 {
+  width: 89.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.row {
+  margin-top: 2%;
+}
+.row:after {
+  clear: both;
+}/*# sourceMappingURL=styles.css.map */

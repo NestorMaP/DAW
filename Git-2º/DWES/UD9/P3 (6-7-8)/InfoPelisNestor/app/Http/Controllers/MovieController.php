@@ -40,8 +40,9 @@ class MovieController extends Controller
     {
         // $movie = Movie::find($id);
         $movie = Movie::findOrFail($id); // better as it throws an Exception
-        $movie_with_director = Movie::with('director.person')->findOrFail($id);
-        return view('movies.show', compact('movie','movie_with_director'));
+       //$director = $movie->crew->where('job','director')->first();
+        return view('movies.show', compact('movie'));
+        //return view('movies.show', compact('movie','director'));
     }
 
     /**

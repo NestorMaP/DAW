@@ -47,18 +47,12 @@ Route::resource('persons', PersonController::class)
 Route::resource('directors', MovieDirectorController::class)
   ->only(['show','index']);
 
-// Route for MovieCast CRUD
+  // Route for MovieCast CRUD
 Route::resource('movie_cast', MovieCastController::class)
-  ->only(['show','index']);
+->only(['show','index']);
 
 Route::get('movies/{id}/cast',[MovieController::class, 'cast'])
   ->name('movies.cast');
 
-Route::get('movies/{id}/characters',[MovieController::class, 'characters'])
+  Route::get('movies/{id}/characters',[MovieController::class, 'characters'])
   ->name('movies.characters');
-
-Route::get('actors/{id}', [PersonController::class, 'show'])
-  ->name('actors.show');
-
-
-

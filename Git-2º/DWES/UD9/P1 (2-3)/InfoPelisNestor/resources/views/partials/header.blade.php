@@ -1,3 +1,4 @@
+
 <header>
     <a href="{{ route('index') }}">
         <img src="{{ asset('img/infomovies.png') }}" alt="InfoPelis Logo" style="height:50px;">
