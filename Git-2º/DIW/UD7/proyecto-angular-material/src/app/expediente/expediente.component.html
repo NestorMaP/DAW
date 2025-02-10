@@ -1,0 +1,13 @@
+@for (item of calificaciones; track item.id) {
+
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title> {{ item.modulo }}</mat-card-title>
+      <mat-card-subtitle>{{ item.calificacion }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button>Editar Calificación</button>
+    </mat-card-actions>
+  </mat-card>
+  <br>
+}

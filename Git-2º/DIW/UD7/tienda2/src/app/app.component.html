@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="mat-elevation-z3">
+  <span class="spacer"></span>
+  <span>Catálogo de productos</span>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<section>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre de Producto</mat-label>
+      <input matInput placeholder="Nombre" #nombre>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio</mat-label>
+      <input matInput placeholder="Precio" #precio>
+    </mat-form-field>
+
+    <mat-form-field>
+      
+      <mat-label>Sección</mat-label>
+      <mat-select #seccion>
+        @for (categoria of lista_categorias; track categoria) {
+          <mat-option [value]=[categoria]>{{categoria}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-flat-button (click)="addItem(nombre.value, precio.value, seccion.value)">Añadir</button>
+  </form>
+</section>
+
+<app-tabla [productos] = "items"></app-tabla>
+<app-contador [contador] = "itemCount"></app-contador>
+
+<section>
+  <mat-slide-toggle [(ngModel)]="mostrarSinCategoria">Mostrar Productos SIN categoría</mat-slide-toggle>
+</section>
+
+

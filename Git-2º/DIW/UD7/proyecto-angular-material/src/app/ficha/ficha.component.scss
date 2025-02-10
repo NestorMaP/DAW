@@ -1,0 +1,19 @@
+.example-container {
+  width: auto;
+  height: 500px;
+  margin: 10px;
+  border: 1px solid #555;
+  /* The background property is added to clearly distinguish the borders between drawer and main
+     content */
+  background: #eee;
+}
+mat-drawer {
+  color: white;
+  width: 20%;
+  background-color: purple;
+  padding: 10px;
+}
+
+img {
+  width: 75px;
+}

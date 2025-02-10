@@ -3,7 +3,7 @@ $base-color: #3498db; // Primary color (blue)
 $light-steps: 10; // Number of steps
 
 @mixin getColors($base-color) {
-// 🛠️ Generate classes with progressively lighter shades
+// Generate classes with progressively lighter shades
     @for $i from 0 through ($light-steps - 1) {
         $lightness: ($i / ($light-steps - 1)) * 100%;
         
@@ -12,6 +12,6 @@ $light-steps: 10; // Number of steps
         }
     }
 }
-//FUNCTION MIX IMPORTANT
+//FUNCTION MIXIN IMPORTANT
 @include getColors(red);
 @include getColors(grey);

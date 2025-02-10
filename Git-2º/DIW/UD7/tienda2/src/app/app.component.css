@@ -1,0 +1,20 @@
+
+.spacer{ flex: 1 1 auto} 
+.tableContainer { padding: 15px  }
+.fullWidth { width: 100% }
+.inputContainer { margin: 15px 15px 5px }
+.inputContainer table {margin: auto}
+.addButton { margin: 10px }
+
+
+.toggleContainer { margin: 15px; display: flex; justify-content: center; }
+
+section
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-form mat-form-field, button {
+  margin: auto 5px;
+}

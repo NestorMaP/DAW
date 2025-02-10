@@ -1,0 +1,12 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div>
+      <img src = "{{ imagen }}" alt="{{ nombre }}">
+      <p><strong>Nombre: </strong>{{ nombre }}</p>
+      <p><strong>Correo: </strong>{{ correo }}</p>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-expediente [calificaciones] = "calificaciones"></app-expediente>
+  </mat-drawer-content>
+</mat-drawer-container>
